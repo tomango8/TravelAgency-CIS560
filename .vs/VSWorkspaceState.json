@@ -3,8 +3,10 @@
     "",
     "\\C#",
     "\\SQL",
+    "\\SQL\\Procedures",
+    "\\SQL\\Procedures\\AttractionsProcedures",
     "\\SQL\\Tables"
   ],
-  "SelectedNode": "\\SQL\\Tables\\RestaurantReservation.sql",
+  "SelectedNode": "\\SQL\\Procedures\\AttractionsProcedures\\Attractions.GetAttractionTicket.sql",
   "PreviewInSolutionExplorer": false
 }

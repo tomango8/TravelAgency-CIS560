@@ -1,0 +1,21 @@
+﻿CREATE SCHEMA Agency;
+GO;
+
+CREATE SCHEMA Airlines;
+GO;
+
+CREATE SCHEMA Attractions;
+GO;
+
+CREATE SCHEMA Cars;
+GO;
+
+CREATE SCHEMA Hotels;
+GO;
+
+CREATE SCHEMA [Location];
+GO;
+
+CREATE SCHEMA Restaurants;
+GO;
+
