@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\C#",
     "\\SQL",
     "\\SQL\\Tables"
   ],
-  "SelectedNode": "\\SQL\\Tables\\Attractions.sql",
+  "SelectedNode": "\\C#\\DataModeling",
   "PreviewInSolutionExplorer": false
 }

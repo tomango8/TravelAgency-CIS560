@@ -1,0 +1,6 @@
+﻿CREATE TABLE Restaurants.Restaurant
+(
+	RestaurantID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	[Name] NVARCHAR(100) NOT NULL,
+	CityID INT NOT NULL FOREIGN KEY REFERENCES [Location].Cities(CityID)
+);
