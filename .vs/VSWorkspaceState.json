@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\C#",
+    "\\DataAccess\\bin",
+    "\\DataAccess\\bin\\Release",
     "\\SQL",
     "\\SQL\\Tables"
   ],
-  "SelectedNode": "\\SQL\\Tables\\RestaurantReservation.sql",
+  "SelectedNode": "\\DataAccess",
   "PreviewInSolutionExplorer": false
 }
