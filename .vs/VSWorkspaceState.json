@@ -4,8 +4,9 @@
     "\\C#",
     "\\SQL",
     "\\SQL\\Procedures",
+    "\\SQL\\Procedures\\AttractionsProcedures",
     "\\SQL\\Tables"
   ],
-  "SelectedNode": "\\SQL\\Tables",
+  "SelectedNode": "\\SQL\\Procedures\\AttractionsProcedures\\Attractions.GetAttractionTicket.sql",
   "PreviewInSolutionExplorer": false
 }
