@@ -2,10 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\C#",
-    "\\DataAccess\\bin",
-    "\\DataAccess\\bin\\Release",
-    "\\SQL"
+    "\\SQL",
+    "\\SQL\\Procedures",
+    "\\SQL\\Tables"
   ],
-  "SelectedNode": "\\SQL\\Schemas",
+  "SelectedNode": "\\SQL\\Tables",
   "PreviewInSolutionExplorer": false
 }
