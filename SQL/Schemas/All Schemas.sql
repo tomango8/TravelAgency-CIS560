@@ -18,3 +18,4 @@ GO;
 
 CREATE SCHEMA Restaurants;
 GO;
+
