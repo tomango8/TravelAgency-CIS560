@@ -4,9 +4,8 @@
     "\\C#",
     "\\DataAccess\\bin",
     "\\DataAccess\\bin\\Release",
-    "\\SQL",
-    "\\SQL\\Tables"
+    "\\SQL"
   ],
-  "SelectedNode": "\\DataAccess",
+  "SelectedNode": "\\SQL\\Schemas",
   "PreviewInSolutionExplorer": false
 }
