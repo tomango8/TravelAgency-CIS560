@@ -1,4 +1,4 @@
-CREATE OR ALTER PRODCEDURE Airlines.RetrieveFlightInfo
+CREATE OR ALTER PROCEDURE Airlines.RetrieveFlightInfo
 	@FlightID INT
 AS
 
