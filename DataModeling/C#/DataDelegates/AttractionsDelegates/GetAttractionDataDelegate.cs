@@ -25,7 +25,7 @@ namespace DataModeling
             if (!reader.Read())
                 return null;
 
-            return new Attraction(attractionID, reader.GetString("Name"), reader.GetString("CityID"));
+            return new Attraction(attractionID, reader.GetString("Name"), reader.GetInt32("CityID"));
         }
     }
 }
