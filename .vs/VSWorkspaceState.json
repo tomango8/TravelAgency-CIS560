@@ -1,15 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\C#",
-    "\\SQL",
-    "\\SQL\\Procedures",
-    "\\SQL\\Procedures\\AttractionsProcedures",
-    "\\SQL\\Procedures\\CarsProcedures",
-    "\\SQL\\Procedures\\HotelsProcedures",
-    "\\SQL\\Procedures\\RestaurantsProcedures",
-    "\\SQL\\Tables"
+    ""
   ],
-  "SelectedNode": "\\SQL\\Procedures\\AttractionsProcedures\\Attractions.CreateAttraction.sql",
+  "SelectedNode": "\\TravelAgency-CIS560.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{19F408EA-65D7-4AD6-A96D-0F6E5FBE7875}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DataModeling</RootNamespace>
+    <AssemblyName>DataModeling</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql" />
+    <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateFlight.sql" />
+    <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.RetrieveFlightInfo.sql" />
+    <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.CreateAttraction.sql" />
+    <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttraction.sql" />
+    <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttractionTicket.sql" />
+    <Content Include="SQL\Procedures\CarsProcedures\Cars.GetAgencyName.sql" />
+    <Content Include="SQL\Procedures\CarsProcedures\Cars.GetCarResrvation info.sql" />
+    <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotel.sql" />
+    <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotelReservation.sql" />
+    <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotel.sql" />
+    <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotelReservation.sql" />
+    <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurant.sql" />
+    <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurant.sql" />
+    <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantReservation.sql" />
+    <Content Include="SQL\Schemas\All Schemas.sql" />
+    <Content Include="SQL\Tables\AirlinesTables\BoardingPass.sql" />
+    <Content Include="SQL\Tables\AirlinesTables\Flight.sql" />
+    <Content Include="SQL\Tables\AttractionsTables\Attraction.sql" />
+    <Content Include="SQL\Tables\AttractionsTables\AttractionTicket.sql" />
+    <Content Include="SQL\Tables\Cars\SchemaCar.sql" />
+    <Content Include="SQL\Tables\Drop Tables.sql" />
+    <Content Include="SQL\Tables\HotelsTables\Hotel.sql" />
+    <Content Include="SQL\Tables\HotelsTables\HotelReservation.sql" />
+    <Content Include="SQL\Tables\Location.sql" />
+    <Content Include="SQL\Tables\RestaurantsTables\Restaurant.sql" />
+    <Content Include="SQL\Tables\RestaurantsTables\RestaurantReservation.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="C#\DataDelegates\AgencyDelegates\" />
+    <Folder Include="C#\DataDelegates\AirlinesDelegates\" />
+    <Folder Include="C#\DataDelegates\CarsDelegates\" />
+    <Folder Include="C#\DataDelegates\HotelsDelegates\" />
+    <Folder Include="C#\DataDelegates\RestaurantsDelegates\" />
+    <Folder Include="SQL\Data\" />
+    <Folder Include="SQL\Procedures\AgencyProcedures\" />
+    <Folder Include="SQL\Reports\" />
+    <Folder Include="SQL\Tables\AgencyTables\" />
+    <Folder Include="SQL\Tables\CarsTables\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
