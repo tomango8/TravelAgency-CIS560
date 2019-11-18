@@ -1,8 +1,7 @@
 ﻿using System;
-using DataModeling;
 using DataAccess;
 
-namespace DataDelegates
+namespace DataModeling
 {
     public class GetAttractionDataDelegate : DataReaderDelegate<Attraction>
     {

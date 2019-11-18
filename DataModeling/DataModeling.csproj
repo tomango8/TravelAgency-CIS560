@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
+    <Compile Include="C#\Model\Attraction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql" />
@@ -78,6 +79,16 @@
     <Folder Include="SQL\Reports\" />
     <Folder Include="SQL\Tables\AgencyTables\" />
     <Folder Include="SQL\Tables\CarsTables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{a5ac459d-6c0a-4d6e-ad65-ecb3e0fec3a7}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravelAgencyUserInterface\TravelAgencyUserInterface.vbproj">
+      <Project>{9d326fcc-f88d-4b7c-8d63-dbf51eec4c9e}</Project>
+      <Name>TravelAgencyUserInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

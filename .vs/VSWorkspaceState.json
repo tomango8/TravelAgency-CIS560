@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DataModeling\\SQL",
+    "\\DataModeling\\SQL\\Schemas"
   ],
   "SelectedNode": "\\TravelAgency-CIS560.sln",
   "PreviewInSolutionExplorer": false
