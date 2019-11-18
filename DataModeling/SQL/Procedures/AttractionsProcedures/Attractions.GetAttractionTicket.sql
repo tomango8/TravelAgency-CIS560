@@ -2,7 +2,7 @@
 	@ReservationID INT
 AS
 
-SELECT ReservationID, AttractionID, DateForTicket, Price
+SELECT ReservationID, AttractionID, TicketDate, Price
 FROM Attractions.AttractionTicket
 WHERE ReservationID = @ReservationID;
 GO

@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
     <Compile Include="C#\Model\Attraction.cs" />
+    <Compile Include="C#\Model\AttractionTicket.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql" />
