@@ -10,6 +10,6 @@
     "\\SQL\\Procedures\\RestaurantsProcedures",
     "\\SQL\\Tables"
   ],
-  "SelectedNode": "\\SQL\\Procedures\\AttractionsProcedures\\Attractions.GetAttraction.sql",
+  "SelectedNode": "\\SQL\\Procedures\\AttractionsProcedures\\Attractions.CreateAttraction.sql",
   "PreviewInSolutionExplorer": false
 }
