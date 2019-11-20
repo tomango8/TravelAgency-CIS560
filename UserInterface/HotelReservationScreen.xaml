@@ -1,0 +1,69 @@
+﻿<Page x:Class="UserInterface.HotelReservationScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UserInterface"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="HotelReservationScreen">
+
+    <Grid Background="Beige">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="BlanchedAlmond">
+            <TextBlock HorizontalAlignment="Center" FontSize="35" FontWeight="Bold">Hotel Reservation</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="20,20,0,0">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Margin" Value="20,5,0,5"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="0,5,10,5"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="90"/>
+                    <Setter Property="FontSize" Value="22"/>
+                    <Setter Property="Margin" Value="0,5,0,5"/>
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel Orientation="Horizontal">
+                <Label>HotelID</Label>
+                <TextBox Width="60"></TextBox>
+                <Button>Autofill</Button>                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Check-in Date: yyyy/mm/dd</Label>
+                <TextBox Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Price</Label>
+                <TextBox Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <Label>Hotel Address</Label>
+                <TextBox Width="550"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Country</Label>
+                <TextBox Width="200"></TextBox>
+                <Label>Region</Label>
+                <TextBox Width="300"></TextBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <Label>City</Label>
+                <TextBox Width="300"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="250" Height="50" FontSize="25" Click="AddReservation_Click">Add Reservation</Button>
+        </StackPanel>
+    </Grid>
+</Page>

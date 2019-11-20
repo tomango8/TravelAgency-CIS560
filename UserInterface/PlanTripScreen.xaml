@@ -25,7 +25,7 @@
                     <Setter Property="Margin" Value="0,20,0,0"/>
                 </Style>
             </StackPanel.Resources>
-            <Button>New Hotel Reservation</Button>
+            <Button Click="NewHotelReservation_Click">New Hotel Reservation</Button>
             <Button>New Plane Ticket</Button>
             <Button>New Attraction Ticket</Button>
             <Button>New Restaurant Reservation</Button>

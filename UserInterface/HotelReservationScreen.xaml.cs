@@ -16,23 +16,18 @@ using System.Windows.Shapes;
 namespace UserInterface
 {
     /// <summary>
-    /// Interaction logic for PlanTripScreen.xaml
+    /// Interaction logic for HotelReservationScreen.xaml
     /// </summary>
-    public partial class PlanTripScreen : Page
+    public partial class HotelReservationScreen : Page
     {
-        public PlanTripScreen()
+        public HotelReservationScreen()
         {
             InitializeComponent();
         }
 
-        public void Done_Click(object sender, RoutedEventArgs args)
+        public void AddReservation_Click (object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MainMenu());
-        }
-
-        public void NewHotelReservation_Click(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new HotelReservationScreen());
+            NavigationService.GoBack();
         }
     }
 }
