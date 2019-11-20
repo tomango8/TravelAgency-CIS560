@@ -5,15 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <StackPanel Background="BlanchedAlmond">
-            <TextBlock FontSize="35" HorizontalAlignment="Center">Travel Agency</TextBlock>
-        </StackPanel>
+        Title="MainWindow" Height="650" Width="800">
+    <Frame Source="MainMenu.xaml">
         
-    </Grid>
+    </Frame>
+    
 </Window>

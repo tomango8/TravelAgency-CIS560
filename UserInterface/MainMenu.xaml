@@ -1,0 +1,34 @@
+﻿<Page x:Class="UserInterface.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UserInterface"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="MainMenu">
+
+    <Grid Background="Beige">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="BlanchedAlmond">
+            <TextBlock FontSize="35" FontWeight="Bold" HorizontalAlignment="Center">Main Menu</TextBlock>
+        </StackPanel>
+        <StackPanel Background="Beige" Grid.Row="1">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                     <Setter Property="Width" Value="400"/>
+                     <Setter Property="Height" Value="60"/>
+                     <Setter Property="FontSize" Value="30"/>
+                     <Setter Property="Margin" Value="0,15,0,0"/>
+                     <Setter Property="BorderThickness" Value="1"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button Click="NewTrip_Click">New Trip</Button>                        
+            <Button Click="SearchTrips_Click">Search Trips</Button>
+            <Button Click="TripStatistics_Click">Trip Statistics</Button>
+        </StackPanel>    
+    </Grid>
+</Page>

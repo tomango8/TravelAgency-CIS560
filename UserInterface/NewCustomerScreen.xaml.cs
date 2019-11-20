@@ -16,15 +16,23 @@ using System.Windows.Shapes;
 namespace UserInterface
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NewCustomerScreen.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewCustomerScreen : Page
     {
-        public MainWindow()
+        public NewCustomerScreen()
         {
             InitializeComponent();
         }
 
-        
+        public void Done_Click(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
+        }
+
+        public void AddCustomer_Click(object sender, RoutedEventArgs args)
+        {
+
+        }
     }
 }

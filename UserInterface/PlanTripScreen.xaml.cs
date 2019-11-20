@@ -16,15 +16,18 @@ using System.Windows.Shapes;
 namespace UserInterface
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PlanTripScreen.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PlanTripScreen : Page
     {
-        public MainWindow()
+        public PlanTripScreen()
         {
             InitializeComponent();
         }
 
-        
+        public void Done_Click(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new MainMenu());
+        }
     }
 }

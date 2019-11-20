@@ -1,0 +1,107 @@
+﻿<Page x:Class="UserInterface.NewCustomerScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UserInterface"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="NewCustomerScreen">
+
+    <Grid Background="Beige">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="BlanchedAlmond">
+            <TextBlock HorizontalAlignment="Center" FontSize="35" FontWeight="Bold">New Customer</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="10,10,0,0">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Margin" Value="20,0,0,15"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="FontSize" Value="22"/>
+                    <Setter Property="Margin" Value="0,0,0,15"/>
+                </Style>
+                <Style TargetType="RadioButton">
+                    <Setter Property="FontSize" Value="22"/>
+                    <Setter Property="Margin" Value="20,0,0,0"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Height" Value="32"/>
+                    <Setter Property="Margin" Value="5,0,0,15"/>
+                    <Setter Property="Width" Value="70"/>
+                    <Setter Property="FontSize" Value="15"/>
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="5,0,5,0"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel Orientation="Horizontal">
+                <Label>First Name</Label>
+                <TextBox Width="225"></TextBox>
+                <Label>Last Name</Label>
+                <TextBox Width="230"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Phone</Label>
+                <TextBox Width="30"></TextBox>
+                <TextBlock>(</TextBlock>
+                <TextBox Width="50"></TextBox>
+                <TextBlock>)</TextBlock>
+                <TextBox Width="50"></TextBox>
+                <TextBlock>-</TextBlock>
+                <TextBox Width="70"></TextBox>
+                <Label>Age</Label>
+                <TextBox Width="50"></TextBox>
+                <RadioButton>Male</RadioButton>
+                <RadioButton>Female</RadioButton>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Email</Label>
+                <TextBox Width="627"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
+                <Label>Budget</Label>
+                <TextBox Width="240"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Billing Address</Label>
+                <TextBox Width="582"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Country</Label>
+                <TextBox Width="200"></TextBox>
+                <Button>Search</Button>
+                <Label>Region</Label>
+                <TextBox Width="200"></TextBox>
+                <Button>Search</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>City</Label>
+                <TextBox Width="250"></TextBox>
+                <Button>Search</Button>
+                <Label>Zipcode</Label>
+                <TextBox Width="255"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Height" Value="50"/>
+                    <Setter Property="FontSize" Value="22"/>
+                    <Setter Property="Margin" Value="10,0,10,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button Click="AddCustomer_Click">Add Customer</Button>
+            <Button Click="Done_Click">Done</Button>            
+        </StackPanel>
+    </Grid>
+</Page>

@@ -16,15 +16,28 @@ using System.Windows.Shapes;
 namespace UserInterface
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainMenu : Page
     {
-        public MainWindow()
+        public MainMenu()
         {
             InitializeComponent();
         }
 
-        
+        public void NewTrip_Click(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new TripSetupScreen());
+        }
+
+        public void SearchTrips_Click(object sender, RoutedEventArgs args)
+        {
+            
+        }
+
+        public void TripStatistics_Click(object sender, RoutedEventArgs args)
+        {
+
+        }
     }
 }
