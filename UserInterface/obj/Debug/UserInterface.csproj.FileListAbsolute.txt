@@ -25,3 +25,5 @@ C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\PlanTripS
 C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\PlanTripScreen.baml
 C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\HotelReservationScreen.g.cs
 C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\HotelReservationScreen.baml
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\BoardingPassScreen.g.cs
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\BoardingPassScreen.baml

@@ -26,7 +26,7 @@
                 </Style>
             </StackPanel.Resources>
             <Button Click="NewHotelReservation_Click">New Hotel Reservation</Button>
-            <Button>New Plane Ticket</Button>
+            <Button Click="NewBoardingPass_Click">New Boarding Pass</Button>
             <Button>New Attraction Ticket</Button>
             <Button>New Restaurant Reservation</Button>
             <Button>New Car Rental Reservation</Button>

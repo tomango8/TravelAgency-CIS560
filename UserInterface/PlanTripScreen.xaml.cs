@@ -34,5 +34,10 @@ namespace UserInterface
         {
             NavigationService.Navigate(new HotelReservationScreen());
         }
+
+        public void NewBoardingPass_Click(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new BoardingPassScreen());
+        }
     }
 }

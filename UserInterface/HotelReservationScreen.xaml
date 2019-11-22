@@ -39,8 +39,9 @@
                 <Button>Autofill</Button>                
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label>Check-in Date: yyyy/mm/dd</Label>
+                <Label>Check-in Date</Label>
                 <TextBox Width="200"></TextBox>
+                <Label>(yyyy/mm/dd)</Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Price</Label>
