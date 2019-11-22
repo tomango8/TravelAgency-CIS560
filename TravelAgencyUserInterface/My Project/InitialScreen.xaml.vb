@@ -1,3 +1,0 @@
-﻿Class InitialScreen
-
-End Class
