@@ -1,4 +1,4 @@
-﻿<Page x:Class="UserInterface.HotelReservationScreen"
+﻿<Page x:Class="UserInterface.NewCarRentalReservationScreen"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,50 +6,54 @@
       xmlns:local="clr-namespace:UserInterface"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      Title="HotelReservationScreen">
+      Title="NewCarRentalReservationScreen">
 
     <Grid Background="Beige">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="70"/>
             <RowDefinition/>
             <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
         <StackPanel Background="BlanchedAlmond">
-            <TextBlock HorizontalAlignment="Center" FontSize="35" FontWeight="Bold">Hotel Reservation</TextBlock>
+            <Label HorizontalAlignment="Center" FontSize="35" FontWeight="Bold">New Car Rental Reservation</Label>
         </StackPanel>
         <StackPanel Grid.Row="1" Margin="20,20,0,0">
             <StackPanel.Resources>
                 <Style TargetType="Label">
                     <Setter Property="FontSize" Value="20"/>
-                    <Setter Property="Margin" Value="20,5,0,5"/>
+                    <Setter Property="Margin" Value="20,0,0,0"/>
                 </Style>
                 <Style TargetType="TextBox">
                     <Setter Property="Margin" Value="0,5,10,5"/>
-                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontSize" Value="22"/>
                 </Style>
                 <Style TargetType="Button">
                     <Setter Property="Width" Value="90"/>
-                    <Setter Property="FontSize" Value="22"/>
+                    <Setter Property="FontSize" Value="20"/>
                     <Setter Property="Margin" Value="0,5,0,5"/>
                 </Style>
             </StackPanel.Resources>
             <StackPanel Orientation="Horizontal">
-                <Label>HotelID</Label>
-                <TextBox Width="60"></TextBox>
+                <Label>Car Rental ID</Label>
+                <TextBox Width="100"></TextBox>
                 <Button>Autofill</Button>
-                <Label>Check-in Date</Label>
-                <TextBox Width="200"></TextBox>
-                <TextBlock FontSize="20" Margin="0,5,0,5">(yyyy/mm/dd)</TextBlock>
+                <Label>Rental Date</Label>
+                <TextBox Width="150"></TextBox>
+                <TextBlock FontSize="20" Margin="0,5,0,5">yyyy/mm/dd</TextBlock>
             </StackPanel>            
             <StackPanel Orientation="Horizontal">
-                <Label>Hotel Name</Label>
-                <TextBox Width="350"></TextBox>
-                <Label>Room Price $</Label>
+                <Label>Model of Car</Label>
+                <TextBox Width="100"></TextBox>
+                <Label>Rental Price $</Label>
                 <TextBox Width="100"></TextBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Car Rental Agency Name</Label>
+                <TextBox Width="300"></TextBox>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
-                <Label>Hotel Address</Label>
-                <TextBox Width="550"></TextBox>
+                <Label>Car Rental Agency Address</Label>
+                <TextBox Width="435"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Country</Label>
@@ -57,14 +61,13 @@
                 <Label>Region</Label>
                 <TextBox Width="300"></TextBox>
             </StackPanel>
-            
             <StackPanel Orientation="Horizontal">
                 <Label>City</Label>
                 <TextBox Width="300"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Width="250" Height="50" FontSize="25" Click="AddReservation_Click">Add Reservation</Button>
+            <Button Height="70" Width="350" FontSize="24">Add Restaurant Reservation</Button>
         </StackPanel>
     </Grid>
 </Page>

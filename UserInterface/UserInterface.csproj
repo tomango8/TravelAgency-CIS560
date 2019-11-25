@@ -64,8 +64,14 @@
     <Compile Include="NewAttractionTicketScreen.xaml.cs">
       <DependentUpon>NewAttractionTicketScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewCarRentalReservationScreen.xaml.cs">
+      <DependentUpon>NewCarRentalReservationScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewCustomerScreen.xaml.cs">
       <DependentUpon>NewCustomerScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewRestaurantReservationScreen.xaml.cs">
+      <DependentUpon>NewRestaurantReservationScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlanTripScreen.xaml.cs">
       <DependentUpon>PlanTripScreen.xaml</DependentUpon>
@@ -108,7 +114,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NewCarRentalReservationScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewCustomerScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewRestaurantReservationScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -27,9 +27,9 @@
             </StackPanel.Resources>
             <Button Click="NewHotelReservation_Click">New Hotel Reservation</Button>
             <Button Click="NewBoardingPass_Click">New Boarding Pass</Button>
-            <Button>New Attraction Ticket</Button>
-            <Button>New Restaurant Reservation</Button>
-            <Button>New Car Rental Reservation</Button>
+            <Button Click="NewAttractionTicket_Click">New Attraction Ticket</Button>
+            <Button Click="NewRestaurantReservation_Click">New Restaurant Reservation</Button>
+            <Button Click="NewCarRentalReservation_Click">New Car Rental Reservation</Button>
             <Button Margin="0,60,0,0" Click="Done_Click">Done</Button>
         </StackPanel>        
     </Grid>

@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\App.xaml
-91032965314
+11-1000944626
 
-13-1622370686
+15560225757
 13-1505183044
-BoardingPassScreen.xaml;HotelReservationScreen.xaml;MainMenu.xaml;MainWindow.xaml;NewAgentScreen.xaml;NewAttractionTicketScreen.xaml;NewCustomerScreen.xaml;PlanTripScreen.xaml;TripSetupScreen.xaml;
+BoardingPassScreen.xaml;HotelReservationScreen.xaml;MainMenu.xaml;MainWindow.xaml;NewAgentScreen.xaml;NewAttractionTicketScreen.xaml;NewCarRentalReservationScreen.xaml;NewCustomerScreen.xaml;NewRestaurantReservationScreen.xaml;PlanTripScreen.xaml;TripSetupScreen.xaml;
 
 True
 

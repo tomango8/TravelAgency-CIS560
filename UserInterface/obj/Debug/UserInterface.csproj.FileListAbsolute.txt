@@ -27,3 +27,9 @@ C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\HotelRese
 C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\HotelReservationScreen.baml
 C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\BoardingPassScreen.g.cs
 C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\BoardingPassScreen.baml
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\NewAttractionTicketScreen.g.cs
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\NewAttractionTicketScreen.baml
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\NewRestaurantReservationScreen.g.cs
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\NewRestaurantReservationScreen.baml
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\NewCarRentalReservationScreen.g.cs
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\NewCarRentalReservationScreen.baml

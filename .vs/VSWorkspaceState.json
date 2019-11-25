@@ -1,14 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\DataModeling",
-    "\\DataModeling\\SQL",
-    "\\DataModeling\\SQL\\Procedures",
-    "\\DataModeling\\SQL\\Procedures\\AirlinesProcedures",
-    "\\DataModeling\\SQL\\Procedures\\AttractionsProcedures",
-    "\\DataModeling\\SQL\\Schemas",
+    "\\UserInterface",
     "\\UserInterface\\bin"
   ],
-  "SelectedNode": "\\DataModeling\\SQL\\Schemas",
+  "SelectedNode": "\\UserInterface\\HotelReservationScreen.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

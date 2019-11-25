@@ -17,11 +17,49 @@
         <StackPanel Background="BlanchedAlmond">
             <Label HorizontalAlignment="Center" FontSize="35" FontWeight="Bold">New Attraction Ticket</Label>
         </StackPanel>
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1" Margin="20,20,0,0">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Margin" Value="20,0,0,0"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="0,5,10,5"/>
+                    <Setter Property="FontSize" Value="22"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="90"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Margin" Value="0,5,0,5"/>
+                </Style>
+            </StackPanel.Resources>
             <StackPanel Orientation="Horizontal">
                 <Label>AttractionID</Label>
                 <TextBox Width="100"></TextBox>
                 <Button>Autofill</Button>
+                <Label>Date</Label>
+                <TextBox Width="150"></TextBox>
+                <TextBlock FontSize="20">yyyy/mm/dd</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Attraction Name</Label>
+                <TextBox Width="300"></TextBox>
+                <Label>Ticket Price $</Label>
+                <TextBox Width="100"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <Label>Attraction Address</Label>
+                <TextBox Width="509"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Country</Label>
+                <TextBox Width="200"></TextBox>
+                <Label>Region</Label>
+                <TextBox Width="300"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>City</Label>
+                <TextBox Width="300"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
