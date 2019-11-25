@@ -29,5 +29,10 @@ namespace UserInterface
         {
             NavigationService.GoBack();
         }
+
+        public void Done_Click(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

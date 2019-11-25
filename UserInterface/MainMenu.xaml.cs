@@ -32,12 +32,12 @@ namespace UserInterface
 
         public void SearchTrips_Click(object sender, RoutedEventArgs args)
         {
-            
+            NavigationService.Navigate(new SearchTripsScreen());
         }
 
         public void TripStatistics_Click(object sender, RoutedEventArgs args)
         {
-
+            NavigationService.Navigate(new TripStatisticsScreen());
         }
     }
 }

@@ -33,3 +33,7 @@ C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\NewRestau
 C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\NewRestaurantReservationScreen.baml
 C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\NewCarRentalReservationScreen.g.cs
 C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\NewCarRentalReservationScreen.baml
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\SearchTripsScreen.g.cs
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\SearchTripsScreen.baml
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\TripStatisticsScreen.g.cs
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\TripStatisticsScreen.baml

@@ -64,7 +64,16 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Width="250" Height="50" FontSize="25" Click="AddReservation_Click">Add Reservation</Button>
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Height" Value="60"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    <Setter Property="Margin" Value="10,0,10,0"/>
+                    <Setter Property="Width" Value="275"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button Click="AddReservation_Click">Add Reservation</Button>
+            <Button Click="Done_Click">Done</Button>
         </StackPanel>
     </Grid>
 </Page>

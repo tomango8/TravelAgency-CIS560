@@ -27,6 +27,11 @@ namespace UserInterface
 
         public void AddBoardingPass_Click(object sender, RoutedEventArgs args)
         {
+            
+        }
+
+        public void Done_Click(object sender, RoutedEventArgs args)
+        {
             NavigationService.GoBack();
         }
     }

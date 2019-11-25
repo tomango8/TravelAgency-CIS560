@@ -75,7 +75,16 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Height="70" Width="250" FontSize="25" Click="AddBoardingPass_Click">Add Boarding Pass</Button>
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Height" Value="60"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    <Setter Property="Margin" Value="10,0,10,0"/>
+                    <Setter Property="Width" Value="275"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button Click="AddBoardingPass_Click">Add Boarding Pass</Button>
+            <Button Click="Done_Click">Done</Button>
         </StackPanel>
     </Grid>
 </Page>
