@@ -23,8 +23,6 @@ namespace UserInterface
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        
+        }        
     }
 }

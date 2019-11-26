@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace UserInterface
 {
     /// <summary>
-    /// Interaction logic for MainMenu.xaml
+    /// Main menu for travel agency
     /// </summary>
     public partial class MainMenu : Page
     {
@@ -25,16 +25,31 @@ namespace UserInterface
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Open new trip setup page when user clicks "New Trip" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void NewTrip_Click(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new TripSetupScreen());
         }
 
+        /// <summary>
+        /// Open new search trip screen when user clicks "Search Trips" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void SearchTrips_Click(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new SearchTripsScreen());
         }
 
+        /// <summary>
+        /// Open trip statistics page when user clicks "Trip Statistics" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void TripStatistics_Click(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new TripStatisticsScreen());

@@ -45,50 +45,49 @@
             </StackPanel.Resources>
             <StackPanel Orientation="Horizontal">
                 <Label>First Name</Label>
-                <TextBox Width="225"></TextBox>
+                <TextBox Width="225" Name="uxFirstName"></TextBox>
                 <Label>Last Name</Label>
-                <TextBox Width="230"></TextBox>
+                <TextBox Width="230" Name="uxLastName"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Phone</Label>
-                <TextBox Width="30"></TextBox>
                 <TextBlock>(</TextBlock>
-                <TextBox Width="50"></TextBox>
+                <TextBox Width="50" Name="uxAreaCode"></TextBox>
                 <TextBlock>)</TextBlock>
-                <TextBox Width="50"></TextBox>
+                <TextBox Width="50" Name="uxFirst3PhoneDigits"></TextBox>
                 <TextBlock>-</TextBlock>
-                <TextBox Width="70"></TextBox>
+                <TextBox Width="70" Name="uxLast4PhoneDigits"></TextBox>
                 <Label>Age</Label>
-                <TextBox Width="50"></TextBox>
-                <RadioButton>Male</RadioButton>
-                <RadioButton>Female</RadioButton>
+                <TextBox Width="50" Name="uxAge"></TextBox>
+                <RadioButton Name="uxMale">Male</RadioButton>
+                <RadioButton Name="uxFemale">Female</RadioButton>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Email</Label>
-                <TextBox Width="627"></TextBox>
+                <TextBox Width="627" Name="uxEmail"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
                 <Label>Budget</Label>
-                <TextBox Width="240"></TextBox>
+                <TextBox Width="240" Name="uxBudget"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Billing Address</Label>
-                <TextBox Width="582"></TextBox>
+                <TextBox Width="582" Name="uxAddress"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Country</Label>
-                <TextBox Width="200"></TextBox>
+                <TextBox Width="200" Name="uxCountry"></TextBox>
                 <Button>Search</Button>
                 <Label>Region</Label>
-                <TextBox Width="200"></TextBox>
+                <TextBox Width="200" Name="uxRegion"></TextBox>
                 <Button>Search</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>City</Label>
-                <TextBox Width="250"></TextBox>
+                <TextBox Width="250" Name="uxCity"></TextBox>
                 <Button>Search</Button>
                 <Label>Zipcode</Label>
-                <TextBox Width="255"></TextBox>
+                <TextBox Width="255" Name="uxZipcode"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">

@@ -35,33 +35,31 @@
             </StackPanel.Resources>
             <StackPanel Orientation="Horizontal">
                 <Label>HotelID</Label>
-                <TextBox Width="60"></TextBox>
-                <Button>Autofill</Button>
-                <Label>Check-in Date</Label>
-                <TextBox Width="200"></TextBox>
-                <TextBlock FontSize="20" Margin="0,5,0,5">(yyyy/mm/dd)</TextBlock>
-            </StackPanel>            
-            <StackPanel Orientation="Horizontal">
+                <TextBox Width="60" Name="uxHotelID"></TextBox>
+                <Button Click="Autofill_Click">Autofill</Button>
                 <Label>Hotel Name</Label>
-                <TextBox Width="350"></TextBox>
-                <Label>Room Price $</Label>
-                <TextBox Width="100"></TextBox>
+                <TextBox Width="350" Name="uxHotelName"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+            <StackPanel Orientation="Horizontal">
                 <Label>Hotel Address</Label>
-                <TextBox Width="550"></TextBox>
+                <TextBox Width="550" Name="uxHotelAddress"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Country</Label>
-                <TextBox Width="200"></TextBox>
+                <TextBox Width="200" Name="uxCountry"></TextBox>
                 <Label>Region</Label>
-                <TextBox Width="300"></TextBox>
+                <TextBox Width="300" Name="uxRegion"></TextBox>
             </StackPanel>
-            
             <StackPanel Orientation="Horizontal">
                 <Label>City</Label>
-                <TextBox Width="300"></TextBox>
-            </StackPanel>
+                <TextBox Width="300" Name="uxCity"></TextBox>
+                <Label>Room Price $</Label>
+                <TextBox Width="100" Name="uxRoomPrice"></TextBox>
+            </StackPanel>            
+            <StackPanel HorizontalAlignment="Center">
+                <Label Margin="10,0,0,0">Check-in Date</Label>
+                <Calendar Name="uxCheckinDate"></Calendar>
+            </StackPanel>           
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel.Resources>
@@ -73,7 +71,7 @@
                 </Style>
             </StackPanel.Resources>
             <Button Click="AddReservation_Click">Add Reservation</Button>
-            <Button Click="Done_Click">Done</Button>
+            <Button Click="Done_Click">Done</Button>            
         </StackPanel>
     </Grid>
 </Page>

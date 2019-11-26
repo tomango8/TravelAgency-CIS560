@@ -20,11 +20,30 @@ namespace UserInterface
     /// </summary>
     public partial class PlanTripScreen : Page
     {
+        private int tripID;
+        private string country;
+        private string region;
+        private string cityName;
+
         public PlanTripScreen()
         {
             InitializeComponent();
         }
 
+        public PlanTripScreen(int tripID, string country, string region, string cityName)
+        {
+            InitializeComponent();
+            this.tripID = tripID;
+            this.country = country;
+            this.region = region;
+            this.cityName = cityName;
+        }
+
+        /// <summary>
+        /// Return to main menu when user clicks "Done" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new MainMenu());
@@ -32,7 +51,7 @@ namespace UserInterface
 
         public void NewHotelReservation_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new HotelReservationScreen());
+            NavigationService.Navigate(new HotelReservationScreen(tripID, country, region, cityName));
         }
 
         public void NewBoardingPass_Click(object sender, RoutedEventArgs args)
