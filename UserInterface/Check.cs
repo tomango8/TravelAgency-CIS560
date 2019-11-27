@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace UserInterface
 {
+    /// <summary>
+    /// Class Check defines many functions for checking that strings are in the desired format 
+    /// for either parsing or storing. If not, a user friendly message is stored as to why 
+    /// the string or variable is not in the desired format
+    /// </summary>
     public static class Check
     {
         /// <summary>

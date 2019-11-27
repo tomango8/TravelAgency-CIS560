@@ -42,7 +42,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Label>Flight ID</Label>
                         <TextBox Width="100" Name="uxFlightID"></TextBox>
-                        <Button>Autofill</Button>
+                        <Button Click="Autofill_Click">Autofill</Button>
                         <Label>Airline</Label>
                         <TextBox Width="200" Name="uxAirlineName"></TextBox>
                     </StackPanel>

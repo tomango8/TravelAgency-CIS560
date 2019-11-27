@@ -33,37 +33,45 @@
                     <Setter Property="Margin" Value="0,5,0,5"/>
                 </Style>
             </StackPanel.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Label>Car Rental ID</Label>
-                <TextBox Width="100"></TextBox>
-                <Button>Autofill</Button>
-                <Label>Rental Date</Label>
-                <TextBox Width="150"></TextBox>
-                <TextBlock FontSize="20" Margin="0,5,0,5">yyyy/mm/dd</TextBlock>
-            </StackPanel>            
-            <StackPanel Orientation="Horizontal">
-                <Label>Model of Car</Label>
-                <TextBox Width="100"></TextBox>
-                <Label>Rental Price $</Label>
-                <TextBox Width="100"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>Car Rental Agency Name</Label>
-                <TextBox Width="300"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
-                <Label>Car Rental Agency Address</Label>
-                <TextBox Width="435"></TextBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="270"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Car Rental ID</Label>
+                        <TextBox Width="100" Name="uxCarRentalID"></TextBox>
+                        <Button Click="Autofill_Click">Autofill</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Car Rental Agency Name</Label>
+                        <TextBox Width="300" Name="uxCarRentalAgencyName"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Model of Car</Label>
+                        <TextBox Width="100" Name="uxCarModel"></TextBox>
+                        <Label>Rental Price $</Label>
+                        <TextBox Width="100" Name="uxRentalPrice"></TextBox>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Label HorizontalAlignment="Center" Margin="0">Rental Date</Label>
+                    <Calendar Name="uxRentalDate"></Calendar>
+                </StackPanel>
+            </Grid>
+            <StackPanel>
+                <Label FontWeight="Bold">Car Rental Agency Location:</Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Country</Label>
-                <TextBox Width="200"></TextBox>
+                <TextBox Width="200" Name="uxCountry"></TextBox>
                 <Label>Region</Label>
-                <TextBox Width="300"></TextBox>
+                <TextBox Width="300" Name="uxRegion"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>City</Label>
-                <TextBox Width="300"></TextBox>
+                <TextBox Width="300" Name="uxCity"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -75,7 +83,7 @@
                     <Setter Property="Width" Value="275"/>
                 </Style>
             </StackPanel.Resources>
-            <Button>Add Reservation</Button>
+            <Button Click="AddReservation_Click">Add Reservation</Button>
             <Button Click="Done_Click">Done</Button>
         </StackPanel>
     </Grid>

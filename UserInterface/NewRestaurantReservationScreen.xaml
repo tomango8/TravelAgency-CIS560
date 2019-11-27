@@ -33,38 +33,44 @@
                     <Setter Property="Margin" Value="0,5,0,5"/>
                 </Style>
             </StackPanel.Resources>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="270"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Restaurant ID</Label>
+                        <TextBox Width="100" Name="uxRestaurantID"></TextBox>
+                        <Button Click="Autofill_Click">Autofill</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Restaurant Name</Label>
+                        <TextBox Width="300" Name="uxRestaurantName"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Reservation Time</Label>
+                        <TextBox Width="100" Name="uxReservationTime"></TextBox>
+                        <TextBlock FontSize="20" Margin="0,5,0,5">(hh:mm)</TextBlock>
+                    </StackPanel>                    
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Label HorizontalAlignment="Center" Margin="0">Reservation Date</Label>
+                    <Calendar Name="uxReservationDate"></Calendar>
+                </StackPanel>
+            </Grid>          
             <StackPanel Orientation="Horizontal">
-                <Label>RestaurantID</Label>
-                <TextBox Width="100"></TextBox>
-                <Button>Autofill</Button>                
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>Reservation Date</Label>
-                <TextBox Width="150"></TextBox>
-                <TextBlock FontSize="20" Margin="0,5,0,5">yyyy/mm/dd</TextBlock>                
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>Reservation Time</Label>
-                <TextBox Width="100"></TextBox>
-                <TextBlock FontSize="20" Margin="0,5,0,5">hh:mm</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>Restaurant Name</Label>
-                <TextBox Width="300"></TextBox>                
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
-                <Label>Restaurant Address</Label>
-                <TextBox Width="509"></TextBox>
+                <Label FontWeight="Bold">Restaurant Location:</Label>    
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Country</Label>
-                <TextBox Width="200"></TextBox>
+                <TextBox Width="200" Name="uxCountry"></TextBox>
                 <Label>Region</Label>
-                <TextBox Width="300"></TextBox>
+                <TextBox Width="300" Name="uxRegion"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>City</Label>
-                <TextBox Width="300"></TextBox>
+                <TextBox Width="300" Name="uxCity"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -76,7 +82,7 @@
                     <Setter Property="Width" Value="275"/>
                 </Style>
             </StackPanel.Resources>
-            <Button>Add Reservation</Button>
+            <Button Click="AddReservation_Click">Add Reservation</Button>
             <Button Click="Done_Click">Done</Button>
         </StackPanel>
     </Grid>

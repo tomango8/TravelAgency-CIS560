@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UserInterface"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="800"
       Title="NewAttractionTicketScreen">
 
     <Grid Background="Beige">
@@ -33,33 +33,43 @@
                     <Setter Property="Margin" Value="0,5,0,5"/>
                 </Style>
             </StackPanel.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Label>AttractionID</Label>
-                <TextBox Width="100"></TextBox>
-                <Button>Autofill</Button>
-                <Label>Date</Label>
-                <TextBox Width="150"></TextBox>
-                <TextBlock FontSize="20">yyyy/mm/dd</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>Attraction Name</Label>
-                <TextBox Width="300"></TextBox>
-                <Label>Ticket Price $</Label>
-                <TextBox Width="100"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
-                <Label>Attraction Address</Label>
-                <TextBox Width="509"></TextBox>
-            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="270"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>AttractionID</Label>
+                        <TextBox Width="100" Name="uxAttractionID"></TextBox>
+                        <Button Click="Autofill_Click">Autofill</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Attraction Name</Label>
+                        <TextBox Width="300" Name="uxAttractionName"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Ticket Price $</Label>
+                        <TextBox Width="100" Name="uxTicketPrice"></TextBox>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Label HorizontalAlignment="Center" Margin="0">Date</Label>
+                    <Calendar Name="uxDate"></Calendar>
+                </StackPanel>
+            </Grid>
+            <StackPanel>
+                <Label FontWeight="Bold">Attraction Location</Label>
+            </StackPanel>            
             <StackPanel Orientation="Horizontal">
                 <Label>Country</Label>
-                <TextBox Width="200"></TextBox>
+                <TextBox Width="200" Name="uxCountry"></TextBox>
                 <Label>Region</Label>
-                <TextBox Width="300"></TextBox>
+                <TextBox Width="300" Name="uxRegion"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>City</Label>
-                <TextBox Width="300"></TextBox>
+                <TextBox Width="300" Name="uxCity"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -71,7 +81,7 @@
                     <Setter Property="Width" Value="275"/>
                 </Style>
             </StackPanel.Resources>
-            <Button>Add Ticket</Button>
+            <Button Click="AddTicket_Click">Add Ticket</Button>
             <Button Click="Done_Click">Done</Button>
         </StackPanel>
     </Grid>

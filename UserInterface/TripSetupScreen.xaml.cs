@@ -62,6 +62,11 @@ namespace UserInterface
             NavigationService.GoBack();
         }
 
+        /// <summary>
+        /// Go to main menu when the user clicks "Done" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new MainMenu());
@@ -75,35 +80,28 @@ namespace UserInterface
         /// <param name="args"></param>
         public void PlanTrip_Click(object sender, RoutedEventArgs args)
         {
-            if(CheckValidInputs() && CheckValidIDs())
+            if(CheckValidInputs())
             {
                 int agentID = int.Parse(uxAgentID.Text);
                 int customerID = int.Parse(uxCustomerID.Text);
+                // CONNECT
+                // Lookup agent using agentID
+                // Lookup customer using customerID
+                // if agent is null
+                //      MessageBox.Show("Agent does not exist");
+                // else if customer is null
+                //      MessageBox.Show("Customer does not exist");
+                // else
+                // {
 
                 // CONNECT
-                // Create Trip using agent id and customer id
-                int tripID = 0; // = get trip id that was just created
+                //      Create Trip using agent id and customer id
+                        int tripID = 0; // = get trip id that was just created
 
-                NavigationService.Navigate(new PlanTripScreen(tripID, uxCountry.Text, uxCity.Text, uxRegion.Text));
+                        NavigationService.Navigate(new PlanTripScreen(tripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
+                // } end else
             }            
-        }
-
-        /// <summary>
-        /// Checks whether the string is a number or not
-        /// </summary>
-        /// <param name="value">The string to check</param>
-        /// <returns>Whether string is value or not</returns>
-        private bool IsValue(string value)
-        {
-            foreach(char c in value)
-            {
-                if(c < '0' || c > '9')
-                {
-                    return false;
-                }                
-            }
-            return true;
-        }
+        }        
 
         /// <summary>
         /// Check that all inputs are valid; if not, display appropriate message to user
@@ -111,76 +109,14 @@ namespace UserInterface
         /// <returns>Whether valid inputs or not</returns>
         private bool CheckValidInputs()
         {
-            if (uxAgentID.Text == "")
-            {
-                MessageBox.Show("Must contain an AgentID");
-            }
-            else if (uxCustomerID.Text == "")
-            {
-                MessageBox.Show("Must contain a Customer ID");
-            }
-            else if (!IsValue(uxAgentID.Text))
-            {
-                MessageBox.Show("AgentID must be a number");
-            }
-            else if (!IsValue(uxCustomerID.Text))
-            {
-                MessageBox.Show("CustomerID must be a number");
-            }
-            else
+            string message = "";
+            if(Check.ValidPositiveInt("Agent ID", uxAgentID.Text, out message)
+                && Check.ValidPositiveInt("Customer ID", uxCustomerID.Text, out message))
             {
                 return true;
             }
+            MessageBox.Show(message);
             return false;
-        }
-
-        /// <summary>
-        /// Checks that the customer and agent exist in database; if not, display appropriate message to user
-        /// </summary>
-        /// <returns>Whether IDs exist in database</returns>
-        private bool CheckValidIDs()
-        {
-            if(!LookupAgentID(int.Parse(uxAgentID.Text)))
-            {
-                MessageBox.Show("Agent ID does not exist");
-            }
-            else if(!LookupCustomerID(int.Parse(uxCustomerID.Text)))
-            {
-                MessageBox.Show("Customer ID does not exist");
-            }
-            else
-            {
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Lookup to see whether the agent id exists in database
-        /// </summary>
-        /// <param name="id">The agent id to lookup</param>
-        /// <returns>Whether the agent is in the database or not</returns>
-        private bool LookupAgentID(int id)
-        {
-            // CONNECT
-
-            // if null
-            // return false            
-            return true;
-        }
-
-        /// <summary>
-        /// Lookup to see whether the customer id exists in database
-        /// </summary>
-        /// <param name="id">The customer id to lookup</param>
-        /// <returns>Whether the customer is in the database or not</returns>
-        private bool LookupCustomerID(int id)
-        {
-            // CONNECT
-
-            // if null
-            // return false
-            return true;
         }        
     }
 }
