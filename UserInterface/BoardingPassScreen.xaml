@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UserInterface"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="800"
       Title="BoardingPassScreen">
 
     <Grid Background="Beige">
@@ -33,47 +33,60 @@
                     <Setter Property="FontSize" Value="22"/>
                 </Style>
             </StackPanel.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Label>Flight ID</Label>
-                <TextBox Width="100"></TextBox>
-                <Button>Autofill</Button>
-                <Label>Date</Label>
-                <TextBox Width="200"></TextBox>
-                <Label>(yyyy/mm/dd)</Label>                
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>Airline</Label>
-                <TextBox Width="200"></TextBox>
-                <Label>Boarding Pass Price: $</Label>
-                <TextBox Width="100"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
-                <Label FontWeight="Bold">Departure:</Label>
-                <Label>Time</Label>
-                <TextBox Width="106"></TextBox>
-                <Label>City</Label>
-                <TextBox Width="228"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">                
-                <Label>Country</Label>
-                <TextBox Width="200"></TextBox>
-                <Label>Region</Label>
-                <TextBox Width="200"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
-                <Label FontWeight="Bold">Arrival:</Label>
-                <Label>Time</Label>
-                <TextBox Width="106"></TextBox>
-                <Label>City</Label>
-                <TextBox Width="228"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>Country</Label>
-                <TextBox Width="200"></TextBox>
-                <Label>Region</Label>
-                <TextBox Width="200"></TextBox>
-            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="270"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Flight ID</Label>
+                        <TextBox Width="100" Name="uxFlightID"></TextBox>
+                        <Button>Autofill</Button>
+                        <Label>Airline</Label>
+                        <TextBox Width="200" Name="uxAirlineName"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Boarding Pass Price: $</Label>
+                        <TextBox Width="100" Name="uxBoardingPassPrice"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                        <Label FontWeight="Bold">Departure:</Label>
+                        <Label>Time</Label>
+                        <TextBox Width="106" Name="uxDepartureTime"></TextBox>
+                        <Label>City</Label>
+                        <TextBox Width="228" Name="uxDepartureCity"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Country</Label>
+                        <TextBox Width="200" Name="uxDepartureCountry"></TextBox>
+                        <Label>Region</Label>
+                        <TextBox Width="200" Name="uxDepartureRegion"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                        <Label FontWeight="Bold">Arrival:</Label>
+                        <Label>Time</Label>
+                        <TextBox Width="106" Name="uxArrivalTime"></TextBox>
+                        <Label>City</Label>
+                        <TextBox Width="228" Name="uxArrivalCity"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Country</Label>
+                        <TextBox Width="200" Name="uxArrivalCountry"></TextBox>
+                        <Label>Region</Label>
+                        <TextBox Width="200" Name="uxArrivalRegion"></TextBox>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Label HorizontalAlignment="Center" Margin="0">Departure Date</Label>
+                    <Calendar Name="uxDepartureDate"></Calendar>
+                    <Label HorizontalAlignment="Center">Arrival Date</Label>
+                    <Calendar Name="uxArrivalDate"></Calendar>
+                </StackPanel>
+            </Grid>
         </StackPanel>
+
+
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Button">

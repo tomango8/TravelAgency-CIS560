@@ -43,7 +43,8 @@ namespace UserInterface
         /// <param name="args"></param>
         public void Autofill_Click(object sender, RoutedEventArgs args)
         {
-            if(CheckValidPositiveInt("Hotel ID", uxHotelID.Text))
+            string message = "";
+            if(Check.ValidPositiveInt("Hotel ID", uxHotelID.Text, out message))
             {
                 // CONNECT
 
@@ -60,6 +61,10 @@ namespace UserInterface
                 uxRegion.Text = ""; // = city.Region;
                 uxCountry.Text = ""; // = city.Country;
             }
+            else
+            {
+                MessageBox.Show(message);
+            }
         }
 
         /// <summary>
@@ -71,12 +76,12 @@ namespace UserInterface
         {
            if(CheckValidInputs())
             {
-                string hotelName = FormatName(uxHotelName.Text);
+                string hotelName = Check.FormatName(uxHotelName.Text);
                 string address = uxHotelAddress.Text;
 
-                string country = FormatName(uxCountry.Text);
-                string region = FormatName(uxRegion.Text);
-                string city = FormatName(uxCity.Text);
+                string country = Check.FormatName(uxCountry.Text);
+                string region = Check.FormatName(uxRegion.Text);
+                string city = Check.FormatName(uxCity.Text);
 
                 float roomPrice = float.Parse(uxRoomPrice.Text);
                 DateTime checkInDate = (DateTime)uxCheckinDate.SelectedDate;
@@ -128,212 +133,17 @@ namespace UserInterface
         /// <returns>Whether all valid inputs have been entered</returns>
         private bool CheckValidInputs()
         {
-            if(CheckValidName("Hotel name", uxHotelName.Text) && CheckValidAddress()
-                && CheckValidName("Country", uxCountry.Text) && CheckValidName("Region", uxRegion.Text)
-                && CheckValidName("City", uxCity.Text) && CheckValidPrice("Room price", uxRoomPrice.Text) 
-                && CheckValidDate())
+            string message = "";
+            if(Check.ValidName("Hotel name", uxHotelName.Text, out message) && Check.NonNull("Hotel address", uxHotelAddress.Text, out message)
+                && Check.ValidName("Country", uxCountry.Text, out message) && Check.ValidName("Region", uxRegion.Text, out message)
+                && Check.ValidName("City", uxCity.Text, out message) && Check.ValidPositiveFloat("Room price", uxRoomPrice.Text, out message) 
+                && Check.NonNull("Check-in date", uxCheckinDate.SelectedDate, out message))
             {
                 return true;
             }
+            MessageBox.Show(message);
             return false;
-        }
+        }     
 
-        /// <summary>
-        /// Checks whether name contains only characters or not; if not, displays appropriate message to user
-        /// </summary>
-        /// <param name="name">The name of the variable</param>
-        /// <param name="s">The string to check</param>
-        /// <returns>Whether name contains only characters or not</returns>
-        private bool CheckValidName(string name, string s)
-        {
-            if (s == "")
-            {
-                MessageBox.Show("Must enter a " + name);
-            }
-            else
-            {
-                foreach (char c in s)
-                {
-                    if (!IsLetter(c) && c != ' ')
-                    {
-                        MessageBox.Show(name + " must contain only characters");
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Checks whether a valid hotel address has been entered; if not, display message to user.
-        /// </summary>
-        /// <returns>Whether valid hotel address has been entered</returns>
-        private bool CheckValidAddress()
-        {
-            if(uxHotelAddress.Text == "")
-            {
-                MessageBox.Show("Please enter a hotel address");
-                return false;
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Checks if char c is a number or not
-        /// </summary>
-        /// <param name="c">The character to check</param>
-        /// <returns>Whether char c is a number or not</returns>
-        public bool IsNumber(char c)
-        {
-            if (c >= '0' && c <= '9')
-            {
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Check whether valid price or not; if not, display message to user
-        /// </summary>
-        /// <param name="name">The name of the variable</param>
-        /// <param name="price">The price in question</param>
-        /// <returns></returns>
-        public bool CheckValidPrice(string name, string price)
-        {
-            if (price == "")
-            {
-                MessageBox.Show("Please enter a " + name);
-            }
-            else
-            {
-                int numPeriods = 0;
-                if (price[0] == '-')
-                {
-                    MessageBox.Show("Please enter a non-negative value");
-                }
-                for (int i = 1; i < price.Length; i++)
-                {
-                    char c = price[i];
-                    if (c == '.')
-                    {
-                        numPeriods++;
-                    }
-
-                    if (!IsNumber(c) && c != '.')
-                    {
-                        MessageBox.Show(name + " must be a number");
-                        return false;
-                    }
-
-                    if (numPeriods > 1)
-                    {
-                        MessageBox.Show(name + " must be a valid number");
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Checks whether char c is a letter or not
-        /// </summary>
-        /// <param name="c">Whether c is a letter or not</param>
-        /// <returns>Whether c is a letter or not</returns>
-        public bool IsLetter(char c)
-        {
-            if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z')
-            {
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Check to see if check in date has been selected
-        /// </summary>
-        /// <returns>Whether check in date has been selected</returns>
-        private bool CheckValidDate()
-        {
-            if(uxCheckinDate.SelectedDate == null)
-            {
-                MessageBox.Show("Please select a check-in date");
-                return false;
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Check whether number is a valid positive integer; if not, display message to user
-        /// </summary>
-        /// <param name="name">Name of the variable</param>
-        /// <param name="num">The number to check</param>
-        /// <returns>Whether number is a valid positive integer</returns>
-        public bool CheckValidPositiveInt(string name, string num)
-        {
-            if (num == "")
-            {
-                MessageBox.Show("Please enter a " + name);
-            }
-            else
-            {
-                if (num[0] == '-')
-                {
-                    MessageBox.Show(name + " must be a non-negative integer");
-                }
-                else
-                {
-                    foreach (char c in num)
-                    {
-                        if (!IsNumber(c))
-                        {
-                            MessageBox.Show(name + " must contain only numbers");
-                            return false;
-                        }
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-
-
-
-        /// <summary>
-        /// Formats string name to be upper case for first letter and lower for rest 
-        /// </summary>
-        /// <param name="name">The name to format</param>
-        /// <returns>Formated string</returns>
-        private string FormatName(string name)
-        {
-            string formatName = "";
-            if (name != "")
-            {
-                bool toUpper = true;                
-                for (int i = 0; i < name.Length; i++)
-                {
-                    if(toUpper)
-                    {
-                        formatName += char.ToUpper(name[i]);
-                        if(IsLetter(name[i]))
-                        {
-                            toUpper = false;
-                        }
-                    }
-                    else
-                    {
-                        formatName += char.ToLower(name[i]);
-                    }
-
-                    if(name[i] == ' ')
-                    {
-                        toUpper = true;
-                    }
-                }
-            }
-            return formatName;
-        }
     }
 }
