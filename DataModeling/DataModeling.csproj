@@ -74,6 +74,7 @@
     <Folder Include="C#\DataDelegates\AirlinesDelegates\" />
     <Folder Include="C#\DataDelegates\CarsDelegates\" />
     <Folder Include="C#\DataDelegates\HotelsDelegates\" />
+    <Folder Include="C#\DataDelegates\ReportDelegates\" />
     <Folder Include="C#\DataDelegates\RestaurantsDelegates\" />
     <Folder Include="SQL\Data\" />
     <Folder Include="SQL\Procedures\AgencyProcedures\" />
