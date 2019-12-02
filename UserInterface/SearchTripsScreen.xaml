@@ -19,14 +19,15 @@
             <TextBlock HorizontalAlignment="Center" FontSize="35" FontWeight="Bold">Trips</TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <ListBox Height="300">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
+            <StackPanel.Resources>
+                <Style TargetType="ListBox">
+                    <Setter Property="Height" Value="270"/>
+                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock FontSize="15" Margin="5">TripID, Customer Name, CustomerID, AgentName, AgentID, Date Created</TextBlock>
+            <ListBox Name="uxTrips">
+                
             </ListBox>
         </StackPanel>
         <Grid Grid.Row="2">
@@ -47,16 +48,16 @@
                 </StackPanel.Resources>
                 <StackPanel Orientation="Horizontal">
                     <Label>Trip ID</Label>
-                    <TextBox Width="100"></TextBox>
+                    <TextBox Width="100" Name="uxTripID"></TextBox>
                     <Label>Agent ID</Label>
-                    <TextBox Width="100"></TextBox>
+                    <TextBox Width="100" Name="uxAgentID"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label>Customer Name</Label>
-                    <TextBox Width="300"></TextBox>
+                    <TextBox Width="300" Name="uxCustomerName"></TextBox>
                 </StackPanel>
             </StackPanel>
-            <Button Grid.Column="1" Width="200" Height="50" FontSize="25">Search</Button>
+            <Button Grid.Column="1" Width="200" Height="50" FontSize="25" Click="Search_Click">Search</Button>
         </Grid>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel.Resources>
@@ -67,7 +68,7 @@
                     <Setter Property="Margin" Value="10,0,10,0"/>
                 </Style>
             </StackPanel.Resources>
-            <Button>Delete Trip</Button>
+            <Button Click="DeleteTrip_Click">Delete Trip</Button>
             <Button Click="UpdateTrip_Click">Update Trip</Button>
             <Button Click="MainMenu_Click">Main Menu</Button>
         </StackPanel>

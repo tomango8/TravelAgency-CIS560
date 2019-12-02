@@ -21,13 +21,19 @@ namespace UserInterface
     public partial class PlanTripScreen : Page
     {
         private int tripID;
-        private string country;
-        private string region;
-        private string cityName;
+        private string country = "";
+        private string region = "";
+        private string cityName = "";
 
         public PlanTripScreen()
         {
             InitializeComponent();
+        }
+
+        public PlanTripScreen(int tripID)
+        {
+            InitializeComponent();
+            this.tripID = tripID;
         }
 
         public PlanTripScreen(int tripID, string country, string region, string cityName)
@@ -97,6 +103,16 @@ namespace UserInterface
         public void NewCarRentalReservation_Click(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new NewCarRentalReservationScreen(tripID, cityName, region, country));
+        }
+
+        /// <summary>
+        /// Deletes the selected reservation from the trip
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void DeleteSelected_Click(object sender, RoutedEventArgs args)
+        {            
+
         }
     }
 }

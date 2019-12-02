@@ -1,5 +1,5 @@
 CREATE OR ALTER PROCEDURE Hotels.GetHotel
-	@HotelID
+	@HotelID INT
 AS
 
 SELECT HO.[Name], HO.CityID, HO.FullAddress

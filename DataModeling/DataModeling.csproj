@@ -41,14 +41,31 @@
     <Compile Include="C#\Model\AttractionTicket.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateAgent.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateAttractionTicket.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateBoardingPass.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateCarRentalReservation.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateCustomer.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateHotelReservation.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateRestaurantReservation.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateTrip.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetAgents.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetCustomer.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetCustomers.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveAgentTrips.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveCustomerContactInfo.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveCustomerTrips.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.SaveCustomerContactInfo.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.SaveTrip.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateFlight.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.RetrieveFlightInfo.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.CreateAttraction.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttraction.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttractionTicket.sql" />
+    <Content Include="SQL\Procedures\CarsProcedures\Cars.CreateCarRental.sql" />
     <Content Include="SQL\Procedures\CarsProcedures\Cars.GetAgencyName.sql" />
-    <Content Include="SQL\Procedures\CarsProcedures\Cars.GetCarResrvation info.sql" />
+    <Content Include="SQL\Procedures\CarsProcedures\Cars.GetCarReservationInfo.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotel.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotelReservation.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotel.sql" />
@@ -56,6 +73,7 @@
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurant.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurant.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantReservation.sql" />
+    <Content Include="SQL\Reports\ReportQuery4.CheapestOptions.sql" />
     <Content Include="SQL\Schemas\All Schemas.sql" />
     <Content Include="SQL\Tables\AirlinesTables\BoardingPass.sql" />
     <Content Include="SQL\Tables\AirlinesTables\Flight.sql" />
@@ -77,8 +95,6 @@
     <Folder Include="C#\DataDelegates\ReportDelegates\" />
     <Folder Include="C#\DataDelegates\RestaurantsDelegates\" />
     <Folder Include="SQL\Data\" />
-    <Folder Include="SQL\Procedures\AgencyProcedures\" />
-    <Folder Include="SQL\Reports\" />
     <Folder Include="SQL\Tables\AgencyTables\" />
     <Folder Include="SQL\Tables\CarsTables\" />
   </ItemGroup>

@@ -16,21 +16,42 @@
         <StackPanel Background="BlanchedAlmond">
             <TextBlock FontSize="35" FontWeight="Bold" HorizontalAlignment="Center">Plan Trip</TextBlock>
         </StackPanel>
-        <StackPanel Grid.Row="1">
-            <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Width" Value="400"/>
-                    <Setter Property="Height" Value="50"/>
-                    <Setter Property="FontSize" Value="25"/>
-                    <Setter Property="Margin" Value="0,20,0,0"/>
-                </Style>
-            </StackPanel.Resources>
-            <Button Click="NewHotelReservation_Click">New Hotel Reservation</Button>
-            <Button Click="NewBoardingPass_Click">New Boarding Pass</Button>
-            <Button Click="NewAttractionTicket_Click">New Attraction Ticket</Button>
-            <Button Click="NewRestaurantReservation_Click">New Restaurant Reservation</Button>
-            <Button Click="NewCarRentalReservation_Click">New Car Rental Reservation</Button>
-            <Button Margin="0,60,0,0" Click="Done_Click">Done</Button>
-        </StackPanel>        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Width" Value="400"/>
+                        <Setter Property="Height" Value="50"/>
+                        <Setter Property="FontSize" Value="25"/>
+                        <Setter Property="Margin" Value="0,20,0,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Click="NewHotelReservation_Click">New Hotel Reservation</Button>
+                <Button Click="NewBoardingPass_Click">New Boarding Pass</Button>
+                <Button Click="NewAttractionTicket_Click">New Attraction Ticket</Button>
+                <Button Click="NewRestaurantReservation_Click">New Restaurant Reservation</Button>
+                <Button Click="NewCarRentalReservation_Click">New Car Rental Reservation</Button>
+                <Button Click="DeleteSelected_Click">Delete Selected</Button>
+                <Button Margin="0,30,0,0" Click="Done_Click">Done</Button>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Name="uxTripReservations">
+                <StackPanel.Resources>
+                    <Style TargetType="ListBox">
+                        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
+                        <Setter Property="Height" Value="500"/>
+                        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Visible"/>
+                    </Style>
+                </StackPanel.Resources>
+                <ListBox Name="list">
+                    
+                </ListBox>
+                
+            </StackPanel>
+        </Grid>
+                
     </Grid>
 </Page>

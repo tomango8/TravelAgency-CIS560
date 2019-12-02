@@ -1,9 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\DataModeling",
+    "\\DataModeling\\SQL",
+    "\\DataModeling\\SQL\\Procedures",
+    "\\DataModeling\\SQL\\Procedures\\AgencyProcedures",
     "\\UserInterface",
     "\\UserInterface\\bin"
   ],
-  "SelectedNode": "\\UserInterface\\Check.cs",
+  "SelectedNode": "\\TravelAgency-CIS560.sln",
   "PreviewInSolutionExplorer": false
 }
