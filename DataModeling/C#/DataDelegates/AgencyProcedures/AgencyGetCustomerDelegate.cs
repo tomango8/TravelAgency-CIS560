@@ -10,7 +10,7 @@ namespace DataModeling
         private readonly int customerID;
 
         public AgencyGetCustomerDelegate(int customerID)
-           : base("Restaurants.GetRestaurant")
+           : base("Agency.GetCustomer")
         {
             this.customerID = customerID;
         }
@@ -19,7 +19,7 @@ namespace DataModeling
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("CustomerID", reservationID);
+            command.Parameters.AddWithValue("CustomerID", customerID);
         }
 
         public override Customer Translate(SqlCommand command, IDataRowReader reader)
