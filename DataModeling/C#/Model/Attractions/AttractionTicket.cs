@@ -23,5 +23,9 @@ namespace DataModeling
             TicketDate = ticketDate;
             Price = price;
         }
+        public override string ToString()
+        {
+            return $"ReservationID: {ReservationID}, AttractionID: {AttractionID}, TicketDate: {TicketDate.Date}, Price: {Price}";
+        }
     }
 }

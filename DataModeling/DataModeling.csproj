@@ -37,8 +37,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
-    <Compile Include="C#\Model\Attraction.cs" />
-    <Compile Include="C#\Model\AttractionTicket.cs" />
+    <Compile Include="C#\Model\Agency\Agents.cs" />
+    <Compile Include="C#\Model\Airlines\Flight.cs" />
+    <Compile Include="C#\Model\Attractions\Attraction.cs" />
+    <Compile Include="C#\Model\Attractions\AttractionTicket.cs" />
+    <Compile Include="C#\Model\Airlines\BoardingPass.cs" />
+    <Compile Include="C#\Model\Cars\CarRental.cs" />
+    <Compile Include="C#\Model\Cars\CarRentalReservation.cs" />
+    <Compile Include="C#\Model\Cities.cs" />
+    <Compile Include="C#\Model\Agency\ContactInfo.cs" />
+    <Compile Include="C#\Model\Agency\Customer.cs" />
+    <Compile Include="C#\Model\Hotel\Hotel.cs" />
+    <Compile Include="C#\Model\Hotel\HotelReservation.cs" />
+    <Compile Include="C#\Model\Agency\Reservations.cs" />
+    <Compile Include="C#\Model\Restaurants\Restaurant.cs" />
+    <Compile Include="C#\Model\Restaurants\RestaurantReservation.cs" />
+    <Compile Include="C#\Model\Agency\Trips.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateAgent.sql" />
@@ -75,6 +89,11 @@
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantReservation.sql" />
     <Content Include="SQL\Reports\ReportQuery4.CheapestOptions.sql" />
     <Content Include="SQL\Schemas\All Schemas.sql" />
+    <Content Include="SQL\Tables\AgencyTables\Agents.sql" />
+    <Content Include="SQL\Tables\AgencyTables\ContactInfo.sql" />
+    <Content Include="SQL\Tables\AgencyTables\Customer.sql" />
+    <Content Include="SQL\Tables\AgencyTables\Reservations.sql" />
+    <Content Include="SQL\Tables\AgencyTables\Trips.sql" />
     <Content Include="SQL\Tables\AirlinesTables\BoardingPass.sql" />
     <Content Include="SQL\Tables\AirlinesTables\Flight.sql" />
     <Content Include="SQL\Tables\AttractionsTables\Attraction.sql" />
@@ -95,7 +114,6 @@
     <Folder Include="C#\DataDelegates\ReportDelegates\" />
     <Folder Include="C#\DataDelegates\RestaurantsDelegates\" />
     <Folder Include="SQL\Data\" />
-    <Folder Include="SQL\Tables\AgencyTables\" />
     <Folder Include="SQL\Tables\CarsTables\" />
   </ItemGroup>
   <ItemGroup>
