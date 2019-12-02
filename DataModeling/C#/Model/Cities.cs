@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataModeling.C_.Model
+namespace DataModeling.Model
 {
     public class Cities
     {
