@@ -25,5 +25,5 @@ USING (
 		AgentID = S.AgentID
 	WHEN NOT MATCHED THEN
 	INSERT(TripID, CustomerID, IsDeleted, DateCreated, AgentID)
-	VALUES (S.TripID, S.CustomerID, S.IsDeleted, S.DateCreated, S.AgentID)
+	VALUES (S.TripID, S.CustomerID, S.IsDeleted, S.DateCreated, S.AgentID);
 GO

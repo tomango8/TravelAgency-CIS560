@@ -3,10 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess;
+using DataModeling.Model;
 
-namespace DataModeling.C_.Connection
+namespace DataModeling.Connection
 {
-    class TripConnection
+    public class TripConnection
     {
+        private readonly SqlCommandExecutor executor;
+
+        public TripConnection(string connectionString)
+        {
+            executor = new SqlCommandExecutor(connectionString);
+        }
+
+        public Trips CreateTrip(int tripID, int customerID, int isDeleted, string dateCreated, int agentID)
+        {
+            var d = new AgencySaveTripDelegate(tripID, customerID, isDeleted, dateCreated, agentID);
+            return executor.ExecuteNonQuery(d);
+        }
+
+        
     }
 }
