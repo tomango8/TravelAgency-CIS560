@@ -1,11 +1,12 @@
+// check if it should be new Agency line 31  
 using DataAccess;
 using PersonData.Models;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace PersonData.DataDelegates
+namespace DataModeling
 {
-    internal class CarsGetAgencyNameDelegate : DataReaderDelegate<Person>
+    internal class CarsGetAgencyNameDelegate : DataReaderDelegate<Agency>
     {
         private readonly int reservationID;
 
@@ -22,12 +23,12 @@ namespace PersonData.DataDelegates
             command.Parameters.AddWithValue("ReservationID", reservationID);
         }
 
-        public override Person Translate(SqlCommand command, IDataRowReader reader)
+        public override Agency Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
                 throw new RecordNotFoundException(reservationID.ToString());
 
-            return new Person(reservationID,
+            return new Agency(reservationID,
                reader.GetString("CarRentalID"),
                reader.GetString("AgencyName"),
                reader.GetString("CityID"));

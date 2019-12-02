@@ -1,3 +1,4 @@
+// line 31 new object
 using DataAccess;
 using PersonData.Models;
 using System.Data;
@@ -27,7 +28,7 @@ namespace DataModeling
             if (!reader.Read())
                 throw new RecordNotFoundException(reservationID.ToString());
 
-            return new Person(reader.GetString('ReservationID'),
+            return new Ticket(reader.GetString("ReservationID"),
                reader.GetString("AttractionID"),
                reader.GetString("TicketDate"),
                reader.GetString("Price"));
