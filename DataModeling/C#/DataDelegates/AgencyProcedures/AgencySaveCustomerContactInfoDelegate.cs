@@ -32,6 +32,7 @@ namespace DataModeling
             command.Parameters.AddWithValue("ContactID", ContactID);
             command.Parameters.AddWithValue("BillingAddress", BillingAddress);
             command.Parameters.AddWithValue("Phone", Phone);
+            command.Parameters.AddWithValue("Email", Email);
             command.Parameters.AddWithValue("CityID", CityID);
            
         }
