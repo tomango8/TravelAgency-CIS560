@@ -20,5 +20,10 @@ namespace DataModeling
             Name = name;
             CityID = cityID;
         }
+
+        public override string ToString()
+        {
+            return $"AttractionID: {AttractionID}, Name: {Name}, CityID: {CityID}";
+        }
     }
 }

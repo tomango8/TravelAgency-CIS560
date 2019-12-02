@@ -10,3 +10,8 @@ C:\Users\user\Source\Repos\TravelAgency-CIS560\DataAccess\obj\Debug\DataAccess.c
 C:\Users\user\Source\Repos\TravelAgency-CIS560\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\user\Source\Repos\TravelAgency-CIS560\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\user\Source\Repos\TravelAgency-CIS560\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\Toman\Desktop\RealTravelAgency\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\Toman\Desktop\RealTravelAgency\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\Toman\Desktop\RealTravelAgency\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
+C:\Users\Toman\Desktop\RealTravelAgency\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\Toman\Desktop\RealTravelAgency\DataAccess\obj\Debug\DataAccess.pdb
