@@ -36,6 +36,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C#\Connection\TripConnection.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetAgentsDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetCustomerDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetCustomersDelegate.cs" />
