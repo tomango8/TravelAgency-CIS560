@@ -5,7 +5,6 @@
     "\\DataModeling\\SQL",
     "\\DataModeling\\SQL\\Procedures",
     "\\DataModeling\\SQL\\Procedures\\AgencyProcedures",
-    "\\DataModeling\\SQL\\Procedures\\AirlinesProcedures",
     "\\UserInterface",
     "\\UserInterface\\bin"
   ],
