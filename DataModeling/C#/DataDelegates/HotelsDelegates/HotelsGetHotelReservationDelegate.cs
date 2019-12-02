@@ -27,7 +27,7 @@ namespace DataModeling
             if (!reader.Read())
                 throw new RecordNotFoundException(reservationId.ToString());
 
-            return new Hotel(reservationIdre,
+            return new HotelReservation(reservationIdre,
                reader.GetString("HotelID"),
                reader.GetString("DateOfReservation"),
                reader.GetString("Price"));
