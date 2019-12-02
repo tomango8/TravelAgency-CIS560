@@ -25,6 +25,14 @@ namespace UserInterface
             InitializeComponent();
         }
 
+        public MainMenu(string connectionString)
+        {
+            InitializeComponent();
+            string[] temp = connectionString.Split(';');
+            uxServer.Text = temp[0].Split('=')[1];
+            uxDatabase.Text = temp[1].Split('=')[1];          
+        }
+
         /// <summary>
         /// Open new trip setup page when user clicks "New Trip" button
         /// </summary>
@@ -32,7 +40,10 @@ namespace UserInterface
         /// <param name="args"></param>
         public void NewTrip_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new TripSetupScreen());
+            if(GetConnectionString(out string connectionString))
+            {
+                NavigationService.Navigate(new TripSetupScreen(connectionString));
+            }            
         }
 
         /// <summary>
@@ -42,7 +53,10 @@ namespace UserInterface
         /// <param name="args"></param>
         public void SearchTrips_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new SearchTripsScreen());
+            if(GetConnectionString(out string connectionString))
+            {
+                NavigationService.Navigate(new SearchTripsScreen(connectionString));
+            }            
         }
 
         /// <summary>
@@ -52,7 +66,29 @@ namespace UserInterface
         /// <param name="args"></param>
         public void TripStatistics_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new TripStatisticsScreen());
+            if(GetConnectionString(out string connectionString))
+            {
+                NavigationService.Navigate(new TripStatisticsScreen(connectionString));
+            }            
+        }
+
+        /// <summary>
+        /// Gets the connection string using the server and database
+        /// </summary>
+        /// <param name="connectionString">The connection string</param>
+        /// <returns>Whether the connection string was made</returns>
+        private bool GetConnectionString(out string connectionString)
+        {
+            connectionString = "";
+            string message = "";
+            if(Check.NonNull("Server", uxServer.Text, out message)
+                && Check.NonNull("Datebase", uxDatabase.Text, out message))
+            {
+                connectionString = "Server=" + uxServer.Text + ";Datebase=" + uxDatabase.Text + ";Integrated Security=SSPI;";
+                return true;
+            }
+            MessageBox.Show(message);
+            return false;
         }
     }
 }

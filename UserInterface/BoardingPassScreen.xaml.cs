@@ -21,16 +21,17 @@ namespace UserInterface
     public partial class BoardingPassScreen : Page
     {
         private int tripID;
-
+        private string connectionString;
         public BoardingPassScreen()
         {
             InitializeComponent();
         }
 
-        public BoardingPassScreen(int tripID, string city, string country, string region)
+        public BoardingPassScreen(string connectionString, int tripID, string city, string country, string region)
         {
             InitializeComponent();
             this.tripID = tripID;
+            this.connectionString = connectionString;
             uxArrivalCity.Text = city;
             uxArrivalCountry.Text = country;
             uxArrivalRegion.Text = region;

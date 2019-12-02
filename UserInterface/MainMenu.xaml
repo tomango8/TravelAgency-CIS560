@@ -26,6 +26,14 @@
                      <Setter Property="BorderThickness" Value="1"/>
                 </Style>
             </StackPanel.Resources>
+            <StackPanel Orientation="Horizontal" Margin="125,10,0,0">
+                <Label FontSize="20" FontWeight="Bold" >Server:</Label>
+                <TextBox Width="400" FontSize="22" Name="uxServer">(LocalDB)/</TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="100,5,0,50">
+                <Label FontSize="20" FontWeight="Bold">Database:</Label>
+                <TextBox Width="400" FontSize="22" Name="uxDatabase"></TextBox>
+            </StackPanel>
             <Button Click="NewTrip_Click">New Trip</Button>                        
             <Button Click="SearchTrips_Click">Search Trips</Button>
             <Button Click="TripStatistics_Click">Trip Statistics</Button>

@@ -20,17 +20,20 @@ namespace UserInterface
     /// </summary>
     public partial class TripSetupScreen : Page
     {
+        private string connectionString;
+
         public TripSetupScreen()
         {
             InitializeComponent();
         }
 
-        public TripSetupScreen(string agentID, string customerID)
+        public TripSetupScreen(string connectionString)
         {
             InitializeComponent();
-            uxAgentID.Text = agentID;
-            uxCustomerID.Text = customerID;
-        }
+            this.connectionString = connectionString;
+            LoadAllAgents();
+            LoadAllCustomers();
+        }        
 
         /// <summary>
         /// Open a new agent screen when the user clicks "New Agent" button
@@ -39,7 +42,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void NewAgent_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new NewAgentScreen());
+            NavigationService.Navigate(new NewAgentScreen(connectionString));
         }
 
         /// <summary>
@@ -49,7 +52,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void NewCustomer_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new NewCustomerScreen());
+            NavigationService.Navigate(new NewCustomerScreen(connectionString));
         }
 
         /// <summary>
@@ -69,7 +72,51 @@ namespace UserInterface
         /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MainMenu());
+            NavigationService.Navigate(new MainMenu(connectionString));
+        }
+
+        /// <summary>
+        /// Filters out agents based on min value; if null, displays all agents when user clicks "Search" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void SearchAgents_Click(object sender, RoutedEventArgs args)
+        {
+            LoadAllAgents();
+            if(uxAgentID.Text != "")
+            {
+                string message = "";
+                if(Check.ValidPositiveInt("AgentID", uxAgentID.Text, out message))
+                {
+                    FilterMinAgents(int.Parse(uxAgentID.Text));
+                }
+                else
+                {
+                    MessageBox.Show(message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Filters out customers based on min value; if null, displays all customers when user clicks "Search" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void SearchCustomers_Click(object sender, RoutedEventArgs args)
+        {
+            LoadAllCustomers();
+            if (uxCustomerID.Text != "")
+            {
+                string message = "";
+                if (Check.ValidPositiveInt("CustomerID", uxCustomerID.Text, out message))
+                {
+                    FilterMinCustomers(int.Parse(uxCustomerID.Text));
+                }
+                else
+                {
+                    MessageBox.Show(message);
+                }
+            }
         }
 
         /// <summary>
@@ -80,10 +127,10 @@ namespace UserInterface
         /// <param name="args"></param>
         public void PlanTrip_Click(object sender, RoutedEventArgs args)
         {
-            if(CheckValidInputs())
+            if(CheckValidInputs() && uxAgents.SelectedItem is TextBlock agent && uxCustomers.SelectedItem is TextBlock customer)
             {
-                int agentID = int.Parse(uxAgentID.Text);
-                int customerID = int.Parse(uxCustomerID.Text);
+                int agentID = int.Parse(agent.Text.Split(',')[0].Trim());
+                int customerID = int.Parse(customer.Text.Split(',')[0].Trim());
                 // CONNECT
                 // Lookup agent using agentID
                 // Lookup customer using customerID
@@ -98,7 +145,7 @@ namespace UserInterface
                 //      Create Trip using agent id and customer id
                         int tripID = 0; // = get trip id that was just created
 
-                        NavigationService.Navigate(new PlanTripScreen(tripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
+                        NavigationService.Navigate(new PlanTripScreen(connectionString, tripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
                 // } end else
             }            
         }        
@@ -109,14 +156,119 @@ namespace UserInterface
         /// <returns>Whether valid inputs or not</returns>
         private bool CheckValidInputs()
         {
-            string message = "";
-            if(Check.ValidPositiveInt("Agent ID", uxAgentID.Text, out message)
-                && Check.ValidPositiveInt("Customer ID", uxCustomerID.Text, out message))
+            if(uxAgents.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an agent");
+            }
+            else if(uxCustomers.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a customer");
+            }
+            else
             {
                 return true;
             }
-            MessageBox.Show(message);
             return false;
-        }        
+        }
+        
+        /// <summary>
+        /// Load all agents into the agent list
+        /// </summary>
+        private void LoadAllAgents()
+        {
+            uxAgents.Items.Clear();
+
+            // CONNECT
+            // Get list of all agents
+            // load all agents into uxAgents
+
+            // Test code - delete when connected to SQL
+            for(int i = 1; i < 16; i++)
+            {
+                TextBlock t = new TextBlock();
+                t.Text = i + ", AgentName";
+                uxAgents.Items.Add(t);
+            }
+            RefreshAgentList();
+        }
+
+        /// <summary>
+        /// Load all customers into the customer list
+        /// </summary>
+        private void LoadAllCustomers()
+        {
+            uxCustomers.Items.Clear();
+
+            // CONNECT
+            // Get list of all customers
+            // load all customers into uxCustomers
+
+            // Test code - detele when connected to SQL
+            for(int i = 1; i < 51; i++)
+            {
+                TextBlock t = new TextBlock();
+                t.Text = i + ", CustomerName, CustomerInformation...";
+                uxCustomers.Items.Add(t);
+            }
+            RefreshCustomerList();
+        }
+
+        /// <summary>
+        /// Filters agents by minAgentID
+        /// </summary>
+        /// <param name="minAgentID">Minimum agent id in agents</param>
+        private void FilterMinAgents(int minAgentID)
+        {
+            for(int i = 0; i < uxAgents.Items.Count; i++)
+            {
+                object item = uxAgents.Items[i];
+                if(item is TextBlock t)
+                {
+                    if(int.Parse(t.Text.Split(',')[0].Trim()) < minAgentID)
+                    {
+                        uxAgents.Items.Remove(item);
+                        i--;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Filters customers by minCustomerID
+        /// </summary>
+        /// <param name="minCustomerID">Minimum customer id in customers</param>
+        private void FilterMinCustomers(int minCustomerID)
+        {
+            for (int i = 0; i < uxCustomers.Items.Count; i++)
+            {
+                object item = uxCustomers.Items[i];
+                if (item is TextBlock t)
+                {
+                    if (int.Parse(t.Text.Split(',')[0].Trim()) < minCustomerID)
+                    {
+                        uxCustomers.Items.Remove(item);
+                        i--;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Refresh the agent list
+        /// </summary>
+        private void RefreshAgentList()
+        {
+            ListBox l = uxAgents;
+            uxAgents = l;
+        }
+
+        /// <summary>
+        /// Refresh the customer list
+        /// </summary>
+        private void RefreshCustomerList()
+        {
+            ListBox l = uxCustomers;
+            uxCustomers = l;
+        }
     }
 }

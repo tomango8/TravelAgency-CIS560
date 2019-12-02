@@ -20,9 +20,12 @@ namespace UserInterface
     /// </summary>
     public partial class NewAgentScreen : Page
     {
-        public NewAgentScreen()
+        private string connectionString;
+
+        public NewAgentScreen(string connectionString)
         {
             InitializeComponent();
+            this.connectionString = connectionString;
         }
 
         /// <summary>
