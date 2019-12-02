@@ -1,11 +1,13 @@
 using DataAccess;
-using PersonData.Models;
+using DataModeling.Model;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DataModeling
+namespace DataModeling.C_.DataDelegates.AgencyProcedures
 {
-    internal class AgencyRetrieveCustomerContactInfoDelegate : DataReaderDelegate<CustomerContact>
+    internal class AgencyRetrieveCustomerContactInfoDelegate : DataReaderDelegate<ContactInfo>
     {
         private readonly int ContactID;
 
@@ -22,16 +24,16 @@ namespace DataModeling
             command.Parameters.AddWithValue("ContactID", ContactID);
         }
 
-        public override CustomerContact Translate(SqlCommand command, IDataRowReader reader)
+        public override ContactInfo Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
                 throw new RecordNotFoundException(ReservationID.ToString());
 
-            return new CustomerContact(reader.GetString("ContactID"),
+            return new ContactInfo(reader.GetInt32("ContactID"),
                reader.GetString("BillingAddress"),
                reader.GetString("Phone"),
                reader.GetString("Email"),
-               reader.GetString("CityID")
+               reader.GetInt32("CityID")
                );
         }
     }

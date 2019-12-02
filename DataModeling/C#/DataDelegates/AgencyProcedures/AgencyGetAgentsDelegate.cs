@@ -1,13 +1,14 @@
 using DataAccess;
-using PersonData.Models;
+using DataModeling.Model;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
-namespace DataModeling
+namespace DataModeling.C_.DataDelegates.AgencyProcedures
 {
-    internal class RetrievePersonsDataDelegate : DataReaderDelegate<IReadOnlyList<Agent>>
+    internal class AgencyGetAgentsDelegate : DataReaderDelegate<IReadOnlyList<Agent>>
     {
-        public RetrievePersonsDataDelegate()
+        public AgencyGetAgentsDelegate()
            : base("Agency.GetAgents")
         {
         }
@@ -18,7 +19,7 @@ namespace DataModeling
 
             while (reader.Read())
             {
-                persons.Add(new Agent(
+                Agents.Add(new Agent(
                    reader.GetInt32("AgentID"),
                    reader.GetString("Name")));
             }
