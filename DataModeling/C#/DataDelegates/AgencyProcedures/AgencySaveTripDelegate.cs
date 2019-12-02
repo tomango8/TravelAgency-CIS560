@@ -7,21 +7,21 @@ namespace DataModeling
 {
     internal class AgencySaveTripDelegate : DataDelegate
     {
-        private readonly int TripID;
-        private readonly int CustomerID;
-        private readonly int IsDeleted; //ut can create problem
-        private readonly string DateCreated;
-        private readonly int AgentID;
+        private readonly int tripID;
+        private readonly int customerID;
+        private readonly int isDeleted; //ut can create problem
+        private readonly string dateCreated;
+        private readonly int agentID;
 
 
-        public AgencySaveTripDelegate(int TripID, int CustomerID, int IsDeleted, string DateCreated, int AgentID)
+        public AgencySaveTripDelegate(int tripID, int customerID, int isDeleted, string dateCreated, int agentID)
            : base("Agency.SaveTrip")
         {
-            this.TripID = TripID;
-            this.CustomerID = CustomerID;
-            this.IsDeleted = IsDeleted;
-            this.DateCreated = DateCreated;
-            this.AgentID = AgentID;
+            this.tripID = tripID;
+            this.customerID = customerID;
+            this.isDeleted = isDeleted;
+            this.dateCreated = dateCreated;
+            this.agentID = agentID;
 
         }
 
