@@ -20,6 +20,9 @@ namespace UserInterface
     /// </summary>
     public partial class PlanTripScreen : Page
     {
+        private string connectionString;
+        //private List<Reservation> reservations
+
         private int tripID;
         private string country = "";
         private string region = "";
@@ -30,19 +33,23 @@ namespace UserInterface
             InitializeComponent();
         }
 
-        public PlanTripScreen(int tripID)
+        public PlanTripScreen(string connectionString, int tripID)
         {
             InitializeComponent();
+            this.connectionString = connectionString;
             this.tripID = tripID;
+            LoadAllReservations();
         }
 
-        public PlanTripScreen(int tripID, string country, string region, string cityName)
+        public PlanTripScreen(string connectionString, int tripID, string country, string region, string cityName)
         {
             InitializeComponent();
+            this.connectionString = connectionString;
             this.tripID = tripID;
             this.country = country;
             this.region = region;
             this.cityName = cityName;
+            LoadAllReservations();
         }
 
         /// <summary>
@@ -52,7 +59,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MainMenu());
+            NavigationService.Navigate(new MainMenu(connectionString));
         }
 
         /// <summary>
@@ -62,7 +69,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void NewHotelReservation_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new HotelReservationScreen(tripID, country, region, cityName));
+            NavigationService.Navigate(new HotelReservationScreen(connectionString, tripID, country, region, cityName));
         }
 
         /// <summary>
@@ -72,7 +79,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void NewBoardingPass_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new BoardingPassScreen(tripID, cityName, country, region));
+            NavigationService.Navigate(new BoardingPassScreen(connectionString, tripID, cityName, country, region));
         }
 
         /// <summary>
@@ -82,7 +89,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void NewAttractionTicket_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new NewAttractionTicketScreen(tripID, cityName, region, country));
+            NavigationService.Navigate(new NewAttractionTicketScreen(connectionString, tripID, cityName, region, country));
         }
 
         /// <summary>
@@ -92,7 +99,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void NewRestaurantReservation_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new NewRestaurantReservationScreen(tripID, cityName, region, country));
+            NavigationService.Navigate(new NewRestaurantReservationScreen(connectionString, tripID, cityName, region, country));
         }
 
         /// <summary>
@@ -102,7 +109,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void NewCarRentalReservation_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new NewCarRentalReservationScreen(tripID, cityName, region, country));
+            NavigationService.Navigate(new NewCarRentalReservationScreen(connectionString, tripID, cityName, region, country));
         }
 
         /// <summary>
@@ -112,7 +119,57 @@ namespace UserInterface
         /// <param name="args"></param>
         public void DeleteSelected_Click(object sender, RoutedEventArgs args)
         {            
+            if(uxReservations.SelectedItem != null)
+            {
+                if(uxReservations.SelectedItem is TextBlock t)
+                {
+                    int reservationID = int.Parse(t.Text.Split(',')[0].Trim());
 
+                    // CONNECT
+                    // delete reservation using reservationID
+
+                    uxReservations.Items.Remove(uxReservations.SelectedItem);
+                    MessageBox.Show("Reservation " + reservationID + " was successfully deleted.");
+                }
+                else
+                {
+                    MessageBox.Show("Unable to access selected reserveration");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a reservation to delete");
+            }
+        }
+
+        /// <summary>
+        /// Loads all the reservations into the reservation list
+        /// </summary>
+        private void LoadAllReservations()
+        {
+            uxReservations.Items.Clear();
+
+            // CONNECT
+            // Get list of reservations and load into list
+
+            // Test code - delete when connected to SQL
+            for(int i = 1; i < 11; i++)
+            {
+                TextBlock t = new TextBlock();
+                t.Text = i + ", ReservationType, Information about reservation...";
+                uxReservations.Items.Add(t);
+            }
+            
+            RefreshReservationList();
+        }
+
+        /// <summary>
+        /// Refreshes the reservation list
+        /// </summary>
+        private void RefreshReservationList()
+        {
+            ListBox l = uxReservations;
+            uxReservations = l;
         }
     }
 }

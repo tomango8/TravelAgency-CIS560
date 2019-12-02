@@ -42,14 +42,14 @@
                 <StackPanel.Resources>
                     <Style TargetType="ListBox">
                         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
-                        <Setter Property="Height" Value="500"/>
+                        <Setter Property="Height" Value="480"/>
                         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Visible"/>
                     </Style>
                 </StackPanel.Resources>
-                <ListBox Name="list">
+                <Label FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Reservation List</Label>
+                <ListBox Name="uxReservations">
                     
-                </ListBox>
-                
+                </ListBox>                
             </StackPanel>
         </Grid>
                 

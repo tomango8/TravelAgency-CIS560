@@ -44,7 +44,7 @@
                         <TextBox Width="100" Name="uxFlightID"></TextBox>
                         <Button Click="Autofill_Click">Autofill</Button>
                         <Label>Airline</Label>
-                        <TextBox Width="200" Name="uxAirlineName"></TextBox>
+                        <TextBox Width="150" Name="uxAirlineName"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label>Boarding Pass Price: $</Label>
@@ -55,26 +55,26 @@
                         <Label>Time</Label>
                         <TextBox Width="106" Name="uxDepartureTime"></TextBox>
                         <Label>City</Label>
-                        <TextBox Width="228" Name="uxDepartureCity"></TextBox>
+                        <TextBox Width="148" Name="uxDepartureCity"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label>Country</Label>
                         <TextBox Width="200" Name="uxDepartureCountry"></TextBox>
                         <Label>Region</Label>
-                        <TextBox Width="200" Name="uxDepartureRegion"></TextBox>
+                        <TextBox Width="120" Name="uxDepartureRegion"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
                         <Label FontWeight="Bold">Arrival:</Label>
                         <Label>Time</Label>
                         <TextBox Width="106" Name="uxArrivalTime"></TextBox>
                         <Label>City</Label>
-                        <TextBox Width="228" Name="uxArrivalCity"></TextBox>
+                        <TextBox Width="178" Name="uxArrivalCity"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label>Country</Label>
                         <TextBox Width="200" Name="uxArrivalCountry"></TextBox>
                         <Label>Region</Label>
-                        <TextBox Width="200" Name="uxArrivalRegion"></TextBox>
+                        <TextBox Width="120" Name="uxArrivalRegion"></TextBox>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Grid.Column="1">

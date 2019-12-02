@@ -18,14 +18,15 @@
             <TextBlock HorizontalAlignment="Center" FontSize="35" FontWeight="Bold">Trip Statistics</TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <ListBox Height="300">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
+            <StackPanel.Resources>
+                <Style TargetType="ListBox">
+                    <Setter Property="Height" Value="270"/>
+                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
+                </Style>
+            </StackPanel.Resources>
+            <Label FontSize="20" Name="uxReportListLabel">Columns, , , ,</Label>
+            <ListBox Name="uxReportList">
+                
             </ListBox>
         </StackPanel>
         <StackPanel Grid.Row="3" HorizontalAlignment="Center">
@@ -38,12 +39,12 @@
                 </Style>
             </StackPanel.Resources>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button>Report 1</Button>
-                <Button>Report 2</Button>
+                <Button Click="Report1_Click">Report 1</Button>
+                <Button Click="Report2_Click">Report 2</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button>Report 3</Button>
-                <Button>Report 4</Button>
+                <Button Click="Report3_Click">Report 3</Button>
+                <Button Click="Report4_Click">Report 4</Button>
                 <Button Click="MainMenu_Click">Main Menu</Button>
             </StackPanel>
         </StackPanel>

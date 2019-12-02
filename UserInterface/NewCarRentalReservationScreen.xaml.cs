@@ -21,16 +21,18 @@ namespace UserInterface
     public partial class NewCarRentalReservationScreen : Page
     {
         private int tripID;
+        private string connectionString;
 
         public NewCarRentalReservationScreen()
         {
             InitializeComponent();
         }
 
-        public NewCarRentalReservationScreen(int tripID, string city, string region, string country)
+        public NewCarRentalReservationScreen(string connectionString, int tripID, string city, string region, string country)
         {
             InitializeComponent();
             this.tripID = tripID;
+            this.connectionString = connectionString;
             uxCity.Text = city;
             uxRegion.Text = region;
             uxCountry.Text = country;

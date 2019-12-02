@@ -21,16 +21,18 @@ namespace UserInterface
     public partial class NewAttractionTicketScreen : Page
     {
         private int tripID;
+        private string connectionString;
 
         public NewAttractionTicketScreen()
         {
             InitializeComponent();
         }
 
-        public NewAttractionTicketScreen(int tripID, string city, string region, string country)
+        public NewAttractionTicketScreen(string connectionString, int tripID, string city, string region, string country)
         {
             InitializeComponent();
             this.tripID = tripID;
+            this.connectionString = connectionString;
             uxCity.Text = city;
             uxRegion.Text = region;
             uxCountry.Text = country;

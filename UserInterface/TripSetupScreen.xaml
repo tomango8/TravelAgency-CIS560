@@ -5,12 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UserInterface"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="850"
       Title="TripSetupScreen">
 
     <Grid Background="Beige">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
@@ -37,17 +38,7 @@
                         <Setter Property="FontSize" Value="20"/>
                         <Setter Property="Margin" Value="0,5,0,5"/>
                     </Style>
-                </StackPanel.Resources>
-                <StackPanel Orientation="Horizontal">
-                    <Label>Agent ID</Label>
-                    <TextBox Width="132" Name="uxAgentID"></TextBox>
-                    <Button>Search</Button>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label>Customer ID</Label>
-                    <TextBox Width="100" Name="uxCustomerID"></TextBox>
-                    <Button>Search</Button>
-                </StackPanel>                
+                </StackPanel.Resources>                          
                 <Label FontWeight="Bold">Trip Destination:</Label>
                 <StackPanel Orientation="Horizontal">
                     <Label>Country</Label>
@@ -60,7 +51,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Label>City</Label>
                     <TextBox Width="377" Name="uxCity"></TextBox>
-                </StackPanel>
+                </StackPanel>                
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="0,10,0,0">
                 <StackPanel.Resources>
@@ -76,7 +67,48 @@
                 <Button Click="MainMenu_Click">Main Menu</Button>
             </StackPanel>            
         </Grid>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="40,0,0,0">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>              
+
+                <Style TargetType="ListBox">
+                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
+                    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Visible"/>
+                    <Setter Property="Margin" Value="0,0,40,10"/>
+                    <Setter Property="Width" Value="350"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="17"/>
+                    <Setter Property="Margin" Value="5,0,0,0"/>
+                    <Setter Property="Width" Value="70"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="FontSize" Value="22"/>
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel>
+                <TextBlock FontSize="20" Margin="0,0,40,0" HorizontalAlignment="Center" FontWeight="Bold">Agents</TextBlock>
+                <ListBox Height="150" Name="uxAgents"></ListBox>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Min Agent ID</Label>
+                    <TextBox Width="100" Name="uxAgentID"></TextBox>
+                    <Button Click="SearchAgents_Click">Search</Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock FontSize="20" Margin="0,0,40,0" HorizontalAlignment="Center" FontWeight="Bold">Customers</TextBlock>
+                <ListBox Height="150" Name="uxCustomers"></ListBox>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Min Customer ID</Label>
+                    <TextBox Width="100" Name="uxCustomerID"></TextBox>
+                    <Button Click="SearchCustomers_Click">Search</Button>
+                </StackPanel>
+            </StackPanel>            
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Width" Value="250"/>
