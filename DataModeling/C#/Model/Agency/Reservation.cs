@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataModeling.Model
 {
-    public class Reservations
+    public class Reservation
     {
         public int ReservationID { get; }
 
-        public DateTime DateCreated { get; }
+        public DateTimeOffset DateCreated { get; }
 
         public bool IsDeleted { get; }
 
@@ -26,7 +26,7 @@ namespace DataModeling.Model
 
         public int TripID { get; }
 
-        public Reservations(int reservationID, DateTime dateCreated, bool isDeleted, bool carReservation, bool hotelReservation, bool boardingPass, bool attractionTicket, bool restaurantReservation, int tripID)
+        public Reservation(int reservationID, DateTimeOffset dateCreated, bool isDeleted, bool carReservation, bool hotelReservation, bool boardingPass, bool attractionTicket, bool restaurantReservation, int tripID)
         {
             ReservationID = reservationID;
             DateCreated = dateCreated;

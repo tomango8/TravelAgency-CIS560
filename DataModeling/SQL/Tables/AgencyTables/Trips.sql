@@ -1,12 +1,12 @@
 ﻿CREATE TABLE Agency.Trips
 (
 	TripID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	CustomerID INT FOREIGN KEY
+	CustomerID INT NOT NULL FOREIGN KEY
 	REFERENCES Agency.Customer(CustomerID),
 	REFERENCES Agency.Reservations(TripID),
 	
-	IsDeleted BIT,
-	DataCreated DATE,
+	IsDeleted BIT NOT NULL DEFAULT(0),
+	DataCreated DATETIMEOFFSET NOT NULL DEFAULT(SYSDATETIMEOFFSET()),
 	AgentID INT FOREIGN KEY
 	REFERENCES Agency.Agents(AgentID), 
 )

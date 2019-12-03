@@ -17,7 +17,7 @@ namespace DataModeling.Connection
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Trips CreateTrip(int tripID, int customerID, int isDeleted, string dateCreated, int agentID)
+        public Trip CreateTrip(int tripID, int customerID, int isDeleted, string dateCreated, int agentID)
         {
             var d = new AgencySaveTripDelegate(tripID, customerID, isDeleted, dateCreated, agentID);
             return executor.ExecuteNonQuery(d);

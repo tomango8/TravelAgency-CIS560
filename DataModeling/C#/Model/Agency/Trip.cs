@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataModeling.Model
 {
-    public class Trips
+    public class Trip
     {
         public int TripID { get; }
 
@@ -14,11 +14,11 @@ namespace DataModeling.Model
 
         public bool IsDeleted { get; }
 
-        public DateTime DateCreated { get; }
+        public DateTimeOffset DateCreated { get; }
 
         public int AgentID { get; }
 
-        public Trips(int tripID, int customerID, bool isDeleted, DateTime dateCreated, int agentID)
+        public Trip(int tripID, int customerID, bool isDeleted, DateTimeOffset dateCreated, int agentID)
         {
             TripID = tripID;
             CustomerID = customerID;
@@ -27,6 +27,16 @@ namespace DataModeling.Model
             AgentID = agentID;
      
         }
+
+        public Trip(int tripID, int customerID, DateTimeOffset dateCreated, int agentID)
+        {
+            TripID = tripID;
+            CustomerID = customerID;
+            DateCreated = dateCreated;
+            AgentID = agentID;
+            IsDeleted = false;
+        }
+
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();

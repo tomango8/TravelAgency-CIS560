@@ -25,10 +25,19 @@ namespace DataModeling.Model
             IsDeleted = isDeleted;
         }
 
+        public Agent(int aID, string name, float salary)
+        {
+            AgentID = aID;
+            Name = name;
+            Salary = salary;
+            IsDeleted = false;
+        }
+
         public Agent(int id, string name)
         {
             this.AgentID = id;
             this.Name = name;
+            IsDeleted = false;
         }
 
         public override string ToString()
@@ -50,7 +59,6 @@ namespace DataModeling.Model
                 result.Append("Not Deleted");
             }
             return result.ToString();
-
         }
 
     }

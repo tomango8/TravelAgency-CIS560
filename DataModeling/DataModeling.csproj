@@ -37,9 +37,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="C#\Connection\TripConnection.cs" />
+    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCreateTripDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetAgentDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetAgentsDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetCustomerDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetCustomersDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetTripDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyRetrieveAgentTripsDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyRetrieveCustomerContactInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencySaveCustomerContactInfoDelegate.cs" />
@@ -67,10 +70,10 @@
     <Compile Include="C#\Model\Agency\Customer.cs" />
     <Compile Include="C#\Model\Hotel\Hotel.cs" />
     <Compile Include="C#\Model\Hotel\HotelReservation.cs" />
-    <Compile Include="C#\Model\Agency\Reservations.cs" />
+    <Compile Include="C#\Model\Agency\Reservation.cs" />
     <Compile Include="C#\Model\Restaurants\Restaurant.cs" />
     <Compile Include="C#\Model\Restaurants\RestaurantReservation.cs" />
-    <Compile Include="C#\Model\Agency\Trips.cs" />
+    <Compile Include="C#\Model\Agency\Trip.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateAgent.sql" />
@@ -81,9 +84,11 @@
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateHotelReservation.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateRestaurantReservation.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateTrip.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetAgent.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetAgents.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetCustomer.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetCustomers.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetTrip.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveAgentTrips.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveCustomerContactInfo.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveCustomerTrips.sql" />

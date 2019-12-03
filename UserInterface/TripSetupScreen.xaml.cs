@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccess;
+using DataModeling;
+using DataModeling.Model;
 
 namespace UserInterface
 {
@@ -131,22 +134,36 @@ namespace UserInterface
             {
                 int agentID = int.Parse(agent.Text.Split(',')[0].Trim());
                 int customerID = int.Parse(customer.Text.Split(',')[0].Trim());
-                // CONNECT
+                
+                // CONNECT                
+                
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
                 // Lookup agent using agentID
+                if (executor.ExecuteReader(new AgencyGetAgentDelegate(agentID)) == null)
+                {
+                    MessageBox.Show("Agent does not exist in database");
+                }
                 // Lookup customer using customerID
-                // if agent is null
-                //      MessageBox.Show("Agent does not exist");
-                // else if customer is null
-                //      MessageBox.Show("Customer does not exist");
-                // else
-                // {
+                else if (executor.ExecuteReader(new AgencyGetCustomerDelegate(customerID)) == null)
+                {
+                    MessageBox.Show("Customer does not exist in database");
+                }
+                else
+                {
+                    //Create trip
+                    Trip trip = executor.ExecuteNonQuery(new AgencyCreateTripDelegate(customerID, agentID));
 
-                // CONNECT
-                //      Create Trip using agent id and customer id
-                        int tripID = 0; // = get trip id that was just created
-
-                        NavigationService.Navigate(new PlanTripScreen(connectionString, tripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
-                // } end else
+                    if(trip == null)
+                    {
+                        MessageBox.Show("Trip failed to be created");
+                    }
+                    else
+                    {                       
+                        // Navigate to plan trip screen   
+                        NavigationService.Navigate(new PlanTripScreen(connectionString, trip.TripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
+                    }
+                }            
             }            
         }        
 

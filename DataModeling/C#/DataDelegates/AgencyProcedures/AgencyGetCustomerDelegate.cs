@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DataModeling.C_.DataDelegates.AgencyProcedures
+namespace DataModeling
 {
-    internal class AgencyRetrieveAgentTripsDelegate : DataReaderDelegate<Customer>
+    public class AgencyGetCustomerDelegate : DataReaderDelegate<Customer>
     {
         private readonly int customerID;
 
-        public AgencyRetrieveAgentTripsDelegate(int customerID)
+        public AgencyGetCustomerDelegate(int customerID)
            : base("Agency.GetCustomer")
         {
             this.customerID = customerID;

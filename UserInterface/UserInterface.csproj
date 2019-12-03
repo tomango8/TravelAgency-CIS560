@@ -179,5 +179,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{a5ac459d-6c0a-4d6e-ad65-ecb3e0fec3a7}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModeling\DataModeling.csproj">
+      <Project>{19f408ea-65d7-4ad6-a96d-0f6e5fbe7875}</Project>
+      <Name>DataModeling</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
