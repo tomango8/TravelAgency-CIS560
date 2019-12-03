@@ -1,15 +1,17 @@
 using DataAccess;
-using PersonData.Models;
+using DataModeling.Model;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DataModeling
+namespace DataModeling.C_.DataDelegates.AgencyProcedures
 {
-    internal class AgencyGetCustomerDelegate : DataReaderDelegate<Customer>
+    internal class AgencyRetrieveAgentTripsDelegate : DataReaderDelegate<Customer>
     {
         private readonly int customerID;
 
-        public AgencyGetCustomerDelegate(int customerID)
+        public AgencyRetrieveAgentTripsDelegate(int customerID)
            : base("Agency.GetCustomer")
         {
             this.customerID = customerID;
@@ -25,15 +27,16 @@ namespace DataModeling
         public override Customer Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
-                throw new RecordNotFoundException(ReservationID.ToString());
+                throw new RecordNotFoundException(customerID.ToString());
 
             return new Customer(customerID,
-               reader.GetString("Name"),
-               reader.GetString("Budget"),
-               reader.GetString("Age"),
+                reader.GetString("Name"),
+               reader.GetInt32("Budget"),
+               reader.GetInt32("Age"),
                reader.GetString("Sex"),
-               reader.GetString("ContactID")
-               );
+               reader.GetInt32("ContactID"),
+               reader.GetValue<bool>("IsDeleted")
+               ); ;
         }
     }
 }

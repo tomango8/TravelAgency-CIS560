@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataModeling.Model
 {
-    public class Agents
+    public class Agent
     {
+
         public int AgentID { get; }
 
         public string Name { get; }
@@ -16,13 +17,20 @@ namespace DataModeling.Model
 
         public bool IsDeleted { get; }
 
-        public Agents(int aID, string name, float salary, bool isDeleted)
+        public Agent(int aID, string name, float salary, bool isDeleted)
         {
             AgentID = aID;
             Name = name;
             Salary = salary;
             IsDeleted = isDeleted;
         }
+
+        public Agent(int id, string name)
+        {
+            this.AgentID = id;
+            this.Name = name;
+        }
+
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();

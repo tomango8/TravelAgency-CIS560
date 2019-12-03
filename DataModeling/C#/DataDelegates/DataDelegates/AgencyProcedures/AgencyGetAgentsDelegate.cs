@@ -5,9 +5,9 @@ using System.Data.SqlClient;
 
 namespace DataModeling
 {
-    internal class RetrievePersonsDataDelegate : DataReaderDelegate<IReadOnlyList<Agent>>
+    internal class AgencyGetAgentsDelegate : DataReaderDelegate<IReadOnlyList<Agent>>
     {
-        public RetrievePersonsDataDelegate()
+        public AgencyGetAgentsDelegate()
            : base("Agency.GetAgents")
         {
         }

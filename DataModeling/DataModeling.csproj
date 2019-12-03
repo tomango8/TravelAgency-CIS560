@@ -44,6 +44,7 @@
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyRetrieveCustomerContactInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencySaveCustomerContactInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencySaveTripDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCreateAgentDelegate.cs" />
     <Compile Include="C#\DataDelegates\AirlinesDelegates\RetrieveFlightInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\CreateAttractionDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsGetHotelReservationDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantReservationDelegate.cs" />
-    <Compile Include="C#\Model\Agency\Agents.cs" />
+    <Compile Include="C#\Model\Agency\Agent.cs" />
     <Compile Include="C#\Model\Airlines\Flight.cs" />
     <Compile Include="C#\Model\Attractions\Attraction.cs" />
     <Compile Include="C#\Model\Attractions\AttractionTicket.cs" />
