@@ -1,4 +1,3 @@
-using PersonData.Models;
 using DataAccess;
 using System.Data.SqlClient;
 using System.Data;
