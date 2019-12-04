@@ -46,6 +46,16 @@ namespace DataAccess
          return GetValue(name, reader.GetDateTimeOffset);
       }
 
+      public float GetFloat(string name)
+      {
+          return GetValue(name, reader.GetFloat);
+      }
+
+      public bool GetBitToBool(string name)
+      {
+            return GetValue(name, reader.GetBoolean);
+      }
+
       public T GetValue<T>(string name)
       {
          return (T)reader.GetValue(reader.GetOrdinal(name));

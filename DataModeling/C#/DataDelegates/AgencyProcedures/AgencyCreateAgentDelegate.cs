@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DataModeling.C_.DataDelegates.AgencyProcedures
+namespace DataModeling
 {
     
-    internal class AgencyCreateAgentDelegate : NonQueryDataDelegate<Agents>
+    internal class AgencyCreateAgentDelegate : NonQueryDataDelegate<Agent>
     {
         public readonly string name;
         public readonly float salary;
@@ -33,9 +33,9 @@ namespace DataModeling.C_.DataDelegates.AgencyProcedures
             p.Direction = ParameterDirection.Output;
         }
 
-        public override Agents Translate(SqlCommand command)
+        public override Agent Translate(SqlCommand command)
         {
-            return new Agents((int)command.Parameters["AgentID"].Value, name, salary, isDeleted);
+            return new Agent((int)command.Parameters["AgentID"].Value, name, salary, isDeleted);
         }
     }
 

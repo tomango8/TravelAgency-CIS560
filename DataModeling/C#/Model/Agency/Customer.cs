@@ -22,7 +22,7 @@ namespace DataModeling.Model
 
         public bool IsDeleted { get; }
 
-        public Customer(int customerID,  string name, int budget, int age, string sex, int contactID, bool isDeleted)
+        public Customer(int customerID,  string name, float budget, int age, string sex, int contactID, bool isDeleted)
         {
             CustomerID = customerID;
             Name = name;

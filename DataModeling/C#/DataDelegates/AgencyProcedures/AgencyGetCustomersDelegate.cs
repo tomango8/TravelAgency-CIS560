@@ -1,29 +1,34 @@
 using DataAccess;
-using PersonData.Models;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using DataModeling.Model;
 
 namespace DataModeling
 {
-    internal class AgencyGetAgentsDelegate : DataReaderDelegate<IReadOnlyList<Customer>>
+    internal class AgencyGetCustomersDelegate : DataReaderDelegate<IReadOnlyList<Customer>>
     {
-        public AgencyGetAgentsDelegate()
+        public AgencyGetCustomersDelegate()
            : base("Agency.GetCustomers")
         {
         }
 
         public override IReadOnlyList<Customer> Translate(SqlCommand command, IDataRowReader reader)
         {
-            var Customers = new List<Customer>();
+            var customers = new List<Customer>();
 
             while (reader.Read())
             {
-                persons.Add(new Customer(
+                customers.Add(new Customer(                   
+                   reader.GetInt32("CustomerID"), 
                    reader.GetString("Name"),
-                   reader.GetInt32("CustomerID")));
+                   reader.GetFloat("Budget"),
+                   reader.GetInt32("Age"),
+                   reader.GetString("Sex"),
+                   reader.GetInt32("ContactID"),
+                   reader.GetBitToBool("IsDeleted")));
             }
 
-            return Customers;
+            return customers;
         }
     }
 }
