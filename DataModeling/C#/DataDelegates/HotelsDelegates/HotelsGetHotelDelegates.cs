@@ -1,11 +1,11 @@
 using DataAccess;
-using PersonData.Models;
 using System.Data;
 using System.Data.SqlClient;
+using DataModeling.Model;
 
 namespace DataModeling
 {
-    internal class HotelsGetHotelDelegate : DataReaderDelegate<Hotel>
+    public class HotelsGetHotelDelegate : DataReaderDelegate<Hotel>
     {
         private readonly int hotelID;
 
@@ -25,13 +25,12 @@ namespace DataModeling
         public override Hotel Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
-                throw new RecordNotFoundException(hotelID.ToString());
+                return null;
 
-            return new Hotel(hotelID,
+            return new Hotel(hotelID,              
+               reader.GetInt32("CityID"),
                reader.GetString("Name"),
-               reader.GetString("CityID"),
-               reader.GetString("FullAddress"),
-               reader.GetString("Hotel"));
+               reader.GetString("FullAddress"));
         }
     }
 }

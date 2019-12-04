@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 namespace DataModeling
 {
     
-    internal class AgencyCreateAgentDelegate : NonQueryDataDelegate<Agent>
+    public class AgencyCreateAgentDelegate : NonQueryDataDelegate<Agent>
     {
         public readonly string name;
         public readonly float salary;

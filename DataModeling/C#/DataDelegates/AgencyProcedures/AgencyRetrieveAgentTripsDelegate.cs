@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace DataModeling
 {
-    internal class AgencyRetrieveAgentTripsDelegate : DataReaderDelegate<IReadOnlyList<Trip>>
+    public class AgencyRetrieveAgentTripsDelegate : DataReaderDelegate<IReadOnlyList<Trip>>
     {
         private readonly int AgentID;
 

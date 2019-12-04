@@ -4,7 +4,7 @@ using System.Data;
 
 namespace DataModeling
 {
-    internal class AgencySaveTripDelegate : DataDelegate
+    public class AgencySaveTripDelegate : DataDelegate
     {
         private readonly int tripID;
         private readonly int customerID;

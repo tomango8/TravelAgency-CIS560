@@ -10,12 +10,12 @@ namespace DataModeling.Model
     {
         public int HotelID { get; }
 
-        public string CityID { get;  }
+        public int CityID { get;  }
         public string Name { get;  }
 
         public string FullAddress { get;  }
 
-        public Hotel(int hotelID, string cityID, string name, string fullAddress)
+        public Hotel(int hotelID, int cityID, string name, string fullAddress)
         {
             HotelID = hotelID;
             CityID = cityID;

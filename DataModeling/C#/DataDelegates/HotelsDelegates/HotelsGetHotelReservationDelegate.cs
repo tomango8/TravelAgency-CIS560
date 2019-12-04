@@ -1,11 +1,11 @@
 using DataAccess;
-using PersonData.Models;
 using System.Data;
 using System.Data.SqlClient;
+using DataModeling.Model;
 
 namespace DataModeling
 {
-    internal class HotelsGetHotelReservationDelegate : DataReaderDelegate<HotelReservation>
+    public class HotelsGetHotelReservationDelegate : DataReaderDelegate<HotelReservation>
     {
         private readonly int reservationId;
 
@@ -27,10 +27,10 @@ namespace DataModeling
             if (!reader.Read())
                 throw new RecordNotFoundException(reservationId.ToString());
 
-            return new HotelReservation(reservationIdre,
-               reader.GetString("HotelID"),
-               reader.GetString("DateOfReservation"),
-               reader.GetString("Price"));
+            return new HotelReservation(reservationId,
+               reader.GetInt32("HotelID"),
+               reader.GetDateTime("DateOfReservation"),
+               reader.GetFloat("Price"));
         }
     }
 }

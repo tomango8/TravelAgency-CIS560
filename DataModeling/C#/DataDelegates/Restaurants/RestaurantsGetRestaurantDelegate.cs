@@ -1,15 +1,15 @@
 using DataAccess;
-using PersonData.Models;
 using System.Data;
 using System.Data.SqlClient;
+using DataModeling.Model;
 
 namespace DataModeling
 {
-    internal class HotelsGetHotelDelegate : DataReaderDelegate<RestaurantReservation>
+    public class RestaurantsGetRestaurantDelegate : DataReaderDelegate<RestaurantReservation>
     {
         private readonly int reservationID;
 
-        public HotelsGetHotelDelegate(int reservationID)
+        public RestaurantsGetRestaurantDelegate(int reservationID)
            : base("Restaurants.GetRestaurant")
         {
             this.reservationID = reservationID;
@@ -25,12 +25,12 @@ namespace DataModeling
         public override RestaurantReservation Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
-                throw new RecordNotFoundException(ReservationID.ToString());
+                return null;
 
-            return new RestaurantReservation(reader.GetString("ReservationID"),
-               reader.GetString("ReservationDate"),
-               reader.GetString("RestaurantID"),
-               reader.GetString("ReservationTime")
+            return new RestaurantReservation(reservationID,
+               reader.GetDateTime("ReservationDate"),
+               reader.GetInt32("RestaurantID"),
+               reader.GetDateTime("ReservationTime")
                );
         }
     }

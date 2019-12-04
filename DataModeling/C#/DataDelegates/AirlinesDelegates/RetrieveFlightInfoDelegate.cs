@@ -5,7 +5,7 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    internal class RetrieveFlightInfoDelegate : DataReaderDelegate<Flight>
+    public class RetrieveFlightInfoDelegate : DataReaderDelegate<Flight>
     {
         private readonly int flightID;
 

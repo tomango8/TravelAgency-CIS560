@@ -5,7 +5,7 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    internal class AgencyGetCustomersDelegate : DataReaderDelegate<IReadOnlyList<Customer>>
+    public class AgencyGetCustomersDelegate : DataReaderDelegate<IReadOnlyList<Customer>>
     {
         public AgencyGetCustomersDelegate()
            : base("Agency.GetCustomers")

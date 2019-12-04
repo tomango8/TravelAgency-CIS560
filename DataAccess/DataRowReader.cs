@@ -59,7 +59,7 @@ namespace DataAccess
       public DateTime GetDateTime(string name)
       {
           return GetValue(name, reader.GetDateTime);
-      }
+      }      
 
       public T GetValue<T>(string name)
       {

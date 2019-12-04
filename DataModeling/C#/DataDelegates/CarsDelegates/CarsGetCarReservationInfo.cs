@@ -5,7 +5,7 @@ using DataModeling.Model;
 
 namespace PersonData.DataDelegates
 {
-    internal class CarsGetCarReservationInfo : DataReaderDelegate<CarRentalReservation>
+    public class CarsGetCarReservationInfo : DataReaderDelegate<CarRentalReservation>
     {
         private readonly int reservationID;
 

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DataModeling.C_.DataDelegates.AgencyProcedures
+namespace DataModeling
 {
-    internal class AgencyGetAgentsDelegate : DataReaderDelegate<IReadOnlyList<Agent>>
+    public class AgencyGetAgentsDelegate : DataReaderDelegate<IReadOnlyList<Agent>>
     {
         public AgencyGetAgentsDelegate()
            : base("Agency.GetAgents")

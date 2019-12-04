@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace DataModeling
 {
-    internal class AgencyRetrieveCustomerContactInfoDelegate : DataReaderDelegate<ContactInfo>
+    public class AgencyRetrieveCustomerContactInfoDelegate : DataReaderDelegate<ContactInfo>
     {
         private readonly int contactID;
 
