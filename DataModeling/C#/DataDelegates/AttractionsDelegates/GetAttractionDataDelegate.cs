@@ -1,6 +1,7 @@
 ﻿using System;
 using DataAccess;
 using System.Data.SqlClient;
+using DataModeling.Model;
 
 namespace DataModeling
 {

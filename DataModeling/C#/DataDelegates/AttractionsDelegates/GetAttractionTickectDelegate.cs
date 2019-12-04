@@ -1,12 +1,11 @@
-// line 31 new object
 using DataAccess;
-using PersonData.Models;
 using System.Data;
 using System.Data.SqlClient;
+using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class FetchPersonDataDelegate : DataReaderDelegate<Ticket>
+    public class FetchPersonDataDelegate : DataReaderDelegate<AttractionTicket>
     {
         private readonly int reservationID;
 
@@ -23,15 +22,15 @@ namespace DataModeling
             command.Parameters.AddWithValue("ReservationID", reservationID);
         }
 
-        public override Person Translate(SqlCommand command, IDataRowReader reader)
+        public override AttractionTicket Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
                 throw new RecordNotFoundException(reservationID.ToString());
 
-            return new Ticket(reader.GetString("ReservationID"),
-               reader.GetString("AttractionID"),
-               reader.GetString("TicketDate"),
-               reader.GetString("Price"));
+            return new AttractionTicket(reader.GetInt32("ReservationID"),
+               reader.GetInt32("AttractionID"),
+               reader.GetDateTime("TicketDate"),
+               reader.GetFloat("Price"));
         }
     }
 }

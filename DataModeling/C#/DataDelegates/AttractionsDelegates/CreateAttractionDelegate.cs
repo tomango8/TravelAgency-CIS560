@@ -1,17 +1,17 @@
-using PersonData.Models;
 using DataAccess;
 using System.Data;
 using System.Data.SqlClient;
+using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class CreatePersonDataDelegate : NonQueryDataDelegate<Attraction>
+    public class CreateAttractionDelegate : NonQueryDataDelegate<Attraction>
     {
         public readonly string name;
-        public readonly string cityID;
+        public readonly int cityID;
         private readonly string attractionID;
 
-        public CreatePersonDataDelegate(string name, string cityID)
+        public CreateAttractionDelegate(string name, int cityID)
            : base("Attractions.CreateAttraction")
         {
             this.name = name;
