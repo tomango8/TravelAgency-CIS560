@@ -1,5 +1,3 @@
-///this delecate is broken
-//not sure what should be the return type here 
 using DataAccess;
 using DataModeling.Model;
 using System;
@@ -9,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace DataModeling
 {
-    internal class AgencyRetrieveAgentTripsDelegate : DataReaderDelegate<List<Tuple<int, int>>>
+    internal class AgencyRetrieveAgentTripsDelegate : DataReaderDelegate<IReadOnlyList<Trip>>
     {
         private readonly int AgentID;
 
@@ -26,15 +24,18 @@ namespace DataModeling
             command.Parameters.AddWithValue("AgentID", AgentID);
         }
 
-        public override List<Tuple<int, int>> Translate(SqlCommand command, IDataRowReader reader)
+        public override IReadOnlyList<Trip> Translate(SqlCommand command, IDataRowReader reader)
         {
-             List<Tuple< int, int>> trips = new List<Tuple<int, int>>;
+             List<Trip> trips = new List<Trip>();
 
-            if (!reader.Read())
-                throw new RecordNotFoundException(AgentID.ToString());
-            
-            return new Tuple(AgentID,
-               reader.GetInt32("TripID") );
+             while(reader.Read())
+             {
+                trips.Add(new Trip(reader.GetInt32("TripID"),
+                                    reader.GetInt32("CustomerID"),
+                                    reader.GetDateTimeOffset("DateCreated"),
+                                    reader.GetInt32("AgentID")));
+             }
+             return trips;
         }
     }
 }

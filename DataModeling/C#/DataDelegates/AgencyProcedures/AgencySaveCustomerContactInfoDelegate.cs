@@ -1,4 +1,3 @@
-using PersonData.Models;
 using DataAccess;
 using System.Data.SqlClient;
 using System.Data;
@@ -7,21 +6,21 @@ namespace DataModeling
 {
     internal class AgencySaveCustomerContactInfoDelegate : DataDelegate
     {
-        private readonly int ContactID;
-        private readonly string BillingAddress;
-        private readonly int Phone;
-        private readonly string Email;
-        private readonly int CityID;
+        private readonly int contactID;
+        private readonly string billingAddress;
+        private readonly string phone;
+        private readonly string email;
+        private readonly int cityID;
        
 
-        public AgencySaveCustomerContactInfoDelegate(int ContactID, string BillingAddress, int Phone, string Email, int CityID)
+        public AgencySaveCustomerContactInfoDelegate(int contactID, string billingAddress, string phone, string email, int cityID)
            : base("Agency.SaveCustomerContactInfo")
         {
-            this.ContactID = ContactID;
-            this.BillingAddress = BillingAddress;
-            this.Phone = Phone;
-            this.Email = Email;
-            this.CityID = CityID;
+            this.contactID = contactID;
+            this.billingAddress = billingAddress;
+            this.phone = phone;
+            this.email = email;
+            this.cityID = cityID;
 
         }
 
@@ -29,11 +28,11 @@ namespace DataModeling
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("ContactID", ContactID);
-            command.Parameters.AddWithValue("BillingAddress", BillingAddress);
-            command.Parameters.AddWithValue("Phone", Phone);
-            command.Parameters.AddWithValue("Email", Email);
-            command.Parameters.AddWithValue("CityID", CityID);
+            command.Parameters.AddWithValue("ContactID", contactID);
+            command.Parameters.AddWithValue("BillingAddress", billingAddress);
+            command.Parameters.AddWithValue("Phone", phone);
+            command.Parameters.AddWithValue("Email", email);
+            command.Parameters.AddWithValue("CityID", cityID);
            
         }
     }

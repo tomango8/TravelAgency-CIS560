@@ -8,7 +8,7 @@ namespace DataModeling
     {
         private readonly int tripID;
         private readonly int customerID;
-        private readonly int isDeleted; //ut can create problem
+        private readonly int isDeleted;
         private readonly string dateCreated;
         private readonly int agentID;
 
@@ -28,11 +28,11 @@ namespace DataModeling
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("TripID", TripID);
-            command.Parameters.AddWithValue("CustomerID", CustomerID);
-            command.Parameters.AddWithValue("IsDeleted", IsDeleted);
-            command.Parameters.AddWithValue("DateCreated", DateCreated);
-            command.Parameters.AddWithValue("AgentID", AgentID);
+            command.Parameters.AddWithValue("TripID", tripID);
+            command.Parameters.AddWithValue("CustomerID", customerID);
+            command.Parameters.AddWithValue("IsDeleted", isDeleted);
+            command.Parameters.AddWithValue("DateCreated", dateCreated);
+            command.Parameters.AddWithValue("AgentID", agentID);
 
         }
     }

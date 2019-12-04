@@ -5,29 +5,29 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DataModeling.C_.DataDelegates.AgencyProcedures
+namespace DataModeling
 {
     internal class AgencyRetrieveCustomerContactInfoDelegate : DataReaderDelegate<ContactInfo>
     {
-        private readonly int ContactID;
+        private readonly int contactID;
 
-        public AgencyRetrieveCustomerContactInfoDelegate(int ContactID)
+        public AgencyRetrieveCustomerContactInfoDelegate(int contactID)
            : base("Agency.RetrieveCustomerContactInfo")
         {
-            this.ContactID = ContactID;
+            this.contactID = contactID;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("ContactID", ContactID);
+            command.Parameters.AddWithValue("ContactID", contactID);
         }
 
         public override ContactInfo Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
-                throw new RecordNotFoundException(ReservationID.ToString());
+                return null;
 
             return new ContactInfo(reader.GetInt32("ContactID"),
                reader.GetString("BillingAddress"),
