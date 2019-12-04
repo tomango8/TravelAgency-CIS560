@@ -1,41 +1,39 @@
-//not sure if we are suppose to prduce flight line 31
 using DataAccess;
-using PersonData.Models;
 using System.Data;
 using System.Data.SqlClient;
+using DataModeling.Model;
 
 namespace DataModeling
 {
-    internal class RetrieveFlightInfoDelegate : DataReaderDelegate<Person>
+    internal class RetrieveFlightInfoDelegate : DataReaderDelegate<Flight>
     {
-        private readonly int flightId;
+        private readonly int flightID;
 
-        public RetrieveFlightInfoDelegate(int flightId)
-           : base("Airlines.RetrieveFlightInf")
+        public RetrieveFlightInfoDelegate(int flightID)
+           : base("Airlines.RetrieveFlightInfo")
         {
-            this.personId = flightId;
+            this.flightID = flightID;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("FlightID", flightId);
+            command.Parameters.AddWithValue("FlightID", flightID);
         }
 
-        public override Person Translate(SqlCommand command, IDataRowReader reader)
+        public override Flight Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
-                throw new RecordNotFoundException(flightId.ToString());
+                return null;
 
-            return new Flight(reader.GetString("FlightID"),
+            return new Flight(reader.GetInt32("FlightID"),
                reader.GetString("AirlineName"),
-               reader.GetString("DepartureTime"),
-               reader.GetString("ArrivalTime"),
-               reader.GetString("DepartureTime"),
-               reader.GetString("CityDepatureID"),
-               reader.GetString("CityArrivalID"),
-               reader.GetString("DateofFlight")
+               reader.GetDateTime("DepartureTime"),
+               reader.GetDateTime("ArrivalTime"),               
+               reader.GetInt32("CityDepatureID"),
+               reader.GetInt32("CityArrivalID"),
+               reader.GetDateTime("DateofFlight")
                );
         }
     }

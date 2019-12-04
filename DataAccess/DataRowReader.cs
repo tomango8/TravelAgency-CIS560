@@ -56,6 +56,11 @@ namespace DataAccess
             return GetValue(name, reader.GetBoolean);
       }
 
+      public DateTime GetDateTime(string name)
+      {
+          return GetValue(name, reader.GetDateTime);
+      }
+
       public T GetValue<T>(string name)
       {
          return (T)reader.GetValue(reader.GetOrdinal(name));

@@ -14,6 +14,8 @@ namespace DataAccess
 
       bool GetBitToBool(string name);
 
+      DateTime GetDateTime(string name);
+
       T GetValue<T>(string name);
    }
 }

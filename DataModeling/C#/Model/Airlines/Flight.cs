@@ -14,7 +14,7 @@ namespace DataModeling.Model
 
         public DateTime DepartureTime { get; }
 
-        public TimeSpan ArrivalTime { get; }
+        public DateTime ArrivalTime { get; }
 
         public int CityDepartureID { get; }
 
@@ -22,7 +22,7 @@ namespace DataModeling.Model
 
         public DateTime Date { get; }
 
-        public Flight(int flightID, string airlineName, DateTime departureTime, TimeSpan arrivalTime, int cityDepartureID, int cityArrivalID, DateTime date)
+        public Flight(int flightID, string airlineName, DateTime departureTime, DateTime arrivalTime, int cityDepartureID, int cityArrivalID, DateTime date)
         {
             FlightID = flightID;
             AirlineName = airlineName;
