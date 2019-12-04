@@ -1,4 +1,6 @@
-﻿CREATE OR ALTER PROCEDURE Agency.GetAgents
+﻿USE TravelAgency;
+GO
+CREATE OR ALTER PROCEDURE Agency.GetAgents
 AS
 
 SELECT A.AgentID, A.[Name]
