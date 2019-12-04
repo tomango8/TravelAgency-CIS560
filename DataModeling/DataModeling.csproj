@@ -45,6 +45,7 @@
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetAgentsDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetCustomerDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetCustomersDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetReservationsDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetTripDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetTripsDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyRetrieveAgentTripsDelegate.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantReservationDelegate.cs" />
     <Compile Include="C#\Model\Agency\Agent.cs" />
+    <Compile Include="C#\Model\Agency\IReservation.cs" />
     <Compile Include="C#\Model\Airlines\Flight.cs" />
     <Compile Include="C#\Model\Attractions\Attraction.cs" />
     <Compile Include="C#\Model\Attractions\AttractionTicket.cs" />
@@ -93,6 +95,7 @@
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetAgents.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetCustomer.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetCustomers.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetReservations.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetTrip.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetTrips.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveAgentTrips.sql" />

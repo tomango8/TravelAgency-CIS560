@@ -36,7 +36,7 @@ namespace DataModeling
                reader.GetString("Sex"),
                reader.GetInt32("ContactID"),
                reader.GetValue<bool>("IsDeleted")
-               ); ;
+               );
         }
     }
 }

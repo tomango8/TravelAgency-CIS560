@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataModeling.Model
 {
-    public class HotelReservation
+    public class HotelReservation : IReservation
     {
         public int ReservationID { get; }
 
@@ -29,5 +29,9 @@ namespace DataModeling.Model
 
         }
 
+        public string ReservationInfo()
+        {
+            return $"Hotel Reservation {ReservationID}, Hotel {HotelID}, ${Price}, {CheckinDate.Date}";
+        }
     }
 }

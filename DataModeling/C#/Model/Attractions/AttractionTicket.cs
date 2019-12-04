@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataModeling.Model
 {
-    public class AttractionTicket
+    public class AttractionTicket : IReservation
     {
         public int ReservationID { get; }
 
@@ -26,6 +26,11 @@ namespace DataModeling.Model
         public override string ToString()
         {
             return $"ReservationID: {ReservationID}, AttractionID: {AttractionID}, TicketDate: {TicketDate.Date}, Price: {Price}";
+        }
+
+        public string ReservationInfo()
+        {
+            return "Attraction Ticket " + AttractionID + ", Attraction " + AttractionID + ", $" + Price + ", " + TicketDate.Date; 
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataModeling.Model
 {
-    public class BoardingPass
+    public class BoardingPass : IReservation
     {
         public int ReservationID { get; }
 
@@ -32,7 +32,9 @@ namespace DataModeling.Model
             return result.ToString();
         }
 
-
-
+        public string ReservationInfo()
+        {
+            return "Boarding Pass, Flight " + FlightID + ", $" + Price; 
         }
     }
+}

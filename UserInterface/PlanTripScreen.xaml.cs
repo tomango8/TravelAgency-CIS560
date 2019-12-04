@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccess;
+using DataModeling;
+using DataModeling.Model;
 
 namespace UserInterface
 {
@@ -151,6 +154,35 @@ namespace UserInterface
 
             // CONNECT
             // Get list of reservations and load into list
+            SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+            List<Reservation> reservations = (List<Reservation>)executor.ExecuteReader(new AgencyGetReservationsDelegate(tripID));
+            if(reservations.Count != 0)
+            {
+                foreach(Reservation reservation in reservations)
+                {
+                    IReservation r;
+                    if(reservation.CarReservation)
+                    {
+                        r = executor.ExecuteReader(new CarsGetCarReservationInfo(reservation.ReservationID));
+                    }
+                    else if(reservation.HotelReservation)
+                    {
+                        r = executor.ExecuteReader(new HotelsGetHotelReservationDelegate(reservation.ReservationID));
+                    }
+                    else if(reservation.BoardingPass)
+                    {
+                       
+                    }
+                    else if(reservation.AttractionTicket)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
 
             // Test code - delete when connected to SQL
             for(int i = 1; i < 11; i++)

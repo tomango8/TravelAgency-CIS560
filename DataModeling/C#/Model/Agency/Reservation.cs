@@ -39,6 +39,20 @@ namespace DataModeling.Model
             TripID = tripID;
 
         }
+
+        public Reservation(int reservationID, DateTimeOffset dateCreated, bool carReservation, bool hotelReservation, bool boardingPass, bool attractionTicket, bool restaurantReservation, int tripID)
+        {
+            ReservationID = reservationID;
+            DateCreated = dateCreated;
+            IsDeleted = false;
+            CarReservation = carReservation;
+            HotelReservation = hotelReservation;
+            BoardingPass = boardingPass;
+            AttractionTicket = attractionTicket;
+            RestaurantReservation = restaurantReservation;
+            TripID = tripID;
+
+        }
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();

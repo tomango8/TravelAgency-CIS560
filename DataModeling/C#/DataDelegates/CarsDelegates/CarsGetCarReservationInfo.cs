@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using DataModeling.Model;
 
-namespace PersonData.DataDelegates
+namespace DataModeling
 {
     public class CarsGetCarReservationInfo : DataReaderDelegate<CarRentalReservation>
     {
