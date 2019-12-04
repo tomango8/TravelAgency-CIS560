@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccess;
+using DataModeling;
+using DataModeling.Model;
 
 namespace UserInterface
 {
@@ -50,14 +53,52 @@ namespace UserInterface
             {
                 // CONNECT
 
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
                 int hotelID = int.Parse(uxHotelID.Text);
                 // Lookup hotel using hotelID
-                // if null
-                //      MessageBox.Show("Hotel ID does not already exist");
-                // else
-                // Hotel hotel = found hotel
-                // City city = findCity(hotel.CityID);
-                uxHotelName.Text = ""; // = hotel.Name;
+
+                Hotel hotel = executor.ExecuteNonQuery(new HotelsCreateHotelDelegate(hotelID));
+
+                if (hotel == null)
+                {
+                    MessageBox.Show("Hotel ID does not exist");
+                }
+                else
+                {
+                    if (hotel.Name != null)
+                    {
+                        uxHotelName.Text = hotel.Name;
+                    }
+                    if (hotel.FullAddress != null)
+                    {
+                        uxHotelName.Text = hotel.FullAddress;
+                    }
+
+                    Cities city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(hotel.CityID));
+                    
+                    if (city.CityName != null)
+                    {
+                        uxCity.Text = city.CityName; 
+                    }
+                    if (city.Region != null)
+                    {
+                        uxRegion.Text = city.Region;
+                    }
+                    if (city.Country != null)
+                    {
+                        uxCountry.Text = city.Country;
+                    }
+                    
+                }
+
+                    
+                    // if null
+                    //      MessageBox.Show("Hotel ID does not already exist");
+                    // else
+                    // Hotel hotel = found hotel
+                    // City city = findCity(hotel.CityID);
+                    uxHotelName.Text = ""; // = hotel.Name;
                 uxHotelAddress.Text = ""; // = hotel.Address;
                 uxCity.Text = ""; // = city.CityName;
                 uxRegion.Text = ""; // = city.Region;
@@ -83,7 +124,7 @@ namespace UserInterface
 
                 string country = Check.FormatName(uxCountry.Text);
                 string region = Check.FormatName(uxRegion.Text);
-                string city = Check.FormatName(uxCity.Text);
+                string cityname = Check.FormatName(uxCity.Text);
 
                 float roomPrice = float.Parse(uxRoomPrice.Text);
                 DateTime checkInDate = (DateTime)uxCheckinDate.SelectedDate;
@@ -91,6 +132,19 @@ namespace UserInterface
                 // CONNECT
 
                 int cityID = 0;
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+                Cities citysearch = executor.ExecuteReader(new LocationGetCityDelegate(country, region, cityname));
+
+                if (citysearch == null)
+                {
+                    Cities city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityID));
+                    cityID = city.CityID;
+                }
+                else
+                {
+                    cityID = citysearch.CityID;
+                }
                 //Lookup city using country, region, city
                 // if null
                 //      create city
@@ -100,6 +154,17 @@ namespace UserInterface
 
                 // CONNECT
                 int hotelID = 0;
+
+                Hotel hotelsearch = executor.ExecuteReader(new HotelsGetHotelDelegate(hotelID));
+                if (hotelsearch == null)
+                {
+                    Hotel hotel = executor.ExecuteNonQuery(new HotelsCreateHotelDelegate(hotelID));
+                    hotelID = hotel.HotelID;
+                }
+                else
+                {
+                    hotelID = hotelsearch.HotelID;
+                }
                 //Lookup hotel using hotelName, address, and cityID
                 // if null
                 //      create hotel
@@ -109,6 +174,9 @@ namespace UserInterface
 
                 // CONNECT
                 int reservationID = 0;
+
+                Reservation reservation = 
+
                 // Create new reservation ID, using tripID (field), and set hotel reservation to 1, and all others to 0
                 // reservationID = newly created reservation ID
 

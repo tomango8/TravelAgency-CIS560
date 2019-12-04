@@ -56,8 +56,11 @@
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionTickectDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetAgencyNameDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetCarReservationInfo.cs" />
+    <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsCreateHotelDelegate.cs" />
     <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsGetHotelDelegates.cs" />
     <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsGetHotelReservationDelegate.cs" />
+    <Compile Include="C#\DataDelegates\LocationDelegates\LocationCreateCityDelegate.cs" />
+    <Compile Include="C#\DataDelegates\LocationDelegates\LocationGetCityDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantReservationDelegate.cs" />
     <Compile Include="C#\Model\Agency\Agent.cs" />
@@ -105,10 +108,12 @@
     <Content Include="SQL\Procedures\CarsProcedures\Cars.CreateCarRental.sql" />
     <Content Include="SQL\Procedures\CarsProcedures\Cars.GetAgencyName.sql" />
     <Content Include="SQL\Procedures\CarsProcedures\Cars.GetCarReservationInfo.sql" />
+    <Content Include="SQL\Procedures\LocationProcedures\Location.CreateCity.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotel.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotelReservation.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotel.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotelReservation.sql" />
+    <Content Include="SQL\Procedures\LocationProcedures\Location.GetCities.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurant.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurant.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantReservation.sql" />
@@ -127,7 +132,7 @@
     <Content Include="SQL\Tables\Drop Tables.sql" />
     <Content Include="SQL\Tables\HotelsTables\Hotel.sql" />
     <Content Include="SQL\Tables\HotelsTables\HotelReservation.sql" />
-    <Content Include="SQL\Tables\Location.sql" />
+    <Content Include="SQL\Tables\Location.Cities.sql" />
     <Content Include="SQL\Tables\RestaurantsTables\Restaurant.sql" />
     <Content Include="SQL\Tables\RestaurantsTables\RestaurantReservation.sql" />
   </ItemGroup>
