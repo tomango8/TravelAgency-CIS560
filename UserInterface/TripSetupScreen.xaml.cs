@@ -134,10 +134,10 @@ namespace UserInterface
             {
                 int agentID = int.Parse(agent.Text.Split(',')[0].Trim());
                 int customerID = int.Parse(customer.Text.Split(',')[0].Trim());
-                
-                // CONNECT                
-                
-                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+               //CONNECT
+
+               SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
                 // Lookup agent using agentID
                 if (executor.ExecuteReader(new AgencyGetAgentDelegate(agentID)) == null)
@@ -154,16 +154,16 @@ namespace UserInterface
                     //Create trip
                     Trip trip = executor.ExecuteNonQuery(new AgencyCreateTripDelegate(customerID, agentID));
 
-                    if(trip == null)
+                    if (trip == null)
                     {
                         MessageBox.Show("Trip failed to be created");
                     }
                     else
-                    {                       
+                    {
                         // Navigate to plan trip screen   
                         NavigationService.Navigate(new PlanTripScreen(connectionString, trip.TripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
                     }
-                }            
+                }
             }            
         }        
 

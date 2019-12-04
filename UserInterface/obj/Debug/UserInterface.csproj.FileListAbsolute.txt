@@ -75,3 +75,9 @@ C:\Users\Toman\Desktop\RealTravelAgency\UserInterface\obj\Debug\UserInterface.Pr
 C:\Users\Toman\Desktop\RealTravelAgency\UserInterface\obj\Debug\UserInterface.csproj.GenerateResource.cache
 C:\Users\Toman\Desktop\RealTravelAgency\UserInterface\obj\Debug\UserInterface.exe
 C:\Users\Toman\Desktop\RealTravelAgency\UserInterface\obj\Debug\UserInterface.pdb
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\bin\Debug\DataAccess.dll
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\bin\Debug\DataModeling.dll
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\bin\Debug\DataAccess.pdb
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\bin\Debug\DataModeling.pdb
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\bin\Debug\DataModeling.dll.config
+C:\Users\user\Source\Repos\TravelAgency-CIS560\UserInterface\obj\Debug\UserInterface.csproj.CopyComplete
