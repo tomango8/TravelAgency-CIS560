@@ -5,11 +5,11 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class FetchPersonDataDelegate : DataReaderDelegate<AttractionTicket>
+    public class GetAttractionTicketDelegate : DataReaderDelegate<AttractionTicket>
     {
         private readonly int reservationID;
 
-        public FetchPersonDataDelegate(int reservationID)
+        public GetAttractionTicketDelegate(int reservationID)
            : base("Attractions.GetAttractionTicket")
         {
             this.reservationID = reservationID;

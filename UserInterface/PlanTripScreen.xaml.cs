@@ -128,8 +128,8 @@ namespace UserInterface
                 {
                     int reservationID = int.Parse(t.Text.Split(',')[0].Trim());
 
-                    // CONNECT
-                    // delete reservation using reservationID
+                    SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+                    executor.ExecuteNonQuery(new AgencyDeleteReservationDelegate(reservationID));
 
                     uxReservations.Items.Remove(uxReservations.SelectedItem);
                     MessageBox.Show("Reservation " + reservationID + " was successfully deleted.");
@@ -152,8 +152,6 @@ namespace UserInterface
         {
             uxReservations.Items.Clear();
 
-            // CONNECT
-            // Get list of reservations and load into list
             SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
             List<Reservation> reservations = (List<Reservation>)executor.ExecuteReader(new AgencyGetReservationsDelegate(tripID));
             if(reservations.Count != 0)
@@ -171,26 +169,29 @@ namespace UserInterface
                     }
                     else if(reservation.BoardingPass)
                     {
-                       
+                        r = executor.ExecuteReader(new AirlinesGetBoardingPassDelegate(reservation.ReservationID));
                     }
                     else if(reservation.AttractionTicket)
                     {
-
+                        r = executor.ExecuteReader(new GetAttractionTicketDelegate(reservation.ReservationID));
                     }
                     else
                     {
-
+                        r = executor.ExecuteReader(new RestaurantsGetRestaurantReservationDelegate(reservation.ReservationID));
                     }
+                    TextBlock t = new TextBlock();
+                    t.Text = r.ReservationInfo();
+                    uxReservations.Items.Add(t);
                 }
             }
 
             // Test code - delete when connected to SQL
-            for(int i = 1; i < 11; i++)
-            {
-                TextBlock t = new TextBlock();
-                t.Text = i + ", ReservationType, Information about reservation...";
-                uxReservations.Items.Add(t);
-            }
+            //for(int i = 1; i < 11; i++)
+            //{
+            //    TextBlock t = new TextBlock();
+            //    t.Text = i + ", ReservationType, Information about reservation...";
+            //    uxReservations.Items.Add(t);
+            //}
             
             RefreshReservationList();
         }
