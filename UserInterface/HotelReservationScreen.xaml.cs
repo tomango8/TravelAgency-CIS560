@@ -175,7 +175,7 @@ namespace UserInterface
                 // CONNECT
                 int reservationID = 0;
 
-                Reservation reservation = 
+               
 
                 // Create new reservation ID, using tripID (field), and set hotel reservation to 1, and all others to 0
                 // reservationID = newly created reservation ID
@@ -183,7 +183,7 @@ namespace UserInterface
                 // CONNECT
                 // Create new hotel reservation using reservationID, hotelID, checkInDate, roomPrice
 
-                MessageBox.Show("Reservation at " + hotelName + " successfully added");
+                MessageBox.Show("Reservation at " + hotelID + " successfully added");
             }
         }
 

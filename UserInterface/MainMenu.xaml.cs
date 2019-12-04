@@ -84,7 +84,7 @@ namespace UserInterface
             if(Check.NonNull("Server", uxServer.Text, out message)
                 && Check.NonNull("Datebase", uxDatabase.Text, out message))
             {
-                connectionString = "Server=" + uxServer.Text + ";Datebase=" + uxDatabase.Text + ";Integrated Security=SSPI;";
+                connectionString = "Data Source=" + uxServer.Text + ";Initial Catalog=" + uxDatabase.Text + ";Integrated Security=SSPI;";
                 return true;
             }
             MessageBox.Show(message);

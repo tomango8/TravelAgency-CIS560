@@ -1,21 +1,22 @@
-﻿CREATE SCHEMA Agency;
-GO;
+﻿USE TravelAgency;
+CREATE SCHEMA Agency;
+GO
 
 CREATE SCHEMA Airlines;
-GO;
+GO
 
 CREATE SCHEMA Attractions;
-GO;
+GO
 
 CREATE SCHEMA Cars;
-GO;
+GO
 
 CREATE SCHEMA Hotels;
-GO;
+GO
 
 CREATE SCHEMA [Location];
-GO;
+GO
 
 CREATE SCHEMA Restaurants;
-GO;
+GO
 
