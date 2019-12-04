@@ -26,6 +26,15 @@ namespace DataModeling.Model
             Email = email;
             CityID = cityID;
         }
+
+        public string SimpleContactInfo
+        {
+            get
+            {
+                return Phone + ", " + Email + ", " + BillingAddress;
+            }
+        }
+
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();

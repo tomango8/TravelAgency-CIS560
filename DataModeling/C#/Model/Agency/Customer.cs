@@ -33,6 +33,14 @@ namespace DataModeling.Model
             IsDeleted = isDeleted;
         }
 
+        public string CustomerSimpleInfo
+        {
+            get
+            {
+                return CustomerID + ", " + Name + ", " + Age + ", " + Sex + ", $" + Budget;
+            }
+        }
+
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();

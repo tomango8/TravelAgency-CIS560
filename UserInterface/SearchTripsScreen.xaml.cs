@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccess;
+using DataModeling;
+using DataModeling.Model;
 
 namespace UserInterface
 {
@@ -125,8 +128,12 @@ namespace UserInterface
                     int tripID;                  
                     tripID = int.Parse(t.Text.Split(',')[0].Trim());
                     
-                    // CONNECT
-                    // delete trip using tripID
+                    SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+                    //Find trip
+                    Trip trip = executor.ExecuteReader(new AgencyFetchTripDelegate(tripID));
+                    //Set isDeleted value for trip to 1
+                    executor.ExecuteNonQuery(new AgencySaveTripDelegate(trip.TripID, trip.CustomerID, 1, trip.DateCreated, trip.AgentID));
 
                     uxTrips.Items.Remove(uxTrips.SelectedItem);
                     RefreshTripList();
@@ -150,23 +157,42 @@ namespace UserInterface
         {
             // Format for list
             // TripID, CustomerName, CustomerID, AgentName, AgentID, DateCreated
+            SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+            List<Trip> trips = (List<Trip>)executor.ExecuteReader(new AgencyGetTripsDelegate());
+            if(trips.Count != 0)
+            {
+                foreach(Trip trip in trips)
+                {
+                    Customer customer = executor.ExecuteReader(new AgencyGetCustomerDelegate(trip.CustomerID));
+                    Agent agent = executor.ExecuteReader(new AgencyGetAgentDelegate(trip.AgentID));
+                    TextBlock t = new TextBlock();
+                    t.Text = trip.TripID + ", " + 
+                        customer.Name + ", " + 
+                        customer.CustomerID + ", " + 
+                        agent.Name + ", " + 
+                        agent.AgentID + ", " + 
+                        trip.DateCreated;
+                    uxTrips.Items.Add(t);
+                }
+            }
 
             //Testing for code - delete after SQL connected
-            for (int i = 1; i < 51; i++)
-            {
-                TextBlock t = new TextBlock();
-                string cn = "Customer One";
-                if(i > 10)
-                {
-                    cn = "Customer Two";
-                }
-                if(i > 25)
-                {
-                    cn = "Customer Three";
-                }
-                t.Text = i + ", " + cn + ", " + i + ", AgentName, " + i + ", DateCreated";
-                uxTrips.Items.Add(t);
-            }
+            //for (int i = 1; i < 51; i++)
+            //{
+            //    TextBlock t = new TextBlock();
+            //    string cn = "Customer One";
+            //    if(i > 10)
+            //    {
+            //        cn = "Customer Two";
+            //    }
+            //    if(i > 25)
+            //    {
+            //        cn = "Customer Three";
+            //    }
+            //    t.Text = i + ", " + cn + ", " + i + ", AgentName, " + i + ", DateCreated";
+            //    uxTrips.Items.Add(t);
+            //}
 
             RefreshTripList();
         }

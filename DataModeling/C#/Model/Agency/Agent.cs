@@ -40,6 +40,14 @@ namespace DataModeling.Model
             IsDeleted = false;
         }
 
+        public string AgentSimpleInfo
+        {
+            get
+            {
+                return AgentID + ", " + Name;
+            }
+        }
+
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();

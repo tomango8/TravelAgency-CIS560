@@ -1,6 +1,7 @@
 using DataAccess;
 using System.Data.SqlClient;
 using System.Data;
+using System;
 
 namespace DataModeling
 {
@@ -9,11 +10,11 @@ namespace DataModeling
         private readonly int tripID;
         private readonly int customerID;
         private readonly int isDeleted;
-        private readonly string dateCreated;
+        private readonly DateTimeOffset dateCreated;
         private readonly int agentID;
 
 
-        public AgencySaveTripDelegate(int tripID, int customerID, int isDeleted, string dateCreated, int agentID)
+        public AgencySaveTripDelegate(int tripID, int customerID, int isDeleted, DateTimeOffset dateCreated, int agentID)
            : base("Agency.SaveTrip")
         {
             this.tripID = tripID;

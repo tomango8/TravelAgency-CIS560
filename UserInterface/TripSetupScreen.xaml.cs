@@ -135,8 +135,6 @@ namespace UserInterface
                 int agentID = int.Parse(agent.Text.Split(',')[0].Trim());
                 int customerID = int.Parse(customer.Text.Split(',')[0].Trim());
 
-               //CONNECT
-
                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
                 // Lookup agent using agentID
@@ -195,17 +193,25 @@ namespace UserInterface
         {
             uxAgents.Items.Clear();
 
-            // CONNECT
-            // Get list of all agents
-            // load all agents into uxAgents
+            SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+            List<Agent> agents = (List<Agent>)executor.ExecuteReader(new AgencyGetAgentsDelegate());
+            if(agents.Count != 0)
+            {
+                foreach (Agent agent in agents)
+                {
+                    TextBlock t = new TextBlock();
+                    t.Text = agent.AgentSimpleInfo;
+                    uxAgents.Items.Add(t);
+                }
+            }                     
 
             // Test code - delete when connected to SQL
-            for(int i = 1; i < 16; i++)
-            {
-                TextBlock t = new TextBlock();
-                t.Text = i + ", AgentName";
-                uxAgents.Items.Add(t);
-            }
+            //for(int i = 1; i < 16; i++)
+            //{
+            //    TextBlock t = new TextBlock();
+            //    t.Text = i + ", AgentName";
+            //    uxAgents.Items.Add(t);
+            //}
             RefreshAgentList();
         }
 
@@ -216,17 +222,27 @@ namespace UserInterface
         {
             uxCustomers.Items.Clear();
 
-            // CONNECT
-            // Get list of all customers
-            // load all customers into uxCustomers
+            SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+            List<Customer> customers = (List<Customer>)executor.ExecuteReader(new AgencyGetCustomersDelegate());
+            if(customers.Count != 0)
+            {
+                foreach(Customer customer in customers)
+                {
+                    ContactInfo contact = executor.ExecuteReader(new AgencyRetrieveCustomerContactInfoDelegate(customer.ContactID));
+                    TextBlock t = new TextBlock();
+                    t.Text = customer.CustomerSimpleInfo + ", " + contact.SimpleContactInfo;
+                    uxCustomers.Items.Add(t);
+                }
+            }
 
             // Test code - detele when connected to SQL
-            for(int i = 1; i < 51; i++)
-            {
-                TextBlock t = new TextBlock();
-                t.Text = i + ", CustomerName, CustomerInformation...";
-                uxCustomers.Items.Add(t);
-            }
+            //for(int i = 1; i < 51; i++)
+            //{
+            //    TextBlock t = new TextBlock();
+            //    t.Text = i + ", CustomerName, CustomerInformation...";
+            //    uxCustomers.Items.Add(t);
+            //}
             RefreshCustomerList();
         }
 
