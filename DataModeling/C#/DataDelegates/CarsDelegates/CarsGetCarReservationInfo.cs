@@ -1,12 +1,11 @@
-//line 31 new objwct modify line 26 
 using DataAccess;
-using PersonData.Models;
 using System.Data;
 using System.Data.SqlClient;
+using DataModeling.Model;
 
 namespace PersonData.DataDelegates
 {
-    internal class CarsGetCarReservationInfo : DataReaderDelegate<ReservationInfo>
+    internal class CarsGetCarReservationInfo : DataReaderDelegate<CarRentalReservation>
     {
         private readonly int reservationID;
 
@@ -23,16 +22,16 @@ namespace PersonData.DataDelegates
             command.Parameters.AddWithValue("ReservationID", reservationID);
         }
 
-        public override ReservationInfo Translate(SqlCommand command, IDataRowReader reader)
+        public override CarRentalReservation Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
                 throw new RecordNotFoundException(reservationID.ToString());
 
-            return new ReservationInfo(reader.GetString("ReservationID"),
-               reader.GetString("CarRentalID"),
-               reader.GetString("RentalDate"),
+            return new CarRentalReservation(reader.GetInt32("ReservationID"),
+               reader.GetInt32("CarRentalID"),
+               reader.GetDateTime("RentalDate"),
                reader.GetString("Model"),
-               reader.GetString("Price")
+               reader.GetFloat("Price")
                );
         }
     }
