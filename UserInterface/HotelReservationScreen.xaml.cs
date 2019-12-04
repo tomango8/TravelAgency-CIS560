@@ -66,43 +66,27 @@ namespace UserInterface
                 }
                 else
                 {
-                    if (hotel.Name != null)
-                    {
+                    
                         uxHotelName.Text = hotel.Name;
-                    }
-                    if (hotel.FullAddress != null)
-                    {
                         uxHotelName.Text = hotel.FullAddress;
-                    }
-
                     Cities city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(hotel.CityID));
                     
-                    if (city.CityName != null)
-                    {
                         uxCity.Text = city.CityName; 
-                    }
-                    if (city.Region != null)
-                    {
                         uxRegion.Text = city.Region;
-                    }
-                    if (city.Country != null)
-                    {
                         uxCountry.Text = city.Country;
-                    }
                     
-                }
-
-                    
+              
                     // if null
                     //      MessageBox.Show("Hotel ID does not already exist");
                     // else
                     // Hotel hotel = found hotel
                     // City city = findCity(hotel.CityID);
-                    uxHotelName.Text = ""; // = hotel.Name;
-                uxHotelAddress.Text = ""; // = hotel.Address;
-                uxCity.Text = ""; // = city.CityName;
-                uxRegion.Text = ""; // = city.Region;
-                uxCountry.Text = ""; // = city.Country;
+                //uxHotelName.Text = ""; // = hotel.Name;
+                //uxHotelAddress.Text = ""; // = hotel.Address;
+                //uxCity.Text = ""; // = city.CityName;
+                //uxRegion.Text = ""; // = city.Region;
+                //uxCountry.Text = ""; // = city.Country;
+                }
             }
             else
             {
@@ -175,7 +159,8 @@ namespace UserInterface
                 // CONNECT
                 int reservationID = 0;
 
-               
+
+                    //need to change procedure
 
                 // Create new reservation ID, using tripID (field), and set hotel reservation to 1, and all others to 0
                 // reservationID = newly created reservation ID
@@ -183,7 +168,7 @@ namespace UserInterface
                 // CONNECT
                 // Create new hotel reservation using reservationID, hotelID, checkInDate, roomPrice
 
-                MessageBox.Show("Reservation at " + hotelID + " successfully added");
+                MessageBox.Show("Reservation at " + hotelName + " successfully added");
             }
         }
 

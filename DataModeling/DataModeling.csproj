@@ -40,21 +40,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCreateTripDelegate.cs" />
-    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyDeleteReservationDelegate.cs" />
-    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyFetchTripDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetAgentDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetAgentsDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetCustomerDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetCustomersDelegate.cs" />
-    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetReservationsDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetTripDelegate.cs" />
-    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyGetTripsDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyRetrieveAgentTripsDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyRetrieveCustomerContactInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencySaveCustomerContactInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencySaveTripDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCreateAgentDelegate.cs" />
-    <Compile Include="C#\DataDelegates\AirlinesDelegates\AirlinesGetBoardingPassDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AirlinesDelegates\CreateFlightDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AirlinesDelegates\GetFlightDelegate.cs" />
     <Compile Include="C#\DataDelegates\AirlinesDelegates\RetrieveFlightInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\CreateAttractionDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
@@ -69,7 +66,6 @@
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantReservationDelegate.cs" />
     <Compile Include="C#\Model\Agency\Agent.cs" />
-    <Compile Include="C#\Model\Agency\IReservation.cs" />
     <Compile Include="C#\Model\Airlines\Flight.cs" />
     <Compile Include="C#\Model\Attractions\Attraction.cs" />
     <Compile Include="C#\Model\Attractions\AttractionTicket.cs" />
@@ -95,15 +91,11 @@
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateHotelReservation.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateRestaurantReservation.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateTrip.sql" />
-    <Content Include="SQL\Procedures\AgencyProcedures\Agency.DeleteReservation.sql" />
-    <Content Include="SQL\Procedures\AgencyProcedures\Agency.FetchTrip.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetAgent.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetAgents.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetCustomer.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetCustomers.sql" />
-    <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetReservations.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetTrip.sql" />
-    <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetTrips.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveAgentTrips.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveCustomerContactInfo.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveCustomerTrips.sql" />
@@ -111,7 +103,7 @@
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.SaveTrip.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateFlight.sql" />
-    <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.GetBoardingPass.sql" />
+    <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.GetFlight.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.RetrieveFlightInfo.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.CreateAttraction.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttraction.sql" />

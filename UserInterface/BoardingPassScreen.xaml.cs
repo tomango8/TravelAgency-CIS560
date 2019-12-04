@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DataAccess;
+using DataModeling;
+using DataModeling.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,36 +52,63 @@ namespace UserInterface
             {
                 int flightID = int.Parse(uxFlightID.Text);
 
-                // CONNECT
-                // Lookup flight using flightID
-                // if null
-                //      MessageBox.Show("Flight does not already exist");
-                // else
-                // {
-                //      Flight flight = get Flight
-                //      City departureCity = get City (flight.DepartureCityID)
-                //      City arrivalCity = get City (flight.ArrivalCityID)
-                //
-                
-                    // CONNECT
-                    uxAirlineName.Text = ""; // = flight.Airline;
+                // CONNECT TODO
+
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+                Flight flight = executor.ExecuteNonQuery(new CreateFlightDelegate(flightID));
+
+                if (flight == null)
+                {
+                    MessageBox.Show("Flight does not exist");
+                }
+                else
+                {
+                    Cities departurecity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(flight.CityDepartureID));
+                    Cities arrivalcity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(flight.CityArrivalID));
+
+                    uxDepartureCity.Text = departurecity.CityName;
+                    uxDepartureCountry.Text = departurecity.Country;
+                    uxDepartureRegion.Text = departurecity.Region;
+                    uxDepartureTime.Text = flight.DepartureTime.Hour + ":" + flight.DepartureTime.Minute;
+                    uxDepartureDate.SelectedDate = new DateTime(flight.DepartureTime.Year, flight.DepartureTime.Month, flight.DepartureTime.Day, 0,0,0);
+
+                    uxArrivalCity.Text = arrivalcity.CityName;
+                    uxDepartureCountry.Text = arrivalcity.Country;
+                    uxDepartureRegion.Text = arrivalcity.Region;
+                    uxArrivalTime.Text = flight.ArrivalTime.Hour + ":" + flight.ArrivalTime.Minute;
+                    uxArrivalDate.SelectedDate = new DateTime(flight.ArrivalTime.Year, flight.ArrivalTime.Month, flight.ArrivalTime.Day, 0, 0, 0);
+
+                    // Lookup flight using flightID
+                    // if null
+                    //      MessageBox.Show("Flight does not already exist");
+                    // else
+                    // {
+                    //      Flight flight = get Flight
+                    //      City departureCity = get City (flight.DepartureCityID)
+                    //      City arrivalCity = get City (flight.ArrivalCityID)
+                    //
 
                     // CONNECT
-                    uxDepartureCity.Text = ""; // = departureCity.City;
-                    uxDepartureCountry.Text = ""; // = departureCity.Country;
-                    uxDepartureRegion.Text = ""; // = departureCity.Region;
-                    uxDepartureTime.Text = ""; // = flight.DepartureTime.Hour + ":" + flight.DepartureTime.Minute;
-                    uxDepartureDate.SelectedDate = new DateTime(); // = new DateTime(flight.DepartureTime.Year, 
-                                                               // flight.DepartureTime.Month, flight.DepartureTime.Day, 0,0,0);
+                    //uxAirlineName.Text = ""; // = flight.Airline;
 
                     // CONNECT
-                    uxArrivalCity.Text = ""; // arrivalCity.City;
-                    uxArrivalCountry.Text = ""; // arrivalCity.Country;
-                    uxArrivalRegion.Text = ""; // arrivalCity.Region;
-                    uxArrivalTime.Text = ""; // flight.ArrivalTime.Hour + ":" + flight.DepartureTime.Minute;
-                    uxArrivalDate.SelectedDate = new DateTime(); // = new DateTime(flight.ArrivalTime.Year, 
+                    //  uxDepartureCity.Text = ""; // = departureCity.City;
+                    //  uxDepartureCountry.Text = ""; // = departureCity.Country;
+                    //  uxDepartureRegion.Text = ""; // = departureCity.Region;
+                    //  uxDepartureTime.Text = ""; // = flight.DepartureTime.Hour + ":" + flight.DepartureTime.Minute;
+                    //uxDepartureDate.SelectedDate = new DateTime(); // = new DateTime(flight.DepartureTime.Year, 
+                                                                   // flight.DepartureTime.Month, flight.DepartureTime.Day, 0,0,0);
+
+                    // CONNECT
+                    //uxArrivalCity.Text = ""; // arrivalCity.City;
+                    //uxArrivalCountry.Text = ""; // arrivalCity.Country;
+                    //uxArrivalRegion.Text = ""; // arrivalCity.Region;
+                    //uxArrivalTime.Text = ""; // flight.ArrivalTime.Hour + ":" + flight.DepartureTime.Minute;
+                    //uxArrivalDate.SelectedDate = new DateTime(); // = new DateTime(flight.ArrivalTime.Year, 
                                                                // flight.ArrivalTime.Month, flight.ArrivalTime.Day, 0,0,0);
                 // } end else
+                }
             }
             else
             {
@@ -114,36 +144,67 @@ namespace UserInterface
 
                 // CONNECT
                 int departureCityID = 0;
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
+                Cities departurecitysearch = executor.ExecuteReader(new LocationGetCityDelegate(departureCountry, departureRegion, departureCity));
                 //Lookup departure city, using departureCity, departureCountry, departureRegion
-                // if null
+                if (departurecitysearch == null)
+                {
+                    Cities newdeparturecity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(departureCityID));
                 //      create new city
+                    departureCityID = newdeparturecity.CityID;
                 //      departureCityID = newly created city
-                // else
+                }
+                else
+                {
+                    departureCityID = departurecitysearch.CityID;
                 //      departureCityID = found city
+                }
+
 
                 // CONNECT
                 int arrivalCityID = 0;
 
+                Cities arrivalcitysearch = executor.ExecuteReader(new LocationGetCityDelegate(arrivalCountry, arrivalRegion, arrivalCity));
                 //Lookup arrival city, using arrivalCity, arrivalCountry, arrivalRegion
-                // if null
+                if (arrivalcitysearch == null)
+                {
+                    Cities newarrivalcity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(arrivalCityID));
                 //      create new city
+                    arrivalCityID = newarrivalcity.CityID;
                 //      arrivalCityID = newly created city
-                // else
+                }
+                else
+                {
+                    arrivalCityID = arrivalcitysearch.CityID;
+                }
                 //      arrivalCityID = found city
+
 
                 // CONNECT
                 int flightID = 0;
+
+                Flight flightsearch = executor.ExecuteReader(new GetFlightDelegate(airlineName, departureTime, departureCityID, arrivalTime, arrivalCityID));
+                if (flightsearch == null)
+                {
+                    Flight flight = executor.ExecuteNonQuery(new CreateFlightDelegate(flightID));
+                    flightID = flight.FlightID;
+                }
+                else
+                {
+                    flightID = flightsearch.FlightID;
+                }
 
                 //Lookup flight info, using airlineName, departureTime, departureCityID, arrivalTime, arrivalCityID
                 // if null
                 //      create new flight - might want to switch depatureTime to be a DATETIME in SQL
                 //      flightID = newly created flight
-                // else
+                // else)
                 //      flightID = found flight
 
                 // CONNECT
                 int reservationID = 0;
+
 
                 // Create new reservation using tripID(field) and set BoardingPass to 1, everything else to 0
                 // reservationID = newly created reservation
