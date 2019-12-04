@@ -50,6 +50,8 @@
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencySaveCustomerContactInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencySaveTripDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCreateAgentDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AirlinesDelegates\CreateFlightDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AirlinesDelegates\GetFlightDelegate.cs" />
     <Compile Include="C#\DataDelegates\AirlinesDelegates\RetrieveFlightInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\CreateAttractionDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
@@ -101,6 +103,7 @@
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.SaveTrip.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateFlight.sql" />
+    <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.GetFlight.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.RetrieveFlightInfo.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.CreateAttraction.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttraction.sql" />
