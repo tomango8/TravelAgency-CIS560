@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccess;
+using DataModeling;
+using DataModeling.Model;
 
 namespace UserInterface
 {
@@ -59,7 +62,11 @@ namespace UserInterface
             if(Check.ValidPositiveInt("Attraction ID", uxAttractionID.Text, out message))
             {
                 int attractionID = int.Parse(uxAttractionID.Text);
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
+
+
+                Cities citysearch = executor.ExecuteReader(new LocationGetCityDelegate(, , ));
                 // CONNECT
                 // Lookup attraction using attractionID
                 // if null
@@ -70,7 +77,7 @@ namespace UserInterface
                 //      City city = get City (attraction.CityID);
 
                 // CONNECT
-                    uxAttractionName.Text = ""; // = attraction.Name;
+                uxAttractionName.Text = ""; // = attraction.Name;
                     uxCity.Text = ""; // = city.City;
                     uxCountry.Text = ""; // = city.Country;
                     uxRegion.Text = ""; // = city.Region

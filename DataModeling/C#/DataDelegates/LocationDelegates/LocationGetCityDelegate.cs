@@ -12,12 +12,10 @@ namespace DataModeling
         public readonly string region;
         public readonly string cityname;
 
-        public LocationGetCityDelegate(string country, string region, string cityname)
+        public LocationGetCityDelegate(int cityID)
            : base("Location.GetCities")
         {
-            this.country = country;
-            this.region = region;
-            this.cityname = cityname;
+            this.cityID = cityID;
         }
 
         public override void PrepareCommand(SqlCommand command)
