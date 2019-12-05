@@ -59,7 +59,7 @@ namespace UserInterface
         public void Autofill_Click(object sender, RoutedEventArgs args)
         {
             string message = "";
-            if(Check.ValidPositiveInt("Attraction ID", uxAttractionID.Text, out message))
+            if (Check.ValidPositiveInt("Attraction ID", uxAttractionID.Text, out message))
             {
                 int attractionID = int.Parse(uxAttractionID.Text);
 
@@ -67,12 +67,13 @@ namespace UserInterface
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
                 if (attractionID == null) { MessageBox.Show("Fill in an attraction ID please "); }
-                else {
+                else
+                {
 
                     Attraction attraction = executor.ExecuteReader(new GetAttractionDataDelegate(attractionID));
 
 
-                    Cities city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(cityID: attraction.CityID ));
+                    Cities city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(cityID: attraction.CityID));
                     // CONNECT
                     // Lookup attraction using attractionID
                     // if null
@@ -87,9 +88,9 @@ namespace UserInterface
                     uxCity.Text = city.CityName; // = city.City;
                     uxCountry.Text = city.Country; // = city.Country;
                     uxRegion.Text = city.Region; // = city.Region
-                                        // } end else
+                                                 // } end else
                 }
-            }   
+            }
             else
             {
                 MessageBox.Show(message);
@@ -103,7 +104,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void AddTicket_Click(object sender, RoutedEventArgs args)
         {
-            if(CheckValidInputs())
+            if (CheckValidInputs())
             {
                 string attractionName = Check.FormatName(uxAttractionName.Text);
                 float ticketPrice = float.Parse(uxTicketPrice.Text);
@@ -111,11 +112,49 @@ namespace UserInterface
 
                 string country = Check.FormatName(uxCountry.Text);
                 string region = Check.FormatName(uxRegion.Text);
-                string city = Check.FormatName(uxCity.Text);
+                string cityName = Check.FormatName(uxCity.Text);
 
                 // CONNECT
                 int cityID = 0;
-                
+
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+                if (country == null || region == null || cityName == null)
+                {
+                    MessageBox.Show("one of the city fields are empty");
+                }
+                else
+                {
+
+                    Cities city = executor.ExecuteReader(new LocationGetCityDelegate(country, region, cityName));
+                    if (city == null)
+                    {
+                        city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityName, region: region, country));
+                        cityID = city.CityID;
+                    }
+                    else
+                    {
+                        cityID = city.CityID;
+                    }
+
+                    int attractionID = 0;
+                    Attraction attraction = executor.ExecuteReader(new GetAttractionDataDelegate(attractionID));
+
+                    if (attraction == null)
+                    {
+                        attraction = executor.ExecuteNonQuery(new CreateAttractionDelegate(attractionName, cityID));
+                        attractionID = attraction.AttractionID;
+
+                    }
+                    else
+                    {
+                        attractionID = attraction.AttractionID;
+                    }
+
+                  //  Reservation reservation = executor.ExecuteReader(new )
+
+
+                }
                 // Lookup city, using country, region, city
                 // if null
                 //      create new city
@@ -124,7 +163,7 @@ namespace UserInterface
                 //      cityID = found city
 
                 // CONNECT
-                int attractionID = 0;
+
 
                 // Lookup attraction, using attractionName, cityID
                 // if null
@@ -153,8 +192,8 @@ namespace UserInterface
         private bool CheckValidInputs()
         {
             string message = "";
-            if(Check.ValidName("Attraction name", uxAttractionName.Text, out message)
-                && Check.ValidPositiveFloat("Ticket price", uxTicketPrice.Text, out message)                
+            if (Check.ValidName("Attraction name", uxAttractionName.Text, out message)
+                && Check.ValidPositiveFloat("Ticket price", uxTicketPrice.Text, out message)
                 && Check.NonNull("Ticket date", uxDate.SelectedDate, out message)
                 && Check.ValidName("Country", uxCountry.Text, out message)
                 && Check.ValidName("Region", uxRegion.Text, out message)
