@@ -10,7 +10,7 @@ namespace DataModeling.Model
     {
         public int CustomerID { get; }
 
-        public float Budget { get;  }
+        public double Budget { get;  }
 
         public string Name { get;  }
 
@@ -22,7 +22,7 @@ namespace DataModeling.Model
 
         public bool IsDeleted { get; }
 
-        public Customer(int customerID,  string name, float budget, int age, string sex, int contactID, bool isDeleted)
+        public Customer(int customerID,  string name, double budget, int age, string sex, int contactID, bool isDeleted)
         {
             CustomerID = customerID;
             Name = name;
@@ -33,7 +33,7 @@ namespace DataModeling.Model
             IsDeleted = isDeleted;
         }
 
-        public Customer(int customerID, string name, float budget, int age, string sex, int contactID)
+        public Customer(int customerID, string name, double budget, int age, string sex, int contactID)
         {
             CustomerID = customerID;
             Name = name;

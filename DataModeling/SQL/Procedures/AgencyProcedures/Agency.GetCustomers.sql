@@ -1,4 +1,6 @@
-﻿CREATE OR ALTER PROCEDURE Agency.GetCustomers
+﻿USE TravelAgency;
+GO
+CREATE OR ALTER PROCEDURE Agency.GetCustomers
 AS
 
 SELECT C.CustomerID, C.Budget, C.[Name], C.Age, C.Sex, C.ContactID

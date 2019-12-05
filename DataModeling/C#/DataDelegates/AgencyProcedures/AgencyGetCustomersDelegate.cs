@@ -21,7 +21,7 @@ namespace DataModeling
                 customers.Add(new Customer(                   
                    reader.GetInt32("CustomerID"), 
                    reader.GetString("Name"),
-                   reader.GetFloat("Budget"),
+                   reader.GetDouble("Budget"),
                    reader.GetInt32("Age"),
                    reader.GetString("Sex"),
                    reader.GetInt32("ContactID")

@@ -13,11 +13,11 @@ namespace DataModeling.Model
 
         public string Name { get; }
 
-        public float Salary { get; }
+        public double Salary { get; }
 
         public bool IsDeleted { get; }
 
-        public Agent(int aID, string name, float salary, bool isDeleted)
+        public Agent(int aID, string name, double salary, bool isDeleted)
         {
             AgentID = aID;
             Name = name;
@@ -25,7 +25,7 @@ namespace DataModeling.Model
             IsDeleted = isDeleted;
         }
 
-        public Agent(int aID, string name, float salary)
+        public Agent(int aID, string name, double salary)
         {
             AgentID = aID;
             Name = name;

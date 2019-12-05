@@ -1,4 +1,6 @@
 ﻿--search for customer by their customer ID
+USE TravelAgency;
+GO
 CREATE OR ALTER PROCEDURE Agency.GetCustomer
    @CustomerID INT
 AS

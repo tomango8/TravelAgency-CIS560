@@ -112,7 +112,7 @@ CREATE TABLE Agency.Trips
 	REFERENCES Agency.Customer(CustomerID),
 	
 	IsDeleted BIT NOT NULL DEFAULT(0),
-	DataCreated DATETIMEOFFSET NOT NULL DEFAULT(SYSDATETIMEOFFSET()),
+	DateCreated DATETIMEOFFSET NOT NULL DEFAULT(SYSDATETIMEOFFSET()),
 	AgentID INT FOREIGN KEY
 	REFERENCES Agency.Agents(AgentID), 
 );
@@ -180,7 +180,7 @@ CREATE TABLE Hotels.HotelReservation
 (
     ReservationID INT NOT NULL PRIMARY KEY FOREIGN KEY REFERENCES Agency.Reservations(ReservationID),
     HotelID INT NOT NULL IDENTITY(1, 1) FOREIGN KEY REFERENCES Hotels.Hotel(HotelID),
-    DateOfReservation DATE NOT NULL,
+    CheckInDate DATE NOT NULL,
     Price FLOAT NOT NULL
 );
 

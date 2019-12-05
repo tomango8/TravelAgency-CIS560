@@ -31,7 +31,7 @@ namespace DataModeling
 
             return new Customer(customerID,
                 reader.GetString("Name"),
-               reader.GetInt32("Budget"),
+               reader.GetDouble("Budget"),
                reader.GetInt32("Age"),
                reader.GetString("Sex"),
                reader.GetInt32("ContactID")               

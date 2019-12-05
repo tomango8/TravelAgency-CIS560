@@ -33,7 +33,7 @@
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Height" Value="70"/>
-                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Width" Value="220"/>
                     <Setter Property="FontSize" Value="27"/>
                     <Setter Property="Margin" Value="10,10,10,10"/>
                 </Style>
@@ -44,7 +44,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Click="Report3_Click">Report 3</Button>
-                <Button Click="Report4_Click">Report 4</Button>
+                <Button Click="CheaperOptions_Click">Cheaper Options</Button>
                 <Button Click="MainMenu_Click">Main Menu</Button>
             </StackPanel>
         </StackPanel>
