@@ -12,7 +12,7 @@
 	(
 		ContactID
 	)
-	REFERENCES Agency.ContactInfo(CityID),
+	REFERENCES Agency.ContactInfo(ContactID),
 );
 
 

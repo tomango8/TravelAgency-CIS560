@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AgencyTables",
+    "\\AirlinesTables",
+    "\\AttractionsTables",
+    "\\Cars",
+    "\\HotelsTables",
+    "\\RestaurantsTables"
+  ],
+  "SelectedNode": "\\Drop Tables.sql",
+  "PreviewInSolutionExplorer": false
+}

@@ -136,6 +136,7 @@
     <Content Include="SQL\Tables\AirlinesTables\Flight.sql" />
     <Content Include="SQL\Tables\AttractionsTables\Attraction.sql" />
     <Content Include="SQL\Tables\AttractionsTables\AttractionTicket.sql" />
+    <Content Include="SQL\Tables\BuildTables.sql" />
     <Content Include="SQL\Tables\Cars\SchemaCar.sql" />
     <Content Include="SQL\Tables\Drop Tables.sql" />
     <Content Include="SQL\Tables\HotelsTables\Hotel.sql" />
@@ -146,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SQL\Data\" />
-    <Folder Include="SQL\Tables\CarsTables\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
