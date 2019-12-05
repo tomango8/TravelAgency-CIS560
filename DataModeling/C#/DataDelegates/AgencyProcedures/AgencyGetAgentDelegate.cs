@@ -31,7 +31,7 @@ namespace DataModeling
             {
                 return null;
             }
-            return new Agent(reader.GetInt32("AgentID"), reader.GetString("Name"), reader.GetInt32("Salary"));
+            return new Agent(reader.GetInt32("AgentID"), reader.GetString("Name"), reader.GetDouble("Salary"));
         }
     }
 }

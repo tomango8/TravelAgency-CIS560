@@ -1,4 +1,6 @@
-﻿CREATE OR ALTER PROCEDURE Agency.RetrieveCustomerContactInfo
+﻿USE TravelAgency;
+GO
+CREATE OR ALTER PROCEDURE Agency.RetrieveCustomerContactInfo
 	@ContactID INT
 AS
 

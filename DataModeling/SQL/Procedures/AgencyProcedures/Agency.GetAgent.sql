@@ -1,11 +1,10 @@
-CREATE OR ALTER PROCEDURE Agency.GetTrip
-	@AgentID INT,
-	@CustomerID INT
+USE TravelAgency;
+GO
+CREATE OR ALTER PROCEDURE Agency.GetAgent
+	@AgentID INT
 AS
-
-SELECT T.TripID, T.CustomerID, T.DateCreated, T.AgentID
-FROM Agenty.Trips T
-WHERE T.AgentID = @AgentID AND
-	T.CustomerID = @CustomerID AND
-	A.IsDeleted != 1;
+SELECT A.AgentID, A.[Name], A.Salary
+FROM Agency.Agents A
+WHERE A.IsDeleted = 0
+AND @AgentID = A.AgentID;
 GO
