@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccess;
+using DataModeling;
 
 namespace UserInterface
 {
@@ -67,12 +69,30 @@ namespace UserInterface
             // set uxReportListLabel of what each column represents
         }
 
-        public void Report4_Click(object sender, RoutedEventArgs args)
+        /// <summary>
+        /// Cheaper options is the 4th report query which gets displays the cheapest amenities for each city within the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void CheaperOptions_Click(object sender, RoutedEventArgs args)
         {
-            // CONNECT
-            // query report 4
-            // load report 4 into uxReportList
-            // set uxReportListLabel of what each column represents
+            SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+            List<string> cheaperOptions = (List<string>)executor.ExecuteReader(new AgencyCheapestOptionsDelegate());
+
+            uxReportListLabel.Content = "CityID, CityName, Region, Country, CheapestHotel, " +
+            "CheapestHotelPrice, CheapestAttraction, CheapestAttractionPrice, " +
+            "CheapestCarModelAgency, CheapestModel, CheapestModelPrice"; 
+
+            if (cheaperOptions.Count > 0)
+            {
+                foreach(string row in cheaperOptions)
+                {
+                    TextBox t = new TextBox();
+                    t.Text = row;
+                    uxReportList.Items.Add(t);
+                }
+            }
         }
     }
 }

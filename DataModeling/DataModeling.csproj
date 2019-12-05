@@ -68,6 +68,7 @@
     <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsGetHotelReservationDelegate.cs" />
     <Compile Include="C#\DataDelegates\LocationDelegates\LocationCreateCityDelegate.cs" />
     <Compile Include="C#\DataDelegates\LocationDelegates\LocationGetCityDelegate.cs" />
+    <Compile Include="C#\DataDelegates\ReportDelegates\AgencyCheapestOptionsDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantReservationDelegate.cs" />
     <Compile Include="C#\Model\Agency\Agent.cs" />
