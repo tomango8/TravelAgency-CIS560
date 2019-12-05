@@ -58,7 +58,7 @@ namespace UserInterface
                 int hotelID = int.Parse(uxHotelID.Text);
                 // Lookup hotel using hotelID
 
-                Hotel hotel = executor.ExecuteNonQuery(new HotelsCreateHotelDelegate(hotelID));
+                Hotel hotel = executor.ExecuteReader(new HotelsGetHotelDelegate(hotelID));
 
                 if (hotel == null)
                 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataModeling;
+using DataModeling.Model;
 
 namespace UserInterface
 {
@@ -59,6 +62,12 @@ namespace UserInterface
             {
                 int restaurantID = int.Parse(uxRestaurantID.Text);
 
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+                Restaurant restaurant = executor.ExecuteReader(new RestaurantsGetRestaurantDelegate(restaurantID));
+
+
+
                 // CONNECT
                 // Lookup restaurant using restaurantID
                 // if null
@@ -69,7 +78,7 @@ namespace UserInterface
                 //      City city = get City (restaurant.CityID);
 
                 // CONNECT
-                        uxRestaurantName.Text = ""; // = restaurant.Name;
+                uxRestaurantName.Text = ""; // = restaurant.Name;
                         uxCity.Text = ""; // = city.City;
                         uxRegion.Text = ""; // = city.Region;
                         uxCountry.Text = ""; // = city.Country;
