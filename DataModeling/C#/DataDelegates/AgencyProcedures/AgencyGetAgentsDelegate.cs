@@ -22,7 +22,7 @@ namespace DataModeling
                 Agents.Add(new Agent(
                    reader.GetInt32("AgentID"),
                    reader.GetString("Name"),
-                   reader.GetFloat("Salary")));
+                   reader.GetDouble("Salary")));
             }
 
             return Agents;

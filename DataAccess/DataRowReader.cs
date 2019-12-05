@@ -51,7 +51,12 @@ namespace DataAccess
           return GetValue(name, reader.GetFloat);
       }
 
-      public bool GetBitToBool(string name)
+      public double GetDouble(string name)
+      {
+          return GetValue(name, reader.GetDouble);
+      }
+
+        public bool GetBitToBool(string name)
       {
             return GetValue(name, reader.GetBoolean);
       }
