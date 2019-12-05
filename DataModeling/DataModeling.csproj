@@ -62,6 +62,7 @@
     <Compile Include="C#\DataDelegates\AttractionsDelegates\CreateAttractionDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionTickectDelegate.cs" />
+    <Compile Include="C#\DataDelegates\CarsDelegates\CarsCreateCarRentalDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetAgencyNameDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetCarReservationInfo.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\CreateReservationDelegate.cs" />
