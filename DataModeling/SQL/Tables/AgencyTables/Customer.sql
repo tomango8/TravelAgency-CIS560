@@ -1,12 +1,12 @@
 ﻿CREATE TABLE Agency.Customer 
 (
 	CustomerID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	Budget FLOAT,
-	[Name] NVARCHAR(100) NOT NULL,
-	Age INT, 
-	Sex NVARCHAR(100),
-	ContactID INT,
-	IsDeleted BIT,
+	Budget FLOAT NOT NULL,
+	[Name] NVARCHAR(120) NOT NULL,
+	Age INT NOT NULL, 
+	Sex NVARCHAR(7) NOT NULL,
+	ContactID INT NOT NULL,
+	IsDeleted BIT NOT NULL DEFAULT(0),
 
 	FOREIGN KEY
 	(

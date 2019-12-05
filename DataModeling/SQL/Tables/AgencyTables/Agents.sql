@@ -1,7 +1,7 @@
 ﻿CREATE TABLE Agency.Agents
 (
 	AgentID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	[Name] NVARCHAR,
-	Salary FLOAT,
-	IsDeleted BIT,
+	[Name] NVARCHAR(120) NOT NULL,
+	Salary FLOAT NOT NULL,
+	IsDeleted BIT NOT NULL DEFAULT(0),
 )

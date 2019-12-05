@@ -1,7 +1,8 @@
 
-CREATE TABLE [Location].Cities(
-    CityID INT PRIMARY KEY, --indentity (1,1)???
-    CityName NVARCHAR(120),
-    Region NVARCHAR(120),
-    Country NVARCHAR(120)
+CREATE TABLE [Location].Cities
+(
+    CityID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+    CityName NVARCHAR(120) NOT NULL,
+    Region NVARCHAR(120) NOT NULL,
+    Country NVARCHAR(120) NOT NULL
 )
