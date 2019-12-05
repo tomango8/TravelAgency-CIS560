@@ -62,26 +62,33 @@ namespace UserInterface
             if(Check.ValidPositiveInt("Attraction ID", uxAttractionID.Text, out message))
             {
                 int attractionID = int.Parse(uxAttractionID.Text);
+
+
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
+                if (attractionID == null) { MessageBox.Show("Fill in an attraction ID please "); }
+                else {
+
+                    Attraction attraction = executor.ExecuteReader(new GetAttractionDataDelegate(attractionID));
 
 
-                Cities citysearch = executor.ExecuteReader(new LocationGetCityDelegate(, , ));
-                // CONNECT
-                // Lookup attraction using attractionID
-                // if null
-                //      MessageBox.Show("Attraction does not already exist");
-                // else
-                // {
-                //      Attraction attraction = get Attraction (attractionID);
-                //      City city = get City (attraction.CityID);
+                    Cities city = executor.ExecuteReader(new LocationGetCityDelegate(cityID: attraction.CityID ));
+                    // CONNECT
+                    // Lookup attraction using attractionID
+                    // if null
+                    //      MessageBox.Show("Attraction does not already exist");
+                    // else
+                    // {
+                    //      Attraction attraction = get Attraction (attractionID);
+                    //      City city = get City (attraction.CityID);
 
-                // CONNECT
-                uxAttractionName.Text = ""; // = attraction.Name;
-                    uxCity.Text = ""; // = city.City;
-                    uxCountry.Text = ""; // = city.Country;
-                    uxRegion.Text = ""; // = city.Region
-                // } end else
+                    // CONNECT
+                    uxAttractionName.Text = attraction.Name; // = attraction.Name;
+                    uxCity.Text = city.CityName; // = city.City;
+                    uxCountry.Text = city.Country; // = city.Country;
+                    uxRegion.Text = city.Region; // = city.Region
+                                        // } end else
+                }
             }   
             else
             {
@@ -108,7 +115,7 @@ namespace UserInterface
 
                 // CONNECT
                 int cityID = 0;
-
+                
                 // Lookup city, using country, region, city
                 // if null
                 //      create new city
