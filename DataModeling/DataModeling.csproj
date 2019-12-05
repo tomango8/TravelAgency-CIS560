@@ -109,7 +109,6 @@
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.SaveTrip.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateFlight.sql" />
-    <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.GetFlight.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.RetrieveFlightInfo.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.CreateAttraction.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttraction.sql" />

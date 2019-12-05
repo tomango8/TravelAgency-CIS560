@@ -1,14 +1,13 @@
 CREATE OR ALTER PROCEDURE Airlines.CreateFlight
 	@FlightID INT OUTPUT,
-	@AirlineName NVARCHAR(64),
-	@DepartureTime TIME,
-	@ArrivalTime TIME,
+	@AirlineName NVARCHAR(120),
+	@DepartureTime DATETIME,
+	@ArrivalTime DATETIME,
 	@CityDepartureID INT,
-	@CityArrivalID INT,
-	@DateOfFlight DATE
+	@CityArrivalID INT
 AS
-INSERT Airlines.Flight(AirlineName, DepartureTime, ArrivalTime, DateOfFlight)
-VALUES(@AirlineName, @DepartureTime, @ArrivalTime, @DateOfFlight)
+INSERT Airlines.Flight(AirlineName, DepartureTime, ArrivalTime, CityDepartureID, CityArrivalID)
+VALUES(@AirlineName, @DepartureTime, @ArrivalTime, @CityDepartureID, @CityArrivalID)
 
 SET @FlightID = SCOPE_IDENTITY();
 GO

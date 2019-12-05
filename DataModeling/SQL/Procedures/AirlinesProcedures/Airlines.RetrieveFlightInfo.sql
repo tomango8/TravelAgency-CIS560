@@ -9,7 +9,6 @@ SELECT
 	FL.ArrivalTime,
 	FL.DepartureTime,
 	FL.CityDepatureID,
-	FL.CityArrivalID,
-	FL.DateofFlight
+	FL.CityArrivalID	
 FROM Airlines.Flight FL
 WHERE FL.FlightID = @FlightID
