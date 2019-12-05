@@ -1,8 +1,8 @@
 ﻿CREATE OR ALTER PROCEDURE Agency.SaveCustomerContactInfo
    @ContactID INT,
-   @BillingAddress NVARCHAR(100),
-   @Phone INT,
-   @Email NVARCHAR(100),
+   @BillingAddress NVARCHAR(200),
+   @Phone NVARCHAR(30),
+   @Email NVARCHAR(120),
    @CityID INT
 AS
 

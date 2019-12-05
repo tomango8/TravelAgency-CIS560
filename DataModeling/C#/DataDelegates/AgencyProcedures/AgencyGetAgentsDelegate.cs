@@ -21,7 +21,8 @@ namespace DataModeling
             {
                 Agents.Add(new Agent(
                    reader.GetInt32("AgentID"),
-                   reader.GetString("Name")));
+                   reader.GetString("Name"),
+                   reader.GetFloat("Salary")));
             }
 
             return Agents;

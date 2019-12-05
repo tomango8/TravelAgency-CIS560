@@ -33,6 +33,17 @@ namespace DataModeling.Model
             IsDeleted = isDeleted;
         }
 
+        public Customer(int customerID, string name, float budget, int age, string sex, int contactID)
+        {
+            CustomerID = customerID;
+            Name = name;
+            Budget = budget;
+            Age = age;
+            Sex = sex;
+            ContactID = contactID;
+            IsDeleted = false;
+        }
+
         public string CustomerSimpleInfo
         {
             get

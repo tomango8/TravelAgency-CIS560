@@ -24,8 +24,8 @@ namespace DataModeling
                    reader.GetFloat("Budget"),
                    reader.GetInt32("Age"),
                    reader.GetString("Sex"),
-                   reader.GetInt32("ContactID"),
-                   reader.GetBitToBool("IsDeleted")));
+                   reader.GetInt32("ContactID")
+                   ));
             }
 
             return customers;

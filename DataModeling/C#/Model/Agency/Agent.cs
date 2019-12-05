@@ -33,13 +33,6 @@ namespace DataModeling.Model
             IsDeleted = false;
         }
 
-        public Agent(int id, string name)
-        {
-            this.AgentID = id;
-            this.Name = name;
-            IsDeleted = false;
-        }
-
         public string AgentSimpleInfo
         {
             get
