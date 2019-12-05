@@ -6,3 +6,7 @@
 AS
 INSERT Hotels.HotelReservation(HotelID, CheckinDate, Price)
 	VALUES(@HotelID, @CheckinDate, @Price);
+	
+SET @ReservationID = SCOPE_IDENTITY();
+GO
+
