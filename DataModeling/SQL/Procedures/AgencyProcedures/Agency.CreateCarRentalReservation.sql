@@ -8,3 +8,6 @@
 AS
 INSERT Cars.CarRentalReservation(ReservationID, CarRentalID, RentalDate, Model, Price)
 	VALUES(@ReservationID, @CarRentalID, @RentalDate, @Model, @Price)
+	
+SET @ReservationID = SCOPE_IDENTITY();
+GO

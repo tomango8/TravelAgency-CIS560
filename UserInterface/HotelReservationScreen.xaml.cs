@@ -58,7 +58,7 @@ namespace UserInterface
                 int hotelID = int.Parse(uxHotelID.Text);
                 // Lookup hotel using hotelID
 
-                Hotel hotel = executor.ExecuteNonQuery(new HotelsCreateHotelDelegate(hotelID));
+                Hotel hotel = executor.ExecuteReader(new HotelsGetHotelDelegate(hotelID));
 
                 if (hotel == null)
                 {
@@ -159,10 +159,12 @@ namespace UserInterface
                 // CONNECT
                 int reservationID = 0;
 
+                Reservation res = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID,false, true, false, false, false));
+                reservationID = res.ReservationID;
 
-                    //need to change procedure
+                HotelReservation hr = executor.ExecuteNonQuery(new HotelsCreateHotelReservationDelegate(reservationID, hotelID, checkInDate, roomPrice));
 
-                // Create new reservation ID, using tripID (field), and set hotel reservation to 1, and all others to 0
+                // Create new reservation, using tripID (field), and set hotel reservation to 1, and all others to 0
                 // reservationID = newly created reservation ID
 
                 // CONNECT
