@@ -72,7 +72,7 @@ namespace UserInterface
                     Attraction attraction = executor.ExecuteReader(new GetAttractionDataDelegate(attractionID));
 
 
-                    Cities city = executor.ExecuteReader(new LocationGetCityDelegate(cityID: attraction.CityID ));
+                    Cities city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(cityID: attraction.CityID ));
                     // CONNECT
                     // Lookup attraction using attractionID
                     // if null

@@ -3,24 +3,19 @@ using System.Data;
 using System.Data.SqlClient;
 using DataModeling.Model;
 
-
-
-namespace DataModeling.C_.DataDelegates.LocationDelegates
+namespace DataModeling
 {
     public class LocationGetCityByCityIdDelegate: DataReaderDelegate<Cities>
     {
 
     private readonly int cityID;
-    private readonly string country;
-    private readonly string region;
-    private readonly string cityName;
 
-    public LocationGetCityByCityIdDelegate(string cityName, string country, string region)
+
+    public LocationGetCityByCityIdDelegate(int cityID)
            : base("Location.GetCities")      
     {
-            this.cityName = cityName;
-            this.country = country;
-            this.region = region;
+            this.cityID = cityID;
+            
     }
 
     public override void PrepareCommand(SqlCommand command)
