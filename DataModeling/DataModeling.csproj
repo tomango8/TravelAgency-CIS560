@@ -89,6 +89,7 @@
     <Compile Include="C#\Model\Agency\Trip.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SQL\Data\AgentsData.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateAgent.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateAttractionTicket.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateBoardingPass.sql" />
@@ -145,9 +146,7 @@
     <Content Include="SQL\Tables\RestaurantsTables\Restaurant.sql" />
     <Content Include="SQL\Tables\RestaurantsTables\RestaurantReservation.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SQL\Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{a5ac459d-6c0a-4d6e-ad65-ecb3e0fec3a7}</Project>
