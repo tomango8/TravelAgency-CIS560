@@ -8,7 +8,7 @@
 AS
 
 INSERT Agency.Customer(Budget, [Name], Age, Sex, ContactID)
-VALUES(@Budget, @tName, @Age, @Sex, @ContactID);
+VALUES(@Budget, @Name, @Age, @Sex, @ContactID);
 
 SET @CustomerID = SCOPE_IDENTITY();
 GO

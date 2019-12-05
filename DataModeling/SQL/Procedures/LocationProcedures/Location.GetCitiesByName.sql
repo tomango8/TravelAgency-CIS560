@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCEDURE Location.GetCities
+﻿CREATE OR ALTER PROCEDURE Location.GetCitiesByName
 	@CityName NVARCHAR(120),
 	@Region  NVARCHAR(120),
 	@Country NVARCHAR(120)

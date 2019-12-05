@@ -16,7 +16,7 @@ WHEN MATCHED AND NOT EXISTS
       (
          SELECT S.BillingAddress, S.Phone, S.Email, S.CityID
          INTERSECT
-         SELECT  T.BillingAddress, T.Phone, T.Email, T.CityID
+         SELECT  CI.BillingAddress, CI.Phone, CI.Email, CI.CityID
       ) THEN
    UPDATE
    SET

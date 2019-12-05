@@ -130,12 +130,12 @@
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotelReservation.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotel.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotelReservation.sql" />
-    <Content Include="SQL\Procedures\LocationProcedures\Location.GetCiriesByName.sql" />
+    <Content Include="SQL\Procedures\LocationProcedures\Location.GetCitiesByName.sql" />
     <Content Include="SQL\Procedures\LocationProcedures\Location.GetCities.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurant.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurant.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantReservation.sql" />
-    <Content Include="SQL\Reports\ReportQuery4.CheapestOptions.sql" />
+    <Content Include="SQL\Reports\Agency.CheapestOptions.sql" />
     <Content Include="SQL\Schemas\All Schemas.sql" />
     <Content Include="SQL\Tables\AgencyTables\Agents.sql" />
     <Content Include="SQL\Tables\AgencyTables\ContactInfo.sql" />

@@ -1,4 +1,6 @@
-﻿CREATE OR ALTER PROCEDURE Cars.CarRentalReservation
+﻿USE TravelAgency;
+GO
+CREATE OR ALTER PROCEDURE Agency.CarRentalReservation
 	@ReservationID INT,
 	@CarRentalID INT,
 	@RentalDate DATE,

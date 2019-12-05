@@ -4,5 +4,5 @@
 	@Price FLOAT
 
 AS
-INSERT Airlines.BoardingPass(ReservationID, CheckinDate, Price)
+INSERT Airlines.BoardingPass(ReservationID, FlightID, Price)
 	VALUES(@ReservationID, @FlightID, @Price);

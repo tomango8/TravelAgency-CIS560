@@ -1,5 +1,3 @@
-USE TravelAgency;
-GO
 CREATE OR ALTER PROCEDURE Agency.GetAgent
 	@AgentID INT
 AS

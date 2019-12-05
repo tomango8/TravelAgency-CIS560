@@ -4,7 +4,7 @@
 	@CheckinDate DATE,
 	@Price FLOAT
 AS
-INSERT Hotels.HotelReservation(HotelID, CheckinDate, Price)
+INSERT Hotels.HotelReservation(HotelID, CheckInDate, Price)
 	VALUES(@HotelID, @CheckinDate, @Price);
 	
 SET @ReservationID = SCOPE_IDENTITY();
