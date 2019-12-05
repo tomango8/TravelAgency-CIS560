@@ -1,5 +1,5 @@
 ﻿CREATE OR ALTER PROCEDURE Restaurants.CreateRestaurant
-	@Name NVARCHAR(100),
+	@Name NVARCHAR(120),
 	@CityID INT,
 	@RestaurantID INT OUTPUT
 AS

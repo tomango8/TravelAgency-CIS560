@@ -7,8 +7,7 @@ CREATE OR ALTER PROCEDURE Hotels.CreateHotelReservation
 AS
 INSERT Agency.Reservation(TripID, IsDeleted, CarReservation, BoardingPass, AttractionTicket, RestaurantReservation)
 	VALUES(@TripID, 0, 0, 0, 0, 1)
-INSERT Hotels.HotelReservation(HotelID, DateOfReservation, Price)
-	VALUES(@HotelID, @DateOfReservation, @Price)
-
-SET @ReservationID = SCOPE_IDENTITY();
+SET @ReservationID = SCOPE_IDENTITY()
+INSERT Hotels.HotelReservation(ReservationID, HotelID, DateOfReservation, Price)
+	VALUES(@ReservationID, @HotelID, @DateOfReservation, @Price);
 GO

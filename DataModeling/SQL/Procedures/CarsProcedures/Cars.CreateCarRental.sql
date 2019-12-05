@@ -1,6 +1,6 @@
 ﻿CREATE OR ALTER PROCEDURE Cars.CreateCarRental
 	@CarRentalID INT OUTPUT,
-	@AgencyName NVARCHAR(100),
+	@AgencyName NVARCHAR(120),
 	@CityID INT
 AS
 

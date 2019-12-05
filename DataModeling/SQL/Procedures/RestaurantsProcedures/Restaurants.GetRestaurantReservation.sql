@@ -2,7 +2,7 @@
 	@ReservationID INT
 AS
 
-SELECT ReservationID, ReservationDate, RestaurantID, ReservationTime
+SELECT ReservationID, ReservationDate, RestaurantID
 FROM Restaurants.RestaurantReservation
 WHERE ReservationID = @ReservationID;
 GO

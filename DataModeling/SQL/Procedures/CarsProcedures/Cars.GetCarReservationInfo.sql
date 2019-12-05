@@ -1,7 +1,8 @@
-CREATE OR ALTER PROCEDURE Cars.GetAttraction
+CREATE OR ALTER PROCEDURE Cars.GetCarReservationInfo
 	@ReservationID INT
 AS
 
-SELECT ReservationID, CarRentalID, RentalDate,Model,Price
-FROM Cars.CarRentalReservation 
+SELECT C.ReservationID, C.CarRentalID, C.RentalDate, C.Model, C.Price
+FROM Cars.CarRentalReservation C 
+WHERE @ReservationID = C.ReservationID;
 GO

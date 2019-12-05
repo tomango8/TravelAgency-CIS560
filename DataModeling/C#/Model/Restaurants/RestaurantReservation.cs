@@ -13,24 +13,22 @@ namespace DataModeling.Model
         public DateTime ReservationDate { get; }
 
         public int RestaurantID { get; }
+        
 
-        public DateTime ReservationTime { get; }
-
-        public RestaurantReservation(int reservationID, DateTime reservationDate, int restaurantID, DateTime reservationTime)
+        public RestaurantReservation(int reservationID, DateTime reservationDate, int restaurantID)
         {
             ReservationID = reservationID;
             ReservationDate = reservationDate;
-            RestaurantID = restaurantID;
-            ReservationTime = reservationTime;
+            RestaurantID = restaurantID;            
         }
         public override string ToString()
         {
-            return $"ReservationID: {ReservationID}, ReservationDate: {ReservationDate}, RestaurantID: {RestaurantID}, ReservationTime: {ReservationTime}";
+            return $"ReservationID: {ReservationID}, ReservationDate: {ReservationDate}, RestaurantID: {RestaurantID}";
         }
 
         public string ReservationInfo()
         {
-            return $"Restaurant Reservation {ReservationID}, Restaurant {ReservationID}, {ReservationTime}, {ReservationDate}"; 
+            return $"Restaurant Reservation {ReservationID}, Restaurant {ReservationID}, {ReservationDate}"; 
         }
     }
 }
