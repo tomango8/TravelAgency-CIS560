@@ -129,6 +129,7 @@
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurant.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurant.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantReservation.sql" />
+    <Content Include="SQL\Reports\ReportQuery3.AgeReport.sql" />
     <Content Include="SQL\Reports\ReportQuery4.CheapestOptions.sql" />
     <Content Include="SQL\Schemas\All Schemas.sql" />
     <Content Include="SQL\Tables\AgencyTables\Agents.sql" />
