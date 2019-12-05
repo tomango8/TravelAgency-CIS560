@@ -29,8 +29,7 @@ namespace DataModeling
 
             return new RestaurantReservation(reservationID,
                reader.GetDateTime("ReservationDate"),
-               reader.GetInt32("RestaurantID"),
-               reader.GetDateTime("ReservationTime")
+               reader.GetInt32("RestaurantID")               
                );
         }
     }
