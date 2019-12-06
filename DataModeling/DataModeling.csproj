@@ -91,6 +91,7 @@
   <ItemGroup>
     <Content Include="SQL\Data\AgentsData.sql" />
     <Content Include="SQL\Data\AttractionsData.sql" />
+    <Content Include="SQL\Data\CarRentalAgencysData.sql" />
     <Content Include="SQL\Data\CitiesData.sql" />
     <Content Include="SQL\Data\CustomerData.sql" />
     <Content Include="SQL\Data\FlightsData.sql" />
