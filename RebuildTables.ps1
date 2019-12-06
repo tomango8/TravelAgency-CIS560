@@ -83,6 +83,7 @@ Write-Host "Creating Airlines procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AirlinesProcedures\Airlines.CreateFlight.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AirlinesProcedures\Airlines.GetFlight.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AirlinesProcedures\Airlines.GetBoardingPass.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AirlinesProcedures\Airlines.RetrieveFlightInfo.sql"
 
 Write-Host "Creating Attractions procedures..."
