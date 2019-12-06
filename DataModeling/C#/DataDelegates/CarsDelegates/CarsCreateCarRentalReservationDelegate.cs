@@ -7,19 +7,19 @@ using System.Data.SqlClient;
 
 namespace DataModeling
 {
-    public class AgencyCreateCarRentalReservationDelegate : NonQueryDataDelegate<CarRentalReservation>
+    public class CarsCreateCarRentalReservationDelegate : NonQueryDataDelegate<CarRentalReservation>
     {
-        private int reservationID;
+        private int tripID;
         private int carRentalID ;
         private DateTime rentalDate;
         private string model;
         private float price;
 
-        public AgencyCreateCarRentalReservationDelegate(int reservationID, int carRentalID, DateTime rentalDate,
+        public CarsCreateCarRentalReservationDelegate(int tripID, int carRentalID, DateTime rentalDate,
                                           string model, float price)
-            : base(" Agency.CreateCarRentalReservation")
+            : base("Cars.CreateCarRentalReservation")
         {
-            this.reservationID = reservationID;
+            this.tripID = tripID;
             this.carRentalID =carRentalID;
             this.rentalDate = rentalDate;
             this.model= model;
@@ -30,17 +30,19 @@ namespace DataModeling
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("ReservationID", reservationID);
+            command.Parameters.AddWithValue("TripID", tripID);
             command.Parameters.AddWithValue("CarRentalID", carRentalID);
             command.Parameters.AddWithValue("RentalDate", rentalDate);
             command.Parameters.AddWithValue("Model", model);
             command.Parameters.AddWithValue("Price", price);
 
+            var p = command.Parameters.Add("ReservationID", SqlDbType.Int);
+            p.Value = ParameterDirection.Output;
         }
 
         public override CarRentalReservation Translate(SqlCommand command)
         {
-            return new CarRentalReservation((int)reservationID, carRentalID, rentalDate,model,price);
+            return new CarRentalReservation((int)command.Parameters["ReservationID"].Value, carRentalID, rentalDate,model,price);
         }
     }
 

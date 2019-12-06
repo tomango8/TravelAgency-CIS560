@@ -106,7 +106,6 @@ namespace UserInterface
                 string country = Check.FormatName(uxCountry.Text);
                 string region = Check.FormatName(uxRegion.Text);
 
-                // CONNECT
                 int cityID = 0;
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
                 City city = executor.ExecuteReader(new LocationGetCityDelegate(cityName, country, region));
@@ -120,14 +119,6 @@ namespace UserInterface
                 {
                     cityID = city.CityID;
                 }
-                // Lookup city, using city, country, and region
-                // if null
-                //      create new city
-                //      cityID = newly created city
-                // else
-                //      cityID = foundCity
-
-                // CONNECT
                 int carRentalID = 0;
 
                 CarRental agency = executor.ExecuteReader(new CarsGetAgencyByNameDelegate(carAgencyName, cityID));
@@ -141,24 +132,8 @@ namespace UserInterface
                     carRentalID = agency.CarRentalID;
                 }
 
-                // Lookup CarRentalAgency using carAgencyName, cityID
-                // if null
-                //      create new agency
-                //      carRentalID = newly created agency
-                // else
-                //      carRentalID = found agency
-
-                // CONNECT
-                int reservationID = 0;
-
-                Reservation reservation = executor.ExecuteNonQuery(new AgencyCreateReservationDelegate(tripID,carreservation:true,false,false,false,false));
-                reservationID = reservation.ReservationID;
-                // Create new reservation using tripID (field) and set CarReservation bit to 1 and the rest to 0
-                // reservationID = newly created reservation
-                CarRentalReservation carRentalReservation = executor.ExecuteNonQuery(new AgencyCreateCarRentalReservationDelegate
-                                                                    (reservationID, carRentalID, rentalDate, carModel, rentalPrice));
-                // CONNECT
-                // Create new CarRentalReservation using reservationID, carRentalID, rentalDate, carModel, rentalPrice
+                CarRentalReservation carRentalReservation = executor.ExecuteNonQuery(new CarsCreateCarRentalReservationDelegate
+                                                                    (tripID, carRentalID, rentalDate, carModel, rentalPrice));
 
                 MessageBox.Show("Car successfully reserved with agency " + carAgencyName);
             }

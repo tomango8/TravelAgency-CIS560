@@ -39,7 +39,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C#\DataDelegates\AgencyDelegates\AgencyCreateCarRentalReservationDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyDelegates\AgencyCreateContactInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyDelegates\AgencyCreateCustomerDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyDelegates\AgencyCreateTripDelegate.cs" />
@@ -67,6 +66,7 @@
     <Compile Include="C#\DataDelegates\AttractionsDelegates\CreateAttractionTicketDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionTicketDelegate.cs" />
+    <Compile Include="C#\DataDelegates\CarsDelegates\CarsCreateCarRentalReservationDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsCreateCarRentalDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetAgencyByIDDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetAgencyByNameDelegate.cs" />
@@ -109,6 +109,7 @@
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetReservations.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.GetBoardingPass.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.CreateAttractionTicket.sql" />
+    <Content Include="SQL\Procedures\CarsProcedures\Cars.CreateCarRentalReservation.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotelReservation.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.FetchHotel.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurantReservation.sql" />
