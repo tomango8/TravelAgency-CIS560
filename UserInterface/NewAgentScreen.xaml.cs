@@ -48,6 +48,7 @@ namespace UserInterface
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
                 AgencyCreateAgentDelegate createsAgent = new AgencyCreateAgentDelegate(fullName, salary);
                 Agent agent = executor.ExecuteNonQuery(createsAgent);
+                agentID = agent.AgentID;
                 /* Not sure if this is necessary
                 AgencyGetAgentDelegate getsAgent = new AgencyGetAgentDelegate(agentID);
                 Agent a = executor.ExecuteNonQuery(agent);

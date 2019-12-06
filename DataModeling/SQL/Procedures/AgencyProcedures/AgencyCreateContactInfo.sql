@@ -3,11 +3,11 @@
    @Phone NVARCHAR(30),
    @Email NVARCHAR(20),
    @CityID INT,
-   @CustomerID INT
+   @ContactID INT OUTPUT
   
 AS
-INSERT Agency.ContactInfo([Address], Phone, Email, CityID, CustomerID)
-VALUES([Address], Phone, Email, CityID, CustomerID);
+INSERT Agency.ContactInfo([Address], Phone, Email, CityID)
+VALUES([Address], Phone, Email, CityID)
 
-SET @CustomerID = SCOPE_IDENTITY();
+SET @ContactID = SCOPE_IDENTITY();
 GO

@@ -86,16 +86,18 @@ namespace UserInterface
                 }
                 // CONNECT
                 int contactID = 0;
-
+                int customerID = 0;
                 // Create new contact info using address, phone, email, cityID
                 AgencyCreateContactInfoDelegate saveInfo = new AgencyCreateContactInfoDelegate(address, phone, email, cityID);
                 // contactID = newly created contact
                 ContactInfo contactId = (ContactInfo)executor.ExecuteNonQuery(saveInfo);
                 // CONNECT
-                AgencySaveCustomerContactInfoDelegate cd = new AgencySaveCustomerContactInfoDelegate(contactID, address, phone, email, cityID);
+                contactID = contactId.ContactID;
+                AgencyCreateCustomerDelegate cd = new AgencyCreateCustomerDelegate(name, budget, age, sex, contactID);
                 // Create new customer using budget, name, age, sex, contactID
                 // customerID = newly created customer
-
+                Customer customer = executor.ExecuteNonQuery(cd);
+                customerID = customer.CustomerID;
                 MessageBox.Show("Customer " + name + " has been successfully added. CustomerID = " + customerID);
             }
         }

@@ -14,9 +14,9 @@ namespace DataModeling
         public readonly int age;
         public readonly string sex;
         public readonly int contactId;
-        public readonly bool isDeleted;
+        
 
-        public AgencyCreateCustomerDelegate(string name, float budget, int age, string sex, int contactId, bool isDeleted)
+        public AgencyCreateCustomerDelegate(string name, float budget, int age, string sex, int contactId)
             : base("Agency.CreateCustomer")
         {
             this.name = name;
@@ -24,7 +24,7 @@ namespace DataModeling
             this.age = age;
             this.sex = sex;
             this.contactId = contactId;
-            this.isDeleted = isDeleted;
+            
         }
 
         public override void PrepareCommand(SqlCommand command)
@@ -42,7 +42,7 @@ namespace DataModeling
 
         public override Customer Translate(SqlCommand command)
         {
-            return new Customer((int)command.Parameters["CustomerID"].Value, name, budget, age, sex, contactId, isDeleted);
+            return new Customer((int)command.Parameters["CustomerID"].Value, name, budget, age, sex, contactId);
         }
     }
 

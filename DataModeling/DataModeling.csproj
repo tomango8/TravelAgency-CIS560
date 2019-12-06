@@ -110,6 +110,7 @@
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.SaveCustomerContactInfo.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.SaveTrip.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\AgencyCreateContactInfo.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\AgencyCreateCustomer.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateFlight.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.GetFlight.sql" />
