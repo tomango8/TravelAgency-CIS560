@@ -122,7 +122,7 @@ namespace UserInterface
 
                 if (citysearch == null)
                 {
-                    City city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityID));
+                    City city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityname,region, country));
                     cityID = city.CityID;
                 }
                 else
