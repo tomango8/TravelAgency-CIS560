@@ -12,7 +12,7 @@ namespace DataModeling
         private readonly int carRentalID;
 
         public CarsGetAgencyByIDDelegate(int carRentalID)
-           : base("Cars.GetAgencyBYID")
+           : base("Cars.GetAgencyByID")
         {
             this.carRentalID = carRentalID;
         }
