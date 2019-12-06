@@ -5,7 +5,7 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class LocationCreateCityDelegate : NonQueryDataDelegate<Cities>
+    public class LocationCreateCityDelegate : NonQueryDataDelegate<City>
     {
         public readonly int cityID;
         public readonly string cityname;
@@ -34,9 +34,9 @@ namespace DataModeling
             p.Direction = ParameterDirection.Output;
         }
 
-        public override Cities Translate(SqlCommand command)
+        public override City Translate(SqlCommand command)
         {
-            return new Cities((int)command.Parameters["Cities"].Value, cityname, region, country);
+            return new City((int)command.Parameters["Cities"].Value, cityname, region, country);
         }
 
     }

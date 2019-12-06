@@ -152,9 +152,6 @@ namespace UserInterface
                     {
                         attractionID = attraction.AttractionID;
 
-                  //  Reservation reservation = executor.ExecuteReader(new )
-
-
                 }
                 // Lookup city, using country, region, city
                 // if null
@@ -180,7 +177,7 @@ namespace UserInterface
                 Reservation res = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID, false, false, false, true, false));
                 reservationID = res.ReservationID;
 
-                AttractionTicket at = executor.ExecuteNonQuery(new HotelsCreateAttractionTicketDelegate(reservationID, attractionID, ticketDate, ticketPrice));
+                AttractionTicket at = executor.ExecuteNonQuery(new CreateAttractionTicketDelegate(reservationID, attractionID, ticketDate, ticketPrice));
 
 
                 // create new reservation using tripID and set AttractionTicket bit to 1 and the rest to 0

@@ -5,14 +5,14 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class HotelsCreateAttractionTicketDelegate : NonQueryDataDelegate<AttractionTicket>
+    public class CreateAttractionTicketDelegate : NonQueryDataDelegate<AttractionTicket>
     {
         public readonly int reservationID;
         public readonly int attractionID;
         public readonly System.DateTime ticketdate;
         public readonly float price;
 
-        public HotelsCreateAttractionTicketDelegate(int reservationID, int hattractionID, System.DateTime TicketDate, float Price)
+        public CreateAttractionTicketDelegate(int reservationID, int hattractionID, System.DateTime TicketDate, float Price)
             : base("Attraction.CreateTicket")
         {
             this.reservationID = reservationID;

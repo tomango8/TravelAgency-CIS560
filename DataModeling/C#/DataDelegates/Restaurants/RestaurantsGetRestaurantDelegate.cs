@@ -5,7 +5,7 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class RestaurantsGetRestaurantDelegate : DataReaderDelegate<RestaurantReservation>
+    public class RestaurantsGetRestaurantDelegate : DataReaderDelegate<Restaurant>
     {
         private readonly int reservationID;
 
@@ -22,14 +22,14 @@ namespace DataModeling
             command.Parameters.AddWithValue("ReservationID", reservationID);
         }
 
-        public override RestaurantReservation Translate(SqlCommand command, IDataRowReader reader)
+        public override Restaurant Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
                 return null;
 
-            return new RestaurantReservation(reservationID,
-               reader.GetDateTime("ReservationDate"),
-               reader.GetInt32("RestaurantID")               
+            return new Restaurant(reader.GetInt32("RestaurantID"),
+               reader.GetString("Name"),
+               reader.GetInt32("CityID")               
                );
         }
     }

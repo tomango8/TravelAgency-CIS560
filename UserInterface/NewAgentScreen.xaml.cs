@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using DataModeling;
+using DataModeling.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,14 +40,19 @@ namespace UserInterface
         {
             if(CheckValidInputs())
             {
-                string fullName = Check.FormatName(uxAgentFirstName.Text) + " " + Check.FormatName(uxAgentLastName.Text);
-                float salary = float.Parse(uxSalary.Text);
-                SqlCommandExecutor s = new SqlCommandExecutor(connectionString);
-                AgencyCreateAgentDelegate a = new AgencyCreateAgentDelegate(fullName, salary, false);
-                s.ExecuteNonQuery(a);
                 // CONNECT 
                 // Create New Agent
-                int agentID = 0; // = Newly Created Agent ID
+                int agentID = 0;
+                string fullName = Check.FormatName(uxAgentFirstName.Text) + " " + Check.FormatName(uxAgentLastName.Text);
+                float salary = float.Parse(uxSalary.Text);
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+                AgencyCreateAgentDelegate createsAgent = new AgencyCreateAgentDelegate(fullName, salary);
+                Agent agent = executor.ExecuteNonQuery(createsAgent);
+                agentID = agent.AgentID;
+                /* Not sure if this is necessary
+                AgencyGetAgentDelegate getsAgent = new AgencyGetAgentDelegate(agentID);
+                Agent a = executor.ExecuteNonQuery(agent);
+                */
 
                 MessageBox.Show("Agent " + fullName + " successfully added. Agent ID = " + agentID);
             }
