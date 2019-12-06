@@ -48,6 +48,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeli
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\CustomerData.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\TripsData.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\HotelsData.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\FlightsData.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\ReservationsData.sql"
 
 Write-Host "Creating Agency Create procedures..."
@@ -111,5 +112,5 @@ Write-Host "Creating Report procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Reports\Agency.CheapestOptions.sql"
 
 
-Write-Host "Rebuild completed."
+Write-Host "Build completed."
 Write-Host ""
