@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataModeling.Model
 {
-    public class Cities
+    public class City
     {
         public int CityID { get; }
 
@@ -16,7 +16,7 @@ namespace DataModeling.Model
 
         public string Country { get; }
 
-        public Cities(int cityID, string cityName, string region, string country)
+        public City(int cityID, string cityName, string region, string country)
         {
             CityID = cityID;
             CityName = cityName;

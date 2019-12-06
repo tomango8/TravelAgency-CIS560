@@ -69,8 +69,7 @@ namespace UserInterface
                     
                         uxHotelName.Text = hotel.Name;
                         uxHotelName.Text = hotel.FullAddress;
-                        
-                        Cities city = executor.ExecuteNonQuery(new LocationFetchCityDelegate(hotel.CityID));
+                    City city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(hotel.CityID));
                     
                         uxCity.Text = city.CityName; 
                         uxRegion.Text = city.Region;
@@ -119,11 +118,11 @@ namespace UserInterface
                 int cityID = 0;
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                Cities citysearch = executor.ExecuteReader(new LocationGetCityDelegate(country, region, cityname));
+                City citysearch = executor.ExecuteReader(new LocationGetCityDelegate(country, region, cityname));
 
                 if (citysearch == null)
                 {
-                    Cities city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityname,region,country));
+                    City city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityID));
                     cityID = city.CityID;
                 }
                 else
