@@ -152,9 +152,6 @@ namespace UserInterface
                     {
                         attractionID = attraction.AttractionID;
 
-                  //  Reservation reservation = executor.ExecuteReader(new )
-
-
                 }
                 // Lookup city, using country, region, city
                 // if null

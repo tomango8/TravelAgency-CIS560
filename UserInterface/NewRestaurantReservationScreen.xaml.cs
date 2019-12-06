@@ -64,8 +64,21 @@ namespace UserInterface
 
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                Restaurant restaurant = executor.ExecuteNonQuery(new RestaurantsGetRestaurantDelegate(restaurantID));
+                Restaurant restaurant = executor.ExecuteReader(new RestaurantsGetRestaurantDelegate(restaurantID));
 
+                if (restaurant == null)
+                {
+                      MessageBox.Show("Restaurant does not already exist");
+
+                }
+                else
+                {
+                    Cities city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(restaurantID));
+                    uxRestaurantName.Text = restaurant.Name; // = restaurant.Name;
+                    uxCity.Text = city.CityName; // = city.City;
+                    uxRegion.Text = city.Region; // = city.Region;
+                    uxCountry.Text = city.Country; // = city.Country;
+                }
 
 
                 // CONNECT
@@ -78,10 +91,7 @@ namespace UserInterface
                 //      City city = get City (restaurant.CityID);
 
                 // CONNECT
-                uxRestaurantName.Text = ""; // = restaurant.Name;
-                        uxCity.Text = ""; // = city.City;
-                        uxRegion.Text = ""; // = city.Region;
-                        uxCountry.Text = ""; // = city.Country;
+                
                 // } end else
             }
             else
@@ -104,12 +114,19 @@ namespace UserInterface
                     ((DateTime)uxReservationDate.SelectedDate).Month, ((DateTime)uxReservationDate.SelectedDate).Day,
                     int.Parse(uxReservationTime.Text.Split(':')[0]), int.Parse(uxReservationTime.Text.Split(':')[1]), 0);
 
-                string city = Check.FormatName(uxCity.Text);
+                string cityName = Check.FormatName(uxCity.Text);
                 string country = Check.FormatName(uxCountry.Text);
                 string region = Check.FormatName(uxRegion.Text);
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
                 // CONNECT
                 int cityID = 0;
+                Cities city = executor.ExecuteReader(new LocationGetCityDelegate(cityName, country, region));
+                if(city == null)
+                {
+                    city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityName, region, country));
+                }
+                cityID = city.CityID;
 
                 // Lookup city, using city, country, region
                 // if null
@@ -121,6 +138,13 @@ namespace UserInterface
                 // CONNECT
                 int restaurantID = 0;
 
+                Restaurant restaurant = executor.ExecuteReader(new RestaurantGetResturantByNameDelegate(restaurantName, cityID));
+
+                if(restaurant == null)
+                {
+                    restaurant = executor.ExecuteNonQuery(new RestaurantCreateRestauranDelegate(cityID, cityName));
+                }
+                restaurantID = restaurant.RestaurantID;
                 // Lookup restaurant, using restaurantName, cityID
                 // if null
                 //      create new restaurant
@@ -131,8 +155,11 @@ namespace UserInterface
                 // CONNECT
                 int reservationID = 0;
 
+                Reservation reservation = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID, false, false, false, false, true));
                 // Create new reservation using tripID (field), and set RestaurantReservation bit to 1 and the rest to 0
                 // reservationID = newly created reservation
+                reservationID = reservation.ReservationID;
+
 
                 // CONNECT
                 // create new RestaurantReservation using reservationID, reservationTime, restaurantID
