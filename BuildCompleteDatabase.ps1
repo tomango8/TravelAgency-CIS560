@@ -59,6 +59,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeli
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateAttractionTicket.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateBoardingPass.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateCarRentalReservation.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateContactInfo.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateCustomer.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateHotelReservation.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateRestaurantReservation.sql"

@@ -27,8 +27,10 @@ namespace DataModeling
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("Billing Address", billingAddress);
+            command.Parameters.AddWithValue("BillingAddress", billingAddress);
             command.Parameters.AddWithValue("Email", email);
+            command.Parameters.AddWithValue("Phone", phone);
+            command.Parameters.AddWithValue("CityID", cityId);
 
             var p = command.Parameters.Add("ContactID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
