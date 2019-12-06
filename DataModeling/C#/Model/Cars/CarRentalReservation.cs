@@ -16,9 +16,9 @@ namespace DataModeling.Model
 
         public string Model { get; }
 
-        public float Price { get; }
+        public double Price { get; }
 
-        public CarRentalReservation(int reservationID, int carRentalID, DateTime rentalDate, string model, float price)
+        public CarRentalReservation(int reservationID, int carRentalID, DateTime rentalDate, string model, double price)
         {
             ReservationID = reservationID;
             CarRentalID = carRentalID;

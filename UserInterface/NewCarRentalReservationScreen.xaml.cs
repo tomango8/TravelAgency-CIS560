@@ -48,7 +48,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new PlanTripScreen(connectionString, tripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
         }
 
         /// <summary>
@@ -66,21 +66,10 @@ namespace UserInterface
 
                 CarRental agency = executor.ExecuteReader(new CarsGetAgencyByIDDelegate(carRentalID));
                 City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(agency.CityID));
-                // CONNECT
-                // Lookup CarRentalAgency using carRentalID
-                // if null
-                //      MessageBox.Show("Car Rental Agency does not yet exist");
-                // else
-                // {
-                //      CarRentalAgency agency = get CarRentalAgency(carRentalID)
-                //      City city = get city (agency.CityID)
-
-                // CONNECT
-                uxCarRentalAgencyName.Text = agency.AgencyName; // = agency.Name;
-                        uxCity.Text = city.CityName; // = city.Name;
-                        uxCountry.Text = city.Country; // = city.Country;
-                        uxRegion.Text = city.Region; // = city.Region;
-                // } end else
+                uxCarRentalAgencyName.Text = agency.AgencyName;
+                uxCity.Text = city.CityName;
+                uxCountry.Text = city.Country;
+                uxRegion.Text = city.Region;
             }
             else
             {
