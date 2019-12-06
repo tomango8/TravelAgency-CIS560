@@ -39,7 +39,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCarRentalReservationDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCreateCarRentalReservationDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCreateTripDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyDeleteReservationDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyFetchTripDelegate.cs" />
@@ -62,6 +62,7 @@
     <Compile Include="C#\DataDelegates\AttractionsDelegates\CreateAttractionDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionTickectDelegate.cs" />
+    <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetAgencyByIDDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetAgencyNameDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetCarReservationInfo.cs" />
     <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsCreateHotelDelegate.cs" />
@@ -126,6 +127,7 @@
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttraction.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttractionTicket.sql" />
     <Content Include="SQL\Procedures\CarsProcedures\Cars.CreateCarRental.sql" />
+    <Content Include="SQL\Procedures\CarsProcedures\Cars.GetAgencyByID.sql" />
     <Content Include="SQL\Procedures\CarsProcedures\Cars.GetAgencyName.sql" />
     <Content Include="SQL\Procedures\CarsProcedures\Cars.GetCarReservationInfo.sql" />
     <Content Include="SQL\Procedures\LocationProcedures\Location.CreateCity.sql" />

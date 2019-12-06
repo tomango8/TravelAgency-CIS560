@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccess;
+using DataModeling;
+using DataModeling.Model;
 
 namespace UserInterface
 {
@@ -59,7 +62,9 @@ namespace UserInterface
             if(Check.ValidPositiveInt("Car Rental ID", uxCarRentalID.Text, out message))
             {
                 int carRentalID = int.Parse(uxCarRentalID.Text);
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
+                CarRental agency = executor.ExecuteReader(new )
                 // CONNECT
                 // Lookup CarRentalAgency using carRentalID
                 // if null
@@ -70,7 +75,7 @@ namespace UserInterface
                 //      City city = get city (agency.CityID)
 
                 // CONNECT
-                        uxCarRentalAgencyName.Text = ""; // = agency.Name;
+                uxCarRentalAgencyName.Text = ""; // = agency.Name;
                         uxCity.Text = ""; // = city.Name;
                         uxCountry.Text = ""; // = city.Country;
                         uxRegion.Text = ""; // = city.Region;

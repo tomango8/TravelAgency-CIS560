@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace DataModeling
 {
-    public class AgencyCarRentalReservationDelegate : NonQueryDataDelegate<CarRentalReservation>
+    public class AgencyCreateCarRentalReservationDelegate : NonQueryDataDelegate<CarRentalReservation>
     {
         private int reservationID;
         private int carRentalID ;
@@ -15,7 +15,7 @@ namespace DataModeling
         private string model;
         private float price;
 
-        public AgencyCarRentalReservationDelegate(int reservationID, int carRentalID, DateTime rentalDate,
+        public AgencyCreateCarRentalReservationDelegate(int reservationID, int carRentalID, DateTime rentalDate,
                                           string model, float price)
             : base(" Agency.CreateCarRentalReservation")
         {
