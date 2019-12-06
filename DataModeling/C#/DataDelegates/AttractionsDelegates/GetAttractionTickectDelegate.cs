@@ -30,7 +30,7 @@ namespace DataModeling
             return new AttractionTicket(reader.GetInt32("ReservationID"),
                reader.GetInt32("AttractionID"),
                reader.GetDateTime("TicketDate"),
-               reader.GetFloat("Price"));
+               reader.GetDouble("Price"));
         }
     }
 }
