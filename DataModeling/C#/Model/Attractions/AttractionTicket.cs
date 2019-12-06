@@ -30,7 +30,7 @@ namespace DataModeling.Model
 
         public string ReservationInfo()
         {
-            return "Attraction Ticket\n\t" + AttractionID + ", Attraction " + AttractionID + ", $" + Price + ", " + TicketDate.Date; 
+            return "Attraction Ticket\n\t" + ReservationID + ", Attraction " + AttractionID + ", $" + Price + ", " + TicketDate.Date; 
         }
     }
 }

@@ -5,14 +5,14 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class RestaurantCreateRestauranDelegate : NonQueryDataDelegate<Restaurant>
+    public class RestaurantCreateRestaurantDelegate : NonQueryDataDelegate<Restaurant>
     {
         public readonly int cityID;
         public readonly string restName;
 
 
-        public RestaurantCreateRestauranDelegate(int  cityID, string restName)
-            : base("Restaurant.CreateRestauran")
+        public RestaurantCreateRestaurantDelegate(int  cityID, string restName)
+            : base("Restaurants.CreateRestaurant")
         {
             this.cityID = cityID;
             this.restName = restName;

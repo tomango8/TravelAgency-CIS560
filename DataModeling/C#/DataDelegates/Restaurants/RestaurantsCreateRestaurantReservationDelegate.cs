@@ -5,17 +5,17 @@ using DataModeling.Model;
 using System;
 namespace DataModeling
 {
-    public class RestaurantCreateRestaurantReservationDelegate : NonQueryDataDelegate<RestaurantReservation>
+    public class RestaurantsCreateRestaurantReservationDelegate : NonQueryDataDelegate<RestaurantReservation>
     {
-        public readonly int reservationID;
+        public readonly int tripID;
         public readonly int restaurantID;
         public readonly DateTime date;
 
 
-        public RestaurantCreateRestaurantReservationDelegate(int reservationID, int restaurantID,DateTime date)
-            : base("Restaurant.CreateRestaurantReservation")
+        public RestaurantsCreateRestaurantReservationDelegate(int tripID, int restaurantID,DateTime date)
+            : base("Restaurants.CreateRestaurantReservation")
         {
-            this.reservationID = reservationID;
+            this.tripID = tripID;
             this.restaurantID = restaurantID;
             this.date = date;
 
@@ -26,16 +26,18 @@ namespace DataModeling
             base.PrepareCommand(command);
 
 
-            command.Parameters.AddWithValue("ReservationID", reservationID);
+            command.Parameters.AddWithValue("TripID", tripID);
             command.Parameters.AddWithValue("ReservationDate", date);
             command.Parameters.AddWithValue("RestaurantID", restaurantID);
 
+            var p = command.Parameters.Add("ReservationID", SqlDbType.Int);
+            p.Value = ParameterDirection.Output;
             
         }
 
         public override RestaurantReservation Translate(SqlCommand command)
         {
-            return new RestaurantReservation(reservationID,date,restaurantID);
+            return new RestaurantReservation((int)command.Parameters["ReservationID"].Value, date, restaurantID);
         }
 
     }

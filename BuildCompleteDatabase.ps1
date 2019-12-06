@@ -114,7 +114,9 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeli
 
 Write-Host "Creating Restaurant procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurant.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurantReservation.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\RestaurantsProcedures\Restaurants.GetRestaurant.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantByName.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantReservation.sql"
 
 Write-Host "Creating Report procedures..."
