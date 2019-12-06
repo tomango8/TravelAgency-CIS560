@@ -96,6 +96,7 @@
     <Content Include="SQL\Data\FlightsData.sql" />
     <Content Include="SQL\Data\HotelsData.sql" />
     <Content Include="SQL\Data\ReservationsData.sql" />
+    <Content Include="SQL\Data\RestaurantsData.sql" />
     <Content Include="SQL\Data\TripsData.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateAgent.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateAttractionTicket.sql" />
