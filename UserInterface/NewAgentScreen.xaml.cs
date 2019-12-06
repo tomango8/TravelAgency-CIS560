@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccess;
+using DataModeling;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,7 +41,9 @@ namespace UserInterface
             {
                 string fullName = Check.FormatName(uxAgentFirstName.Text) + " " + Check.FormatName(uxAgentLastName.Text);
                 float salary = float.Parse(uxSalary.Text);
-
+                SqlCommandExecutor s = new SqlCommandExecutor(connectionString);
+                AgencyCreateAgentDelegate a = new AgencyCreateAgentDelegate(fullName, salary, false);
+                s.ExecuteNonQuery(a);
                 // CONNECT 
                 // Create New Agent
                 int agentID = 0; // = Newly Created Agent ID
