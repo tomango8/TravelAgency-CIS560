@@ -3,10 +3,10 @@ USE TravelAgency;
 GO
 
 INSERT [Location].Cities(CityName,Region,Country) -- 34
-VALUES ('Pukekohe','North Island','Cyprus'),('San Isidro','San José','Korea, North'),
-('Värnamo','Jönköpings län','Senegal'),('Dublin','L','Falkland Islands'),
-('Whakatane','NI','Samoa'),('Juliaca','PUN','Belgium'),
-('Juazeiro','Bahia','Macedonia'),('Curitiba','Paraná','Kiribati'),
+VALUES ('Pukekohe','North Island','Cyprus'),('San Isidro','San Jose','Korea, North'),
+('Varnamo','Jonkopings lan','Senegal'),('Dublin','Dublin','Ireland'),
+('Whakatane','NI','Samoa'),('Juliaca','Brussels','Belgium'),
+('Juazeiro','Bahia','Macedonia'),('Curitiba','Parana','Kiribati'),
 ('Lake Cowichan','BC','Kyrgyzstan'),('Carnoustie','AN','Aruba'),
 ('San José de Alajuela','A','Turkey'),('Lampa','Metropolitana de Santiago','Bulgaria'),
 ('Gwangju','Gyeonggi','Honduras'),('Berlin','Berlin','Burkina Faso'),
