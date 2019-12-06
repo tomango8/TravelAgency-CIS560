@@ -60,9 +60,9 @@
     <Compile Include="C#\DataDelegates\AirlinesDelegates\GetFlightDelegate.cs" />
     <Compile Include="C#\DataDelegates\AirlinesDelegates\RetrieveFlightInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\CreateAttractionDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AttractionsDelegates\CreateAttractionTicketDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionDataDelegate.cs" />
     <Compile Include="C#\DataDelegates\AttractionsDelegates\GetAttractionTickectDelegate.cs" />
-    <Compile Include="C#\DataDelegates\CarsDelegates\CarsCreateCarRentalDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetAgencyNameDelegate.cs" />
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetCarReservationInfo.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\CreateReservationDelegate.cs" />
@@ -71,9 +71,8 @@
     <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsGetHotelDelegates.cs" />
     <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsGetHotelReservationDelegate.cs" />
     <Compile Include="C#\DataDelegates\LocationDelegates\LocationCreateCityDelegate.cs" />
-    <Compile Include="C#\DataDelegates\LocationDelegates\LocationGetCityByCityIdDelegate.cs" />
+    <Compile Include="C#\DataDelegates\LocationDelegates\LocationFetchCityDelegate.cs" />
     <Compile Include="C#\DataDelegates\LocationDelegates\LocationGetCityDelegate.cs" />
-    <Compile Include="C#\DataDelegates\ReportDelegates\AgencyCheapestOptionsDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantsGetRestaurantReservationDelegate.cs" />
     <Compile Include="C#\Model\Agency\Agent.cs" />
@@ -98,7 +97,6 @@
     <Content Include="SQL\Data\AgentsData.sql" />
     <Content Include="SQL\Data\CitiesData.sql" />
     <Content Include="SQL\Data\CustomerData.sql" />
-    <Content Include="SQL\Data\HotelsData.sql" />
     <Content Include="SQL\Data\TripsData.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateAgent.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateAttractionTicket.sql" />
@@ -122,6 +120,7 @@
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateFlight.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.RetrieveFlightInfo.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.CreateAttraction.sql" />
+    <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.CreateTicket.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttraction.sql" />
     <Content Include="SQL\Procedures\AttractionsProcedures\Attractions.GetAttractionTicket.sql" />
     <Content Include="SQL\Procedures\CarsProcedures\Cars.CreateCarRental.sql" />
@@ -132,12 +131,13 @@
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotelReservation.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotel.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotelReservation.sql" />
-    <Content Include="SQL\Procedures\LocationProcedures\Location.GetCitiesByName.sql" />
+    <Content Include="SQL\Procedures\LocationProcedures\Location.FetchCity.sql" />
     <Content Include="SQL\Procedures\LocationProcedures\Location.GetCities.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.CreateRestaurant.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurant.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurants.GetRestaurantReservation.sql" />
-    <Content Include="SQL\Reports\Agency.CheapestOptions.sql" />
+    <Content Include="SQL\Reports\ReportQuery3.AgeReport.sql" />
+    <Content Include="SQL\Reports\ReportQuery4.CheapestOptions.sql" />
     <Content Include="SQL\Schemas\All Schemas.sql" />
     <Content Include="SQL\Tables\AgencyTables\Agents.sql" />
     <Content Include="SQL\Tables\AgencyTables\ContactInfo.sql" />

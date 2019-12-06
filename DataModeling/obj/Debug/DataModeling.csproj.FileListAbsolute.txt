@@ -9,3 +9,12 @@ C:\Users\user\Source\Repos\TravelAgency-CIS560\DataModeling\bin\Debug\DataAccess
 C:\Users\user\Source\Repos\TravelAgency-CIS560\DataModeling\obj\Debug\DataModeling.csproj.CopyComplete
 C:\Users\user\Source\Repos\TravelAgency-CIS560\DataModeling\obj\Debug\DataModeling.dll
 C:\Users\user\Source\Repos\TravelAgency-CIS560\DataModeling\obj\Debug\DataModeling.pdb
+C:\Users\prime\Source\Repos\TravelAgency-CIS560\DataModeling\bin\Debug\DataModeling.dll.config
+C:\Users\prime\Source\Repos\TravelAgency-CIS560\DataModeling\bin\Debug\DataModeling.dll
+C:\Users\prime\Source\Repos\TravelAgency-CIS560\DataModeling\bin\Debug\DataModeling.pdb
+C:\Users\prime\Source\Repos\TravelAgency-CIS560\DataModeling\bin\Debug\DataAccess.dll
+C:\Users\prime\Source\Repos\TravelAgency-CIS560\DataModeling\bin\Debug\DataAccess.pdb
+C:\Users\prime\Source\Repos\TravelAgency-CIS560\DataModeling\obj\Debug\DataModeling.csprojAssemblyReference.cache
+C:\Users\prime\Source\Repos\TravelAgency-CIS560\DataModeling\obj\Debug\DataModeling.csproj.CopyComplete
+C:\Users\prime\Source\Repos\TravelAgency-CIS560\DataModeling\obj\Debug\DataModeling.dll
+C:\Users\prime\Source\Repos\TravelAgency-CIS560\DataModeling\obj\Debug\DataModeling.pdb

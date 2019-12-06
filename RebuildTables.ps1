@@ -26,7 +26,6 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeli
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\CitiesData.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\CustomerData.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\TripsData.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Data\HotelsData.sql"
 
 Write-Host "Creating Agency Create procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.CreateAgent.sql"

@@ -64,8 +64,9 @@ namespace UserInterface
                 }
                 else
                 {
-                    Cities departurecity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(flight.CityDepartureID));
-                    Cities arrivalcity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(flight.CityArrivalID));
+                   
+                    Cities departurecity = executor.ExecuteNonQuery(new LocationFetchCityDelegate(flight.CityDepartureID));
+                    Cities arrivalcity = executor.ExecuteNonQuery(new LocationFetchCityDelegate(flight.CityArrivalID));
 
                     uxDepartureCity.Text = departurecity.CityName;
                     uxDepartureCountry.Text = departurecity.Country;
@@ -150,7 +151,7 @@ namespace UserInterface
                 //Lookup departure city, using departureCity, departureCountry, departureRegion
                 if (departurecitysearch == null)
                 {
-                    Cities newdeparturecity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(departureCityID));
+                    Cities newdeparturecity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(departureCity,departureRegion,departureCountry));
                 //      create new city
                     departureCityID = newdeparturecity.CityID;
                 //      departureCityID = newly created city
@@ -169,7 +170,7 @@ namespace UserInterface
                 //Lookup arrival city, using arrivalCity, arrivalCountry, arrivalRegion
                 if (arrivalcitysearch == null)
                 {
-                    Cities newarrivalcity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(arrivalCityID));
+                    Cities newarrivalcity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(arrivalCity,arrivalRegion,arrivalCountry));
                 //      create new city
                     arrivalCityID = newarrivalcity.CityID;
                 //      arrivalCityID = newly created city
