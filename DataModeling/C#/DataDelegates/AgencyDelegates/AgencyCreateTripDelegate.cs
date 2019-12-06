@@ -27,6 +27,11 @@ namespace DataModeling
 
             command.Parameters.Add("CustomerID", SqlDbType.Int).Value = customerID;
             command.Parameters.Add("AgentID", SqlDbType.Int).Value = agentID;
+
+            var p = command.Parameters.Add("TripID", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+            var d = command.Parameters.Add("DateCreated", SqlDbType.DateTimeOffset);
+            d.Direction = ParameterDirection.Output;
         }
 
         public override Trip Translate(SqlCommand command)

@@ -32,7 +32,7 @@ namespace DataModeling
             {
                 reservations.Add(new Reservation(reader.GetInt32("ReservationID"),
                                                 reader.GetDateTimeOffset("DateCreated"),
-                                                reader.GetBitToBool("CarRentalReservation"),
+                                                reader.GetBitToBool("CarReservation"),
                                                 reader.GetBitToBool("HotelReservation"),
                                                 reader.GetBitToBool("BoardingPass"),
                                                 reader.GetBitToBool("AttractionTicket"),

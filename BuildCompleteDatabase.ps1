@@ -71,6 +71,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeli
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.GetCustomer.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.GetCustomers.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.GetTrip.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.GetReservations.sql"
 
 Write-Host "Creating Agency Retrieve procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "DataModeling\Sql\Procedures\AgencyProcedures\Agency.RetrieveAgentTrips.sql"

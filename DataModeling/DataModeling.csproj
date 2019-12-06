@@ -104,6 +104,7 @@
     <Compile Include="C#\Model\Restaurants\RestaurantReservation.cs" />
     <Compile Include="C#\Model\Agency\Trip.cs" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateContactInfo.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetReservations.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurant.CreateRestaurantReservation.sql" />
   </ItemGroup>
   <ItemGroup>
