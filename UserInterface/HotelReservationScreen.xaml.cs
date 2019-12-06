@@ -69,7 +69,8 @@ namespace UserInterface
                     
                         uxHotelName.Text = hotel.Name;
                         uxHotelName.Text = hotel.FullAddress;
-                    Cities city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(hotel.CityID));
+                        
+                        Cities city = executor.ExecuteNonQuery(new LocationFetchCityDelegate(hotel.CityID));
                     
                         uxCity.Text = city.CityName; 
                         uxRegion.Text = city.Region;
@@ -122,7 +123,7 @@ namespace UserInterface
 
                 if (citysearch == null)
                 {
-                    Cities city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityID));
+                    Cities city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityname,region,country));
                     cityID = city.CityID;
                 }
                 else

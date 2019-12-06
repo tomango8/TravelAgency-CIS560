@@ -73,7 +73,12 @@ namespace UserInterface
                     Attraction attraction = executor.ExecuteReader(new GetAttractionDataDelegate(attractionID));
 
 
-                    Cities city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(cityID: attraction.CityID));
+                    Cities city = executor.ExecuteNonQuery(new LocationFetchCityDelegate(attraction.CityID));
+
+                    uxAttractionName.Text = attraction.Name; 
+                    uxCity.Text = city.CityName; 
+                    uxCountry.Text = city.Country;
+                    uxRegion.Text = city.Region; 
                     // CONNECT
                     // Lookup attraction using attractionID
                     // if null
@@ -84,11 +89,8 @@ namespace UserInterface
                     //      City city = get City (attraction.CityID);
 
                     // CONNECT
-                    uxAttractionName.Text = attraction.Name; // = attraction.Name;
-                    uxCity.Text = city.CityName; // = city.City;
-                    uxCountry.Text = city.Country; // = city.Country;
-                    uxRegion.Text = city.Region; // = city.Region
-                                                 // } end else
+
+                    // } end else
                 }
             }
             else
@@ -109,7 +111,7 @@ namespace UserInterface
                 string attractionName = Check.FormatName(uxAttractionName.Text);
                 float ticketPrice = float.Parse(uxTicketPrice.Text);
                 DateTime ticketDate = (DateTime)uxDate.SelectedDate;
-
+                
                 string country = Check.FormatName(uxCountry.Text);
                 string region = Check.FormatName(uxRegion.Text);
                 string cityName = Check.FormatName(uxCity.Text);
@@ -149,7 +151,6 @@ namespace UserInterface
                     else
                     {
                         attractionID = attraction.AttractionID;
-                    }
 
                   //  Reservation reservation = executor.ExecuteReader(new )
 
@@ -175,6 +176,13 @@ namespace UserInterface
                 // CONNECT
                 int reservationID = 0;
 
+
+                Reservation res = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID, false, false, false, true, false));
+                reservationID = res.ReservationID;
+
+                AttractionTicket at = executor.ExecuteNonQuery(new HotelsCreateAttractionTicketDelegate(reservationID, attractionID, ticketDate, ticketPrice));
+
+
                 // create new reservation using tripID and set AttractionTicket bit to 1 and the rest to 0
                 // reservationID = newly created reservation
 
@@ -182,6 +190,7 @@ namespace UserInterface
                 // create new AttractionTicket using reservationID, attractionID, ticketPrice, ticketDate
 
                 MessageBox.Show("Attraction ticket successfully added for attraction " + attractionName);
+                    }
             }
         }
 

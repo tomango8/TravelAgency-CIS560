@@ -64,7 +64,7 @@ namespace UserInterface
 
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                Restaurant restaurant = executor.ExecuteReader(new RestaurantsGetRestaurantDelegate(restaurantID));
+                Restaurant restaurant = executor.ExecuteNonQuery(new RestaurantsGetRestaurantDelegate(restaurantID));
 
 
 
