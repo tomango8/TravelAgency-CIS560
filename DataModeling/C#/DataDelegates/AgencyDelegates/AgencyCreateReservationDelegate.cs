@@ -2,14 +2,12 @@
 using System.Data;
 using System.Data.SqlClient;
 using DataModeling.Model;
+using System;
 
 namespace DataModeling
 {
-    public class CreateReservationDelegate : NonQueryDataDelegate<Reservation>
-    {
-        public readonly int reservationID;
-        public readonly System.DateTimeOffset datecreated;
-        public bool isdeleted;
+    public class AgencyCreateReservationDelegate : NonQueryDataDelegate<Reservation>
+    {                       
         public readonly int tripID;
         public bool carreservation;
         public bool hotelreservation;
@@ -17,11 +15,10 @@ namespace DataModeling
         public bool attractionticket;
         public bool restaurantreservation;
 
-        public CreateReservationDelegate( int tripID, bool carreservation, bool hotelreservation, bool boardingpass, bool attractionticket, bool restaurantreservation)
+        public AgencyCreateReservationDelegate( int tripID, bool carreservation, bool hotelreservation, bool boardingpass, bool attractionticket, bool restaurantreservation)
             : base("Agency.CreateReservation")
         {
-            this.tripID = tripID;
-            this.isdeleted = false;
+            this.tripID = tripID;            
             this.carreservation = false;
             this.hotelreservation = false;
             this.boardingpass = false;
@@ -34,22 +31,31 @@ namespace DataModeling
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-
-            command.Parameters.AddWithValue("ReservationID", reservationID);
-            command.Parameters.AddWithValue("IsDeleted", isdeleted);
+            
             command.Parameters.AddWithValue("CarReservation", carreservation);
             command.Parameters.AddWithValue("HotelReservation", hotelreservation);
             command.Parameters.AddWithValue("BoardingPass", boardingpass);
             command.Parameters.AddWithValue("AttractionTicket", attractionticket);
             command.Parameters.AddWithValue("RestaurantReservation", restaurantreservation);
+            command.Parameters.AddWithValue("TripID", tripID);
 
-            var p = command.Parameters.Add("FlightID", SqlDbType.Int);
+            var p = command.Parameters.Add("ReservationID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
+            var d = command.Parameters.Add("DateCreated", SqlDbType.DateTimeOffset);
+            d.Direction = ParameterDirection.Output;
         }
 
         public override Reservation Translate(SqlCommand command)
         {
-            return new Reservation(reservationID,datecreated, isdeleted, carreservation, hotelreservation, boardingpass, attractionticket, restaurantreservation, (int)command.Parameters["TripID"].Value);
+            return new Reservation(
+                (int)command.Parameters["ReservationID"].Value,
+                (DateTimeOffset)command.Parameters["DateCreated"].Value, 
+                carreservation, 
+                hotelreservation, 
+                boardingpass, 
+                attractionticket, 
+                restaurantreservation, 
+                tripID);
         }
 
     }

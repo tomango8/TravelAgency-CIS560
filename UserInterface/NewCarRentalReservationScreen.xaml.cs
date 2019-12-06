@@ -151,7 +151,7 @@ namespace UserInterface
                 // CONNECT
                 int reservationID = 0;
 
-                Reservation reservation = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID,carreservation:true,false,false,false,false));
+                Reservation reservation = executor.ExecuteNonQuery(new AgencyCreateReservationDelegate(tripID,carreservation:true,false,false,false,false));
                 reservationID = reservation.ReservationID;
                 // Create new reservation using tripID (field) and set CarReservation bit to 1 and the rest to 0
                 // reservationID = newly created reservation

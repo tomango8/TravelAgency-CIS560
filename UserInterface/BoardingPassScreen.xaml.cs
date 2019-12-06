@@ -205,7 +205,7 @@ namespace UserInterface
                 // CONNECT
                 int reservationID = 0;
 
-                Reservation res = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID, false, false, true, false, false));
+                Reservation res = executor.ExecuteNonQuery(new AgencyCreateReservationDelegate(tripID, false, false, true, false, false));
                 reservationID = res.ReservationID;
 
                 BoardingPass bp = executor.ExecuteNonQuery(new CreateBoardingPassDelegate(reservationID, flightID, boardingPassPrice));

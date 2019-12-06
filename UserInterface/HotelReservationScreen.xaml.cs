@@ -139,10 +139,10 @@ namespace UserInterface
                 // CONNECT
                 int hotelID = 0;
 
-                Hotel hotelsearch = executor.ExecuteReader(new HotelsGetHotelDelegate(hotelID));
+                Hotel hotelsearch = executor.ExecuteReader(new HotelsFetchHotelDelegate(hotelName, cityID, address));
                 if (hotelsearch == null)
                 {
-                    Hotel hotel = executor.ExecuteNonQuery(new HotelsCreateHotelDelegate(hotelID));
+                    Hotel hotel = executor.ExecuteNonQuery(new HotelsCreateHotelDelegate(hotelName, cityID, address));
                     hotelID = hotel.HotelID;
                 }
                 else
@@ -156,13 +156,9 @@ namespace UserInterface
                 // else
                 //      hotelID = found hotel
 
-                // CONNECT
-                int reservationID = 0;
+                // CONNECT                
 
-                Reservation res = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID,false, true, false, false, false));
-                reservationID = res.ReservationID;
-
-                HotelReservation hr = executor.ExecuteNonQuery(new HotelsCreateHotelReservationDelegate(reservationID, hotelID, checkInDate, roomPrice));
+                HotelReservation hr = executor.ExecuteNonQuery(new HotelsCreateHotelReservationDelegate(tripID, hotelID, checkInDate, roomPrice));
 
                 // Create new reservation, using tripID (field), and set hotel reservation to 1, and all others to 0
                 // reservationID = newly created reservation ID

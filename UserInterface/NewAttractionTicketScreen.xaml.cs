@@ -178,7 +178,7 @@ namespace UserInterface
                 int reservationID = 0;
 
 
-                Reservation res = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID, false, false, false, true, false));
+                Reservation res = executor.ExecuteNonQuery(new AgencyCreateReservationDelegate(tripID, false, false, false, true, false));
                 reservationID = res.ReservationID;
 
                 AttractionTicket at = executor.ExecuteNonQuery(new CreateAttractionTicketDelegate(reservationID, attractionID, ticketDate, ticketPrice));

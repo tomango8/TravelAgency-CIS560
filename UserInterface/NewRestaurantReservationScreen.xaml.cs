@@ -155,7 +155,7 @@ namespace UserInterface
                 // CONNECT
                 int reservationID = 0;
 
-                Reservation reservation = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID, false, false, false, false, true));
+                Reservation reservation = executor.ExecuteNonQuery(new AgencyCreateReservationDelegate(tripID, false, false, false, false, true));
                 // Create new reservation using tripID (field), and set RestaurantReservation bit to 1 and the rest to 0
                 // reservationID = newly created reservation
                 reservationID = reservation.ReservationID;

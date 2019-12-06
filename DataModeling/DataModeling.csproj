@@ -57,7 +57,7 @@
     <Compile Include="C#\DataDelegates\AgencyDelegates\AgencySaveCustomerContactInfoDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyDelegates\AgencySaveTripDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyDelegates\AgencyCreateAgentDelegate.cs" />
-    <Compile Include="C#\DataDelegates\AgencyDelegates\CreateReservationDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AgencyDelegates\AgencyCreateReservationDelegate.cs" />
     <Compile Include="C#\DataDelegates\AirlinesDelegates\AirlinesGetBoardingPassDelegate.cs" />
     <Compile Include="C#\DataDelegates\AirlinesDelegates\CreateBoardingPassDelegate.cs" />
     <Compile Include="C#\DataDelegates\AirlinesDelegates\CreateFlightDelegate.cs" />
@@ -74,7 +74,8 @@
     <Compile Include="C#\DataDelegates\CarsDelegates\CarsGetCarReservationInfo.cs" />
     <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsCreateHotelDelegate.cs" />
     <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsCreateHotelReservationDelegate.cs" />
-    <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsGetHotelDelegates.cs" />
+    <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsFetchHotelDelegate.cs" />
+    <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsGetHotelDelegate.cs" />
     <Compile Include="C#\DataDelegates\HotelsDelegates\HotelsGetHotelReservationDelegate.cs" />
     <Compile Include="C#\DataDelegates\LocationDelegates\LocationCreateCityDelegate.cs" />
     <Compile Include="C#\DataDelegates\LocationDelegates\LocationFetchCityDelegate.cs" />
@@ -104,7 +105,10 @@
     <Compile Include="C#\Model\Restaurants\RestaurantReservation.cs" />
     <Compile Include="C#\Model\Agency\Trip.cs" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateContactInfo.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateReservation.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetReservations.sql" />
+    <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotelReservation.sql" />
+    <Content Include="SQL\Procedures\HotelsProcedures\Hotels.FetchHotel.sql" />
     <Content Include="SQL\Procedures\RestaurantsProcedures\Restaurant.CreateRestaurantReservation.sql" />
   </ItemGroup>
   <ItemGroup>
@@ -123,7 +127,6 @@
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateBoardingPass.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateCarRentalReservation.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateCustomer.sql" />
-    <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateHotelReservation.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateRestaurantReservation.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateTrip.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetAgent.sql" />
@@ -150,7 +153,6 @@
     <Content Include="SQL\Procedures\CarsProcedures\Cars.GetCarReservationInfo.sql" />
     <Content Include="SQL\Procedures\LocationProcedures\Location.CreateCity.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotel.sql" />
-    <Content Include="SQL\Procedures\HotelsProcedures\Hotels.CreateHotelReservation.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotel.sql" />
     <Content Include="SQL\Procedures\HotelsProcedures\Hotels.GetHotelReservation.sql" />
     <Content Include="SQL\Procedures\LocationProcedures\Location.FetchCity.sql" />
