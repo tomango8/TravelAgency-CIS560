@@ -7,32 +7,32 @@ using System.Data.SqlClient;
 
 namespace DataModeling
 {
-    public class CarsCreateCarRentalDelegate : NonQueryDataDelegate<Agent>
+    public class CarsCreateCarRentalDelegate : NonQueryDataDelegate<CarRental>
     {
-        public readonly string name;
-        public readonly float salary;
+        public readonly string AgencyName;
+        public readonly int CityID;
 
-        public CarsCreateCarRentalDelegate(string name, float salary)
+        public CarsCreateCarRentalDelegate(string AgencyName, int CityID)
             : base("Cars.CreateCarRental")
         {
-            this.name = name;
-            this.salary = salary;
+            this.AgencyName = AgencyName;
+            this.CityID = CityID;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("Name", name);
-            command.Parameters.AddWithValue("Salary", salary);
+            command.Parameters.AddWithValue("AgencyName", AgencyName);
+            command.Parameters.AddWithValue("CityID", CityID);
 
-            var p = command.Parameters.Add("AgentID", SqlDbType.Int);
+            var p = command.Parameters.Add("CarRentalID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
         }
 
-        public override Agent Translate(SqlCommand command)
+        public override CarRental Translate(SqlCommand command)
         {
-            return new Agent((int)command.Parameters["AgentID"].Value, name, salary);
+            return new CarRental((int)command.Parameters["CarRentalID"].Value, AgencyName, CityID);
         }
     }
 

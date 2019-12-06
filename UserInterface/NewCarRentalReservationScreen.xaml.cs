@@ -64,7 +64,8 @@ namespace UserInterface
                 int carRentalID = int.Parse(uxCarRentalID.Text);
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                CarRental agency = executor.ExecuteReader(new )
+                CarRental agency = executor.ExecuteReader(new CarsGetAgencyByIDDelegate(carRentalID));
+                Cities city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(agency.CityID));
                 // CONNECT
                 // Lookup CarRentalAgency using carRentalID
                 // if null
@@ -75,10 +76,10 @@ namespace UserInterface
                 //      City city = get city (agency.CityID)
 
                 // CONNECT
-                uxCarRentalAgencyName.Text = ""; // = agency.Name;
-                        uxCity.Text = ""; // = city.Name;
-                        uxCountry.Text = ""; // = city.Country;
-                        uxRegion.Text = ""; // = city.Region;
+                uxCarRentalAgencyName.Text = agency.AgencyName; // = agency.Name;
+                        uxCity.Text = city.CityName; // = city.Name;
+                        uxCountry.Text = city.Country; // = city.Country;
+                        uxRegion.Text = city.Region; // = city.Region;
                 // } end else
             }
             else
@@ -101,13 +102,24 @@ namespace UserInterface
                 float rentalPrice = float.Parse(uxRentalPrice.Text);
                 DateTime rentalDate = (DateTime)uxRentalDate.SelectedDate;
 
-                string city = Check.FormatName(uxCity.Text);
+                string cityName = Check.FormatName(uxCity.Text);
                 string country = Check.FormatName(uxCountry.Text);
                 string region = Check.FormatName(uxRegion.Text);
 
                 // CONNECT
                 int cityID = 0;
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+                Cities city = executor.ExecuteReader(new LocationGetCityDelegate(cityName, country, region));
 
+                if (city == null)
+                {
+                     city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityName, region, country));
+                    cityID = city.CityID;
+                }
+                else
+                {
+                    cityID = city.CityID;
+                }
                 // Lookup city, using city, country, and region
                 // if null
                 //      create new city
@@ -117,6 +129,17 @@ namespace UserInterface
 
                 // CONNECT
                 int carRentalID = 0;
+
+                CarRental agency = executor.ExecuteReader(new CarsGetAgencyByNameDelegate(carAgencyName, cityID));
+                if(agency == null)
+                {
+                    agency = executor.ExecuteNonQuery(new CarsCreateCarRentalDelegate(carAgencyName, cityID));
+                    carRentalID = agency.CarRentalID;
+                }
+                else
+                {
+                    carRentalID = agency.CarRentalID;
+                }
 
                 // Lookup CarRentalAgency using carAgencyName, cityID
                 // if null
@@ -128,9 +151,12 @@ namespace UserInterface
                 // CONNECT
                 int reservationID = 0;
 
+                Reservation reservation = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID,carreservation:true,false,false,false,false));
+                reservationID = reservation.ReservationID;
                 // Create new reservation using tripID (field) and set CarReservation bit to 1 and the rest to 0
                 // reservationID = newly created reservation
-
+                CarRentalReservation carRentalReservation = executor.ExecuteNonQuery(new AgencyCreateCarRentalReservationDelegate
+                                                                    (reservationID, carRentalID, rentalDate:, carModel, rentalPrice));
                 // CONNECT
                 // Create new CarRentalReservation using reservationID, carRentalID, rentalDate, carModel, rentalPrice
 
