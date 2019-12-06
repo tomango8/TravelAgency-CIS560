@@ -5,38 +5,39 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class LocationGetCityDelegate : DataReaderDelegate<Cities>
+    public class LocationGetCityDelegate : DataReaderDelegate<City>
     {
         private readonly int cityID;
-        public readonly string country;
-        public readonly string region;
-        public readonly string cityname;
+        private readonly string country;
+        private readonly string region;
+        private readonly string cityName;
 
-        public LocationGetCityDelegate(string country, string region, string cityname)
-           : base("Location.GetCities")
+        public LocationGetCityDelegate(string cityName, string country, string region)
+                  : base("Location.GetCitiesByName")
         {
+            
+            this.cityName = cityName;
             this.country = country;
             this.region = region;
-            this.cityname = cityname;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-            command.Parameters.AddWithValue("Country", country);
+            command.Parameters.AddWithValue("CityName", cityName);
             command.Parameters.AddWithValue("Region", region);
-            command.Parameters.AddWithValue("CityName", cityname);
+            command.Parameters.AddWithValue("Country", country);
+
         }
 
-        public override Cities Translate(SqlCommand command, IDataRowReader reader)
+        public override City Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
                 return null;
 
-            return new Cities(cityID,
-               reader.GetString("Country"),
-               reader.GetString("Region"),
-               reader.GetString("CityName"));
+            return new City(reader.GetInt32("CityID"), cityName, region, country);
+
+           
         }
     }
 }

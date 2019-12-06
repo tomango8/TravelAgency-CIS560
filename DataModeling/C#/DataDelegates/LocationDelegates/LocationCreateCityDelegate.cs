@@ -5,24 +5,26 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class LocationCreateCityDelegate : NonQueryDataDelegate<Cities>
+    public class LocationCreateCityDelegate : NonQueryDataDelegate<City>
     {
         public readonly int cityID;
         public readonly string cityname;
         public readonly string region;
         public readonly string country;
 
-        public LocationCreateCityDelegate(int CityID)
+        public LocationCreateCityDelegate(string  cityname, string region, string country)
             : base("Location.CreateCity")
         {
-            this.cityID = CityID;
+            this.cityname = cityname;
+            this.region = region;
+            this.country = country;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("CityID", cityID);
+            
             command.Parameters.AddWithValue("CityName", cityname);
             command.Parameters.AddWithValue("Region", region);
             command.Parameters.AddWithValue("Country", country);
@@ -32,9 +34,9 @@ namespace DataModeling
             p.Direction = ParameterDirection.Output;
         }
 
-        public override Cities Translate(SqlCommand command)
+        public override City Translate(SqlCommand command)
         {
-            return new Cities((int)command.Parameters["Cities"].Value, cityname, region, country);
+            return new City((int)command.Parameters["Cities"].Value, cityname, region, country);
         }
 
     }

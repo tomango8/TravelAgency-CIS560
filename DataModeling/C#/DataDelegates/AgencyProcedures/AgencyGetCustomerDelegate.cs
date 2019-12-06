@@ -27,15 +27,14 @@ namespace DataModeling
         public override Customer Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
-                throw new RecordNotFoundException(customerID.ToString());
+                return null;
 
             return new Customer(customerID,
                 reader.GetString("Name"),
-               reader.GetInt32("Budget"),
+               reader.GetDouble("Budget"),
                reader.GetInt32("Age"),
                reader.GetString("Sex"),
-               reader.GetInt32("ContactID"),
-               reader.GetValue<bool>("IsDeleted")
+               reader.GetInt32("ContactID")               
                );
         }
     }

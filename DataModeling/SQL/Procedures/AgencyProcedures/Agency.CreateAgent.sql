@@ -1,12 +1,11 @@
 ﻿CREATE OR ALTER PROCEDURE Agency.CreateAgent
 	@AgentID INT OUTPUT,
 	@Name NVARCHAR(100),
-	@Salary FLOAT,
-	@IsDeleted BIT
+	@Salary FLOAT
 AS
 
-INSERT Agency.Agent([Name], Salary, IsDeleted)
-VALUES (@Name, @Salary, @IsDeleted)
+INSERT Agency.Agent([Name], Salary)
+VALUES (@Name, @Salary)
 
 SET @AgentID = SCOPE_IDENTITY();
 GO

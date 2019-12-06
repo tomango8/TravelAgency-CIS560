@@ -1,5 +1,5 @@
 ﻿CREATE OR ALTER PROCEDURE Attractions.CreateAttraction
-	@Name NVARCHAR(100),
+	@Name NVARCHAR(120),
 	@CityID INT,
 	@AttractionID INT OUTPUT
 AS

@@ -1,8 +1,8 @@
 ﻿CREATE OR ALTER PROCEDURE [Location].CreateCity
 	@CityID INT OUTPUT,
-	@CityName NVARCHAR(100),
-	@Region NVARCHAR(100),
-	@Country NVARCHAR(100)
+	@CityName NVARCHAR(120),
+	@Region NVARCHAR(120),
+	@Country NVARCHAR(120)
 AS
 
 INSERT [Location].Cities(CityName, Region, Country)

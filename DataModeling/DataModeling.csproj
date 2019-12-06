@@ -39,6 +39,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCreateContactInfoDelegate.cs" />
+    <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCreateCustomerDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyCreateTripDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyDeleteReservationDelegate.cs" />
     <Compile Include="C#\DataDelegates\AgencyProcedures\AgencyFetchTripDelegate.cs" />
@@ -78,7 +80,7 @@
     <Compile Include="C#\Model\Airlines\BoardingPass.cs" />
     <Compile Include="C#\Model\Cars\CarRental.cs" />
     <Compile Include="C#\Model\Cars\CarRentalReservation.cs" />
-    <Compile Include="C#\Model\Cities.cs" />
+    <Compile Include="C#\Model\City.cs" />
     <Compile Include="C#\Model\Agency\ContactInfo.cs" />
     <Compile Include="C#\Model\Agency\Customer.cs" />
     <Compile Include="C#\Model\Hotel\Hotel.cs" />
@@ -107,6 +109,7 @@
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.RetrieveCustomerTrips.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.SaveCustomerContactInfo.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.SaveTrip.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\AgencyCreateContactInfo.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateBoardingPass.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.CreateFlight.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.GetFlight.sql" />

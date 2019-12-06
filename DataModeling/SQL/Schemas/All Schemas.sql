@@ -1,4 +1,5 @@
 ﻿USE TravelAgency;
+GO
 CREATE SCHEMA Agency;
 GO
 

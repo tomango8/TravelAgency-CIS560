@@ -30,8 +30,7 @@ namespace DataModeling
             command.Parameters.AddWithValue("DepartureTime", departuretime);
             command.Parameters.AddWithValue("ArrivalTime", arrivaltime);
             command.Parameters.AddWithValue("CityDepartureID", citydepartureID);
-            command.Parameters.AddWithValue("CityArrivalID", cityarrivalID);
-            command.Parameters.AddWithValue("Date", date);
+            command.Parameters.AddWithValue("CityArrivalID", cityarrivalID);            
 
             var p = command.Parameters.Add("FlightID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
@@ -39,7 +38,7 @@ namespace DataModeling
 
         public override Flight Translate(SqlCommand command)
         {
-            return new Flight((int)command.Parameters["FlightID"].Value, airlinename, departuretime, arrivaltime, citydepartureID, cityarrivalID, date);
+            return new Flight((int)command.Parameters["FlightID"].Value, airlinename, departuretime, arrivaltime, citydepartureID, cityarrivalID);
         }
 
     }

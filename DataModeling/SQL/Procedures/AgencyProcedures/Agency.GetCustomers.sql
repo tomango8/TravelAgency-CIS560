@@ -1,6 +1,9 @@
-﻿CREATE OR ALTER PROCEDURE Agency.GetCustomers
+﻿USE TravelAgency;
+GO
+CREATE OR ALTER PROCEDURE Agency.GetCustomers
 AS
 
-SELECT C.[Name], C.CustomerID
-FROM Agency.Customer C;
+SELECT C.CustomerID, C.Budget, C.[Name], C.Age, C.Sex, C.ContactID
+FROM Agency.Customer C
+WHERE C.IsDeleted = 0;
 GO

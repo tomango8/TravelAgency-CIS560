@@ -1,7 +1,7 @@
 CREATE TABLE Hotels.Hotel 
 (
     HotelID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    HotelName NVARCHAR(64) NOT NULL,
-    CityID INT NOT NULL,
-    FullAddress NVARCHAR(128)
+    [Name] NVARCHAR(120) NOT NULL,
+    CityID INT NOT NULL FOREIGN KEY REFERENCES [Location].Cities(CityID),
+    FullAddress NVARCHAR(120) NOT NULL
 );

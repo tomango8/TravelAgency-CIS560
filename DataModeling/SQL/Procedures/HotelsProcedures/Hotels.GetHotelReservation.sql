@@ -1,8 +1,8 @@
-CREATE OR ALTER PROCEDURE Hotels.HotelReservation
+CREATE OR ALTER PROCEDURE Hotels.GetHotelReservation
 	@ReservationID INT
 AS
 
-SELECT HR.HotelID, HR.DateOfReservation, HR.Price
+SELECT HR.HotelID, HR.CheckInDate, HR.Price
 	FROM Hotels.HotelReservation HR
 WHERE HR.ReservationID = @ReservationID
 GO

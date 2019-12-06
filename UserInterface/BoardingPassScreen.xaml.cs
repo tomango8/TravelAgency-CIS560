@@ -64,8 +64,8 @@ namespace UserInterface
                 }
                 else
                 {
-                    Cities departurecity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(flight.CityDepartureID));
-                    Cities arrivalcity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(flight.CityArrivalID));
+                    City departurecity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(flight.CityDepartureID));
+                    City arrivalcity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(flight.CityArrivalID));
 
                     uxDepartureCity.Text = departurecity.CityName;
                     uxDepartureCountry.Text = departurecity.Country;
@@ -146,11 +146,11 @@ namespace UserInterface
                 int departureCityID = 0;
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                Cities departurecitysearch = executor.ExecuteReader(new LocationGetCityDelegate(departureCountry, departureRegion, departureCity));
+                City departurecitysearch = executor.ExecuteReader(new LocationGetCityDelegate(departureCountry, departureRegion, departureCity));
                 //Lookup departure city, using departureCity, departureCountry, departureRegion
                 if (departurecitysearch == null)
                 {
-                    Cities newdeparturecity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(departureCityID));
+                    City newdeparturecity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(departureCityID));
                 //      create new city
                     departureCityID = newdeparturecity.CityID;
                 //      departureCityID = newly created city
@@ -165,11 +165,11 @@ namespace UserInterface
                 // CONNECT
                 int arrivalCityID = 0;
 
-                Cities arrivalcitysearch = executor.ExecuteReader(new LocationGetCityDelegate(arrivalCountry, arrivalRegion, arrivalCity));
+                City arrivalcitysearch = executor.ExecuteReader(new LocationGetCityDelegate(arrivalCountry, arrivalRegion, arrivalCity));
                 //Lookup arrival city, using arrivalCity, arrivalCountry, arrivalRegion
                 if (arrivalcitysearch == null)
                 {
-                    Cities newarrivalcity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(arrivalCityID));
+                    City newarrivalcity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(arrivalCityID));
                 //      create new city
                     arrivalCityID = newarrivalcity.CityID;
                 //      arrivalCityID = newly created city
@@ -205,7 +205,10 @@ namespace UserInterface
                 // CONNECT
                 int reservationID = 0;
 
+                Reservation res = executor.ExecuteNonQuery(new CreateReservationDelegate(tripID, false, false, true, false, false));
+                reservationID = res.ReservationID;
 
+                BoardingPass bp = executor.ExecuteNonQuery(new CreateBoardingPassDelegate(reservationID, flightID, boardingPassPrice));
                 // Create new reservation using tripID(field) and set BoardingPass to 1, everything else to 0
                 // reservationID = newly created reservation
 

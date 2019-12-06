@@ -19,23 +19,21 @@ namespace DataModeling.Model
         public int CityDepartureID { get; }
 
         public int CityArrivalID { get; }
+        
 
-        public DateTime Date { get; }
-
-        public Flight(int flightID, string airlineName, DateTime departureTime, DateTime arrivalTime, int cityDepartureID, int cityArrivalID, DateTime date)
+        public Flight(int flightID, string airlineName, DateTime departureTime, DateTime arrivalTime, int cityDepartureID, int cityArrivalID)
         {
             FlightID = flightID;
             AirlineName = airlineName;
             DepartureTime = departureTime;
             ArrivalTime = arrivalTime;
             CityDepartureID = cityDepartureID;
-            CityArrivalID = cityArrivalID;
-            Date = date;
+            CityArrivalID = cityArrivalID;            
         }
 
         public override string ToString()
         {
-            return $"FlightID: {FlightID}, AirlineName: {AirlineName}, DepartureTime: {DepartureTime}, ArrivalTime: {ArrivalTime}, CityDepartureID: {CityArrivalID}, CityArrivalID: {CityArrivalID}, Date: {Date.Date}";
+            return $"FlightID: {FlightID}, AirlineName: {AirlineName}, DepartureTime: {DepartureTime}, ArrivalTime: {ArrivalTime}, CityDepartureID: {CityArrivalID}, CityArrivalID: {CityArrivalID}";
         }
     }
 }

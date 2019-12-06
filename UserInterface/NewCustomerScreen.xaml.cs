@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccess;
+using DataModeling;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using DataModeling.Model;
 namespace UserInterface
 {
     /// <summary>
@@ -61,21 +63,36 @@ namespace UserInterface
                 string country = Check.FormatName(uxCountry.Text);
 
                 // CONNNECT
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+                LocationGetCityDelegate getCity = new LocationGetCityDelegate(city, country, region);
                 int cityID = 0;
+
                 // Lookup city using city, region, country
                 // if city == null
                 //      create city
                 //      cityID = newly created city
                 // else
                 //      cityID = found city
-
+                City c = executor.ExecuteReader(getCity);
+                if (c == null)
+                {
+                    LocationCreateCityDelegate createsCity = new LocationCreateCityDelegate(city, region, country);
+                    c = executor.ExecuteNonQuery(createsCity);
+                    cityID = c.CityID;
+                }
+                else
+                {
+                    cityID = c.CityID;
+                }
                 // CONNECT
                 int contactID = 0;
-                // Create new contact info using address, phone, email, cityID
-                // contactID = newly created contact
 
+                // Create new contact info using address, phone, email, cityID
+                AgencyCreateContactInfoDelegate saveInfo = new AgencyCreateContactInfoDelegate(address, phone, email, cityID);
+                // contactID = newly created contact
+                ContactInfo contactId = (ContactInfo)executor.ExecuteNonQuery(saveInfo);
                 // CONNECT
-                int customerID = 0;
+                AgencySaveCustomerContactInfoDelegate cd = new AgencySaveCustomerContactInfoDelegate(contactID, address, phone, email, cityID);
                 // Create new customer using budget, name, age, sex, contactID
                 // customerID = newly created customer
 

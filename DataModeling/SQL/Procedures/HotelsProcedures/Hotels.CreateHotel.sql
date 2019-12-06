@@ -1,8 +1,8 @@
 CREATE OR ALTER PROCEDURE Hotels.CreateHotel
 	@HotelID INT OUTPUT,
-	@Name NVARCHAR(100),
+	@Name NVARCHAR(120),
 	@CityID INT,
-	@FullAddress NVARCHAR(100)
+	@FullAddress NVARCHAR(200)
 AS
 
 INSERT Hotels.Hotel(Name, CityID, FullAddress)

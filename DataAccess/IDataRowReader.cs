@@ -12,6 +12,8 @@ namespace DataAccess
 
       float GetFloat(string name);
 
+      double GetDouble(string name);
+
       bool GetBitToBool(string name);
 
       DateTime GetDateTime(string name);

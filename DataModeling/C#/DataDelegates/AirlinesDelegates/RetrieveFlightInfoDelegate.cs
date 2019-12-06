@@ -32,9 +32,7 @@ namespace DataModeling
                reader.GetDateTime("DepartureTime"),
                reader.GetDateTime("ArrivalTime"),               
                reader.GetInt32("CityDepatureID"),
-               reader.GetInt32("CityArrivalID"),
-               reader.GetDateTime("DateofFlight")
-               );
+               reader.GetInt32("CityArrivalID"));
         }
     }
 }
