@@ -65,7 +65,7 @@ namespace UserInterface
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
                 CarRental agency = executor.ExecuteReader(new CarsGetAgencyByIDDelegate(carRentalID));
-                Cities city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(agency.CityID));
+                City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(agency.CityID));
                 // CONNECT
                 // Lookup CarRentalAgency using carRentalID
                 // if null
@@ -109,7 +109,7 @@ namespace UserInterface
                 // CONNECT
                 int cityID = 0;
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
-                Cities city = executor.ExecuteReader(new LocationGetCityDelegate(cityName, country, region));
+                City city = executor.ExecuteReader(new LocationGetCityDelegate(cityName, country, region));
 
                 if (city == null)
                 {
@@ -156,7 +156,7 @@ namespace UserInterface
                 // Create new reservation using tripID (field) and set CarReservation bit to 1 and the rest to 0
                 // reservationID = newly created reservation
                 CarRentalReservation carRentalReservation = executor.ExecuteNonQuery(new AgencyCreateCarRentalReservationDelegate
-                                                                    (reservationID, carRentalID, rentalDate:, carModel, rentalPrice));
+                                                                    (reservationID, carRentalID, rentalDate, carModel, rentalPrice));
                 // CONNECT
                 // Create new CarRentalReservation using reservationID, carRentalID, rentalDate, carModel, rentalPrice
 

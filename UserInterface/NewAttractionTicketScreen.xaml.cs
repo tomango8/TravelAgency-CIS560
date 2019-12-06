@@ -66,14 +66,18 @@ namespace UserInterface
 
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                if (attractionID == null) { MessageBox.Show("Fill in an attraction ID please "); }
+                if (executor.ExecuteReader(new GetAttractionDataDelegate(attractionID)) == null) 
+                {
+                    MessageBox.Show("Attraction does not yet exist");
+
+                }
                 else
                 {
 
                     Attraction attraction = executor.ExecuteReader(new GetAttractionDataDelegate(attractionID));
 
 
-                    Cities city = executor.ExecuteNonQuery(new LocationFetchCityDelegate(attraction.CityID));
+                    City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(attraction.CityID));
 
                     uxAttractionName.Text = attraction.Name; 
                     uxCity.Text = city.CityName; 
@@ -128,7 +132,7 @@ namespace UserInterface
                 else
                 {
 
-                    Cities city = executor.ExecuteReader(new LocationGetCityDelegate(country, region, cityName));
+                    City city = executor.ExecuteReader(new LocationGetCityDelegate(country, region, cityName));
                     if (city == null)
                     {
                         city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityName, region: region, country));

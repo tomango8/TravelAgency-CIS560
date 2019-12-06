@@ -73,7 +73,7 @@ namespace UserInterface
                 }
                 else
                 {
-                    Cities city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(restaurantID));
+                    City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(restaurantID));
                     uxRestaurantName.Text = restaurant.Name; // = restaurant.Name;
                     uxCity.Text = city.CityName; // = city.City;
                     uxRegion.Text = city.Region; // = city.Region;
@@ -121,7 +121,7 @@ namespace UserInterface
 
                 // CONNECT
                 int cityID = 0;
-                Cities city = executor.ExecuteReader(new LocationGetCityDelegate(cityName, country, region));
+                City city = executor.ExecuteReader(new LocationGetCityDelegate(cityName, country, region));
                 if(city == null)
                 {
                     city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityName, region, country));
