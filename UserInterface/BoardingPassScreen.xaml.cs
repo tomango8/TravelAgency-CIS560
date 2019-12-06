@@ -52,11 +52,9 @@ namespace UserInterface
             {
                 int flightID = int.Parse(uxFlightID.Text);
 
-                // CONNECT TODO
-
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                Flight flight = executor.ExecuteNonQuery(new CreateFlightDelegate(flightID));
+                Flight flight = executor.ExecuteReader(new RetrieveFlightInfoDelegate(flightID));
 
                 if (flight == null)
                 {
@@ -67,17 +65,21 @@ namespace UserInterface
                     City departurecity = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(flight.CityDepartureID));
                     City arrivalcity = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(flight.CityArrivalID));
 
+                    uxAirlineName.Text = flight.AirlineName;
                     uxDepartureCity.Text = departurecity.CityName;
                     uxDepartureCountry.Text = departurecity.Country;
                     uxDepartureRegion.Text = departurecity.Region;
                     uxDepartureTime.Text = flight.DepartureTime.Hour + ":" + flight.DepartureTime.Minute;
                     uxDepartureDate.SelectedDate = new DateTime(flight.DepartureTime.Year, flight.DepartureTime.Month, flight.DepartureTime.Day, 0,0,0);
+                    uxDepartureDate.DisplayDate = (DateTime)uxDepartureDate.SelectedDate;
 
                     uxArrivalCity.Text = arrivalcity.CityName;
-                    uxDepartureCountry.Text = arrivalcity.Country;
-                    uxDepartureRegion.Text = arrivalcity.Region;
+                    uxArrivalCountry.Text = arrivalcity.Country;
+                    uxArrivalRegion.Text = arrivalcity.Region;
                     uxArrivalTime.Text = flight.ArrivalTime.Hour + ":" + flight.ArrivalTime.Minute;
                     uxArrivalDate.SelectedDate = new DateTime(flight.ArrivalTime.Year, flight.ArrivalTime.Month, flight.ArrivalTime.Day, 0, 0, 0);
+                    uxArrivalDate.DisplayDate = (DateTime)uxArrivalDate.SelectedDate;
+                    
 
                     // Lookup flight using flightID
                     // if null
@@ -143,7 +145,7 @@ namespace UserInterface
                 string arrivalRegion = Check.FormatName(uxArrivalRegion.Text);
 
                 // CONNECT
-                int departureCityID = 0;
+                int cityDepartureID = 0;
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
                 City departurecitysearch = executor.ExecuteReader(new LocationGetCityDelegate(departureCity, departureCountry, departureRegion));
@@ -152,18 +154,18 @@ namespace UserInterface
                 {
                     City newdeparturecity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(departureCity, departureRegion, departureCountry));
                 //      create new city
-                    departureCityID = newdeparturecity.CityID;
+                    cityDepartureID = newdeparturecity.CityID;
                 //      departureCityID = newly created city
                 }
                 else
                 {
-                    departureCityID = departurecitysearch.CityID;
+                    cityDepartureID = departurecitysearch.CityID;
                 //      departureCityID = found city
                 }
 
 
                 // CONNECT
-                int arrivalCityID = 0;
+                int cityArrivalID = 0;
 
                 City arrivalcitysearch = executor.ExecuteReader(new LocationGetCityDelegate(arrivalCity, arrivalCountry, arrivalRegion));
                 //Lookup arrival city, using arrivalCity, arrivalCountry, arrivalRegion
@@ -171,12 +173,12 @@ namespace UserInterface
                 {
                     City newarrivalcity = executor.ExecuteNonQuery(new LocationCreateCityDelegate(arrivalCity, arrivalRegion, arrivalCountry));
                 //      create new city
-                    arrivalCityID = newarrivalcity.CityID;
+                    cityArrivalID = newarrivalcity.CityID;
                 //      arrivalCityID = newly created city
                 }
                 else
                 {
-                    arrivalCityID = arrivalcitysearch.CityID;
+                    cityArrivalID = arrivalcitysearch.CityID;
                 }
                 //      arrivalCityID = found city
 
@@ -184,10 +186,10 @@ namespace UserInterface
                 // CONNECT
                 int flightID = 0;
 
-                Flight flightsearch = executor.ExecuteReader(new GetFlightDelegate(airlineName, departureTime, departureCityID, arrivalTime, arrivalCityID));
+                Flight flightsearch = executor.ExecuteReader(new GetFlightDelegate(airlineName, departureTime, cityDepartureID, arrivalTime, cityArrivalID));
                 if (flightsearch == null)
                 {
-                    Flight flight = executor.ExecuteNonQuery(new CreateFlightDelegate(flightID));
+                    Flight flight = executor.ExecuteNonQuery(new CreateFlightDelegate(airlineName, departureTime, arrivalTime, cityDepartureID, cityArrivalID));
                     flightID = flight.FlightID;
                 }
                 else
@@ -203,12 +205,7 @@ namespace UserInterface
                 //      flightID = found flight
 
                 // CONNECT
-                int reservationID = 0;
-
-                Reservation res = executor.ExecuteNonQuery(new AgencyCreateReservationDelegate(tripID, false, false, true, false, false));
-                reservationID = res.ReservationID;
-
-                BoardingPass bp = executor.ExecuteNonQuery(new CreateBoardingPassDelegate(reservationID, flightID, boardingPassPrice));
+                BoardingPass bp = executor.ExecuteNonQuery(new CreateBoardingPassDelegate(tripID, flightID, boardingPassPrice));
                 // Create new reservation using tripID(field) and set BoardingPass to 1, everything else to 0
                 // reservationID = newly created reservation
 
@@ -221,7 +218,7 @@ namespace UserInterface
 
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new PlanTripScreen(connectionString, tripID, uxArrivalCountry.Text, uxArrivalRegion.Text, uxArrivalCity.Text));
         }
 
         /// <summary>

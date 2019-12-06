@@ -12,9 +12,9 @@ namespace DataModeling.Model
 
         public int FlightID { get; }
 
-        public float Price { get;  }
+        public double Price { get;  }
 
-        public BoardingPass(int reservationID, int flightID, float price)
+        public BoardingPass(int reservationID, int flightID, double price)
         {
             ReservationID = reservationID;
             Price = price;
