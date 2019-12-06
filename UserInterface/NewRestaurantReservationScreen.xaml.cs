@@ -160,7 +160,7 @@ namespace UserInterface
                 // reservationID = newly created reservation
                 reservationID = reservation.ReservationID;
 
-
+                RestaurantReservation restaurantReservation = executor.ExecuteNonQuery(new RestaurantCreateRestaurantReservationDelegate(reservationID, restaurantID, reservationTime));
                 // CONNECT
                 // create new RestaurantReservation using reservationID, reservationTime, restaurantID
 
