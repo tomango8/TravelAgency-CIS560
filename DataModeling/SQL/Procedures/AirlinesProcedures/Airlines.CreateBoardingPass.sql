@@ -6,5 +6,5 @@ AS
 INSERT Airlines.BoardingPass(ReservationID, Price, FlightID)
 VALUES(@ReservationID, @Price, @FlightID)
 
-SET @CityID = SCOPE_IDENTITY();
+SET @ReservationID = SCOPE_IDENTITY();
 GO
