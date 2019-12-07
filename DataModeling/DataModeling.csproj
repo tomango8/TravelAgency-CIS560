@@ -107,6 +107,7 @@
     <Compile Include="C#\Model\Agency\Trip.cs" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateContactInfo.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.CreateReservation.sql" />
+    <Content Include="SQL\Procedures\AgencyProcedures\Agency.DeleteReservation.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetReservations.sql" />
     <Content Include="SQL\Procedures\AgencyProcedures\Agency.GetTrips.sql" />
     <Content Include="SQL\Procedures\AirlinesProcedures\Airlines.GetBoardingPass.sql" />

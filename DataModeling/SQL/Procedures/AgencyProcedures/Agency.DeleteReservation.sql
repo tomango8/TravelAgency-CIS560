@@ -3,5 +3,5 @@ CREATE OR ALTER PROCEDURE Agency.DeleteReservation
 AS
 UPDATE Agency.Reservations
 SET IsDeleted = 1
-WHERE @Reservation = R.Reservation;
+WHERE @ReservationID = ReservationID;
 GO

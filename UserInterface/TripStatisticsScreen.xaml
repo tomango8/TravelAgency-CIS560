@@ -24,7 +24,7 @@
                     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
                 </Style>
             </StackPanel.Resources>
-            <Label FontSize="20" Name="uxReportListLabel">Columns, , , ,</Label>
+            <Label FontSize="14" Name="uxReportListLabel"></Label>
             <ListBox Name="uxReportList">
                 
             </ListBox>

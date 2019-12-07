@@ -63,11 +63,12 @@ namespace UserInterface
 
         public void Report3_Click(object sender, RoutedEventArgs args)
         {
+            uxReportList.Items.Clear();
             SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
             List<string> ageGroups = (List<string>)executor.ExecuteReader(new AgencyAgeReportDelegate());
 
-            uxReportListLabel.Content = "AgeGroup - Count, Average Budget, Lowest Budget-Highest Budget, Average Age, Trip Count";
+            uxReportListLabel.Content = "AgeGroup - Count, Average Budget, Lowest Budget - Highest Budget, Average Age, Trip Count";
             if(ageGroups.Count > 0)
             {
                 foreach(string row in ageGroups)
@@ -86,11 +87,12 @@ namespace UserInterface
         /// <param name="args"></param>
         public void CheaperOptions_Click(object sender, RoutedEventArgs args)
         {
+            uxReportList.Items.Clear();
             SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
             List<string> cheaperOptions = (List<string>)executor.ExecuteReader(new AgencyCheapestOptionsDelegate());
 
-            uxReportListLabel.Content = "CityName Country - Cheapest Hotel - Cheapest Attraction";
+            uxReportListLabel.Content = "City, Country - Cheapest Hotel - Cheapest Attraction";
 
             if (cheaperOptions.Count > 0)
             {

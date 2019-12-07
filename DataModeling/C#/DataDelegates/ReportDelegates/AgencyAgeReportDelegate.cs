@@ -25,8 +25,8 @@ namespace DataModeling
             {
                 rows.Add($"{reader.GetString("AgeGroup")}, {reader.GetInt32("Count")}, " +
                     $"{reader.GetDouble("AverageBudget").ToString("C", CultureInfo.CurrentCulture)}, " +
-                    $"${reader.GetDouble("LowestBudget").ToString("C", CultureInfo.CurrentCulture)}, " +
-                    $"${reader.GetDouble("HighestBudget").ToString("C", CultureInfo.CurrentCulture)}, " +
+                    $"{reader.GetDouble("LowestBudget").ToString("C", CultureInfo.CurrentCulture)} - " +
+                    $"{reader.GetDouble("HighestBudget").ToString("C", CultureInfo.CurrentCulture)}, " +
                     $"{reader.GetInt32("AverageAge")}, " +
                     $"{reader.GetInt32("TripCount")}");
             }
