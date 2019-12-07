@@ -32,9 +32,9 @@ namespace DataModeling
 
 
          return new City(cityID,
-                  reader.GetString("Country"),
+                  reader.GetString("CityName"),
                   reader.GetString("Region"),
-                  reader.GetString("CityName"));
+                  reader.GetString("Country"));
 
         }
 
