@@ -81,6 +81,7 @@
     <Compile Include="C#\DataDelegates\LocationDelegates\LocationFetchCityDelegate.cs" />
     <Compile Include="C#\DataDelegates\LocationDelegates\LocationGetCityByCityIdDelegate.cs" />
     <Compile Include="C#\DataDelegates\LocationDelegates\LocationGetCityDelegate.cs" />
+    <Compile Include="C#\DataDelegates\ReportDelegates\AgencyAgeReportDelegate.cs" />
     <Compile Include="C#\DataDelegates\ReportDelegates\AgencyCheapestOptionsDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantCreateRestaurantDelegate.cs" />
     <Compile Include="C#\DataDelegates\Restaurants\RestaurantGetResturantByNameDelegate.cs" />

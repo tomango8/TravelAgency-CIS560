@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using DataModeling.Model;
+using System.Globalization;
 
 namespace DataModeling
 {
@@ -22,13 +23,12 @@ namespace DataModeling
 
             while (reader.Read())
             {
-                //CityID, CityName, Region, Country, CheapestHotel, 
-                //CheapestHotelPrice, CheapestAttraction, CheapestAttractionPrice,
-                //CheapestCarModelAgency, CheapestModel, CheapestModelPrice 
                 rows.Add($"{reader.GetString("AgeGroup")}, {reader.GetInt32("Count")}, " +
-                    $"{reader.GetString("AverageBudget")}, {reader.GetString("LowestBudget")}, " +
-                    $"{reader.GetString("HighestBudget")}, {reader.GetInt32("AverageAge")}, " +
-                    $"{reader.GetString("TripCount")}");
+                    $"{reader.GetDouble("AverageBudget").ToString("C", CultureInfo.CurrentCulture)}, " +
+                    $"${reader.GetDouble("LowestBudget").ToString("C", CultureInfo.CurrentCulture)}, " +
+                    $"${reader.GetDouble("HighestBudget").ToString("C", CultureInfo.CurrentCulture)}, " +
+                    $"{reader.GetInt32("AverageAge")}, " +
+                    $"{reader.GetInt32("TripCount")}");
             }
             return rows;
         }

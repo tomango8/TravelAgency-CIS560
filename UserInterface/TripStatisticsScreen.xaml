@@ -43,7 +43,7 @@
                 <Button Click="Report2_Click">Report 2</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Click="Report3_Click">Report 3</Button>
+                <Button Click="Report3_Click">Age Groups</Button>
                 <Button Click="CheaperOptions_Click">Cheaper Options</Button>
                 <Button Click="MainMenu_Click">Main Menu</Button>
             </StackPanel>

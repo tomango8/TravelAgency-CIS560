@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using DataModeling.Model;
+using System.Globalization;
 
 namespace DataModeling
 {
@@ -24,8 +25,8 @@ namespace DataModeling
             {                
                 rows.Add($"{reader.GetString("CityName")}, " + 
                     $"{reader.GetString("Country")} - {reader.GetString("Hotel")} " +
-                    $"${reader.GetDouble("CheapestHotelPrices")} - {reader.GetString("Attraction")} " +
-                    $"${reader.GetDouble("CheapestAttractionPrices")}");
+                    $"{reader.GetDouble("CheapestHotelPrices").ToString("C", CultureInfo.CurrentCulture)} - {reader.GetString("Attraction")} " +
+                    $"{reader.GetDouble("CheapestAttractionPrices").ToString("C", CultureInfo.CurrentCulture)}");
             }
             return rows;
         }
