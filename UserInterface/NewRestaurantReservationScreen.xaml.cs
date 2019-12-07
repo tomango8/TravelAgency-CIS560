@@ -73,7 +73,7 @@ namespace UserInterface
                 }
                 else
                 {
-                    City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(restaurantID));
+                    City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(restaurant.CityID));
                     uxRestaurantName.Text = restaurant.Name;
                     uxCity.Text = city.CityName;
                     uxRegion.Text = city.Region;

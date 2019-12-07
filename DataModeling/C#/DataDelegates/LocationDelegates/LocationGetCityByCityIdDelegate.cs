@@ -23,10 +23,10 @@ namespace DataModeling
             base.PrepareCommand(command);
             command.Parameters.AddWithValue("CityID", cityID);
 
-        }
+    }
 
         public override City Translate(SqlCommand command, IDataRowReader reader)
-    {
+        {
         if (!reader.Read())
             return null;
 
@@ -38,5 +38,5 @@ namespace DataModeling
 
         }
 
-       }
+    }
 }
