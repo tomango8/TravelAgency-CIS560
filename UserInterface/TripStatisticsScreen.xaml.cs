@@ -80,15 +80,14 @@ namespace UserInterface
 
             List<string> cheaperOptions = (List<string>)executor.ExecuteReader(new AgencyCheapestOptionsDelegate());
 
-            uxReportListLabel.Content = "CityID, CityName, Region, Country, CheapestHotel, " +
-            "CheapestHotelPrice, CheapestAttraction, CheapestAttractionPrice, " +
-            "CheapestCarModelAgency, CheapestModel, CheapestModelPrice"; 
+            uxReportListLabel.Content = "CityName Country - Cheapest Hotel - " +
+            "Cheapest Attraction";
 
             if (cheaperOptions.Count > 0)
             {
                 foreach(string row in cheaperOptions)
                 {
-                    TextBox t = new TextBox();
+                    TextBlock t = new TextBlock();
                     t.Text = row;
                     uxReportList.Items.Add(t);
                 }
