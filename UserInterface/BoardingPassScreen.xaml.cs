@@ -97,7 +97,7 @@ namespace UserInterface
             if(CheckValidInputs())
             {
                 string airlineName = Check.FormatName(uxAirlineName.Text);
-                float boardingPassPrice = float.Parse(uxBoardingPassPrice.Text);
+                double boardingPassPrice = double.Parse(uxBoardingPassPrice.Text);
 
                 DateTime departureTime = new DateTime(((DateTime)uxDepartureDate.SelectedDate).Year, ((DateTime)uxDepartureDate.SelectedDate).Month,
                     ((DateTime)uxDepartureDate.SelectedDate).Day, int.Parse(uxDepartureTime.Text.Split(':')[0]),

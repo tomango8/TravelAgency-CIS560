@@ -32,8 +32,7 @@ namespace DataModeling
             command.Parameters.AddWithValue("DepartureTime", DepartureTime);
             command.Parameters.AddWithValue("ArrivalTime", ArrivalTime);
             command.Parameters.AddWithValue("CityDepartureID", CityDepartureID);
-            command.Parameters.AddWithValue("CityArrivalID", CityArrivalID);
-
+            command.Parameters.AddWithValue("CityArrivalID", CityArrivalID);            
         }
 
         public override Flight Translate(SqlCommand command, IDataRowReader reader)
@@ -41,7 +40,7 @@ namespace DataModeling
             if (!reader.Read())
                 return null;
 
-            return new Flight(FlightID,
+            return new Flight(reader.GetInt32("FlightID"),
                reader.GetString("AirlineName"),
                reader.GetDateTime("DepartureTime"),
                reader.GetDateTime("ArrivalTime"),
