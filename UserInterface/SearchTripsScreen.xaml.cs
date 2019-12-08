@@ -189,7 +189,7 @@ namespace UserInterface
                 object item = uxTrips.Items[i];
                 if(item is TextBlock t)
                 {
-                    int compareTripID = int.Parse(t.Text.Split(',')[0].Trim());
+                    int compareTripID = int.Parse(t.Text.Split(' ')[0].Trim());
                     if (compareTripID < tripID)
                     {
                         uxTrips.Items.Remove(item);
@@ -210,7 +210,7 @@ namespace UserInterface
                 object item = uxTrips.Items[i];
                 if (item is TextBlock t)
                 {
-                    int compareAgentID = int.Parse(t.Text.Split(',')[4].Trim());
+                    int compareAgentID = Check.GetNumberAtEndOfString(t.Text.Split('-')[1]);
                     if (compareAgentID != agentID)
                     {
                         uxTrips.Items.Remove(item);
@@ -232,7 +232,7 @@ namespace UserInterface
                 object item = uxTrips.Items[i];
                 if (item is TextBlock t)
                 {
-                    if (!t.Text.Split(',')[1].Trim().Contains(Check.FormatName(customerName)))
+                    if (!t.Text.Split('-')[1].Trim().Contains(Check.FormatName(customerName)))
                     {
                         uxTrips.Items.Remove(item);
                         i--;

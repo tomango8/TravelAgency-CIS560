@@ -492,5 +492,28 @@ namespace UserInterface
                 return s;
             }
         }
+
+        /// <summary>
+        /// Gets the number at the end of a string
+        /// </summary>
+        /// <param name="s">The string to read in</param>
+        /// <returns>The number at the end of a string</returns>
+        public static int GetNumberAtEndOfString(string s)
+        {
+            string number = "";
+           for(int i = s.Length - 1; i >= 0; i--)
+           {
+                if(IsNumber(s[i]))
+                {
+                    while(i >= 0 && IsNumber(s[i]))
+                    {
+                        number = s[i] + number;
+                        i--;
+                    }
+                    return int.Parse(number);
+                }
+           }
+           return 0;
+        }
     }
 }
