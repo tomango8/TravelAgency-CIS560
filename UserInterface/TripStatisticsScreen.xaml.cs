@@ -47,6 +47,22 @@ namespace UserInterface
 
         public void Report1_Click(object sender, RoutedEventArgs args)
         {
+
+            uxReportList.Items.Clear();
+            SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+            List<string> monthlyDetail = (List<string>)executor.ExecuteReader(new AgencyDetailByMonthDelegate());
+
+            uxReportListLabel.Content = "Month , NumberOfTrips , AverageCustomersPerAgent ,TotalSale";
+            if (monthlyDetail.Count > 0)
+            {
+                foreach (string row in monthlyDetail)
+                {
+                    TextBlock t = new TextBlock();
+                    t.Text = row;
+                    uxReportList.Items.Add(t);
+                }
+            }
             // CONNECT
             // query report 1
             // load report 1 into uxReportList
