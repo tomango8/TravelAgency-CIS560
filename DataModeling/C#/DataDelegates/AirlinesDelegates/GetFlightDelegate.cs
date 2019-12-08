@@ -16,7 +16,7 @@ namespace DataModeling
         
 
         public GetFlightDelegate(string airlineName, System.DateTime departureTime, int departureCityID, System.DateTime arrivalTime, int arrivalCityID)
-           : base("Location.RetrieveFlightInfo")
+           : base("Airlines.GetFlight")
         {
             this.AirlineName = airlineName;
             this.DepartureTime = departureTime;
@@ -32,8 +32,7 @@ namespace DataModeling
             command.Parameters.AddWithValue("DepartureTime", DepartureTime);
             command.Parameters.AddWithValue("ArrivalTime", ArrivalTime);
             command.Parameters.AddWithValue("CityDepartureID", CityDepartureID);
-            command.Parameters.AddWithValue("CityArrivalID", CityArrivalID);
-
+            command.Parameters.AddWithValue("CityArrivalID", CityArrivalID);            
         }
 
         public override Flight Translate(SqlCommand command, IDataRowReader reader)
@@ -41,11 +40,11 @@ namespace DataModeling
             if (!reader.Read())
                 return null;
 
-            return new Flight(FlightID,
+            return new Flight(reader.GetInt32("FlightID"),
                reader.GetString("AirlineName"),
                reader.GetDateTime("DepartureTime"),
                reader.GetDateTime("ArrivalTime"),
-               reader.GetInt32("CityDepatureID"),
+               reader.GetInt32("CityDepartureID"),
                reader.GetInt32("CityArrivalID"));
         }
     }

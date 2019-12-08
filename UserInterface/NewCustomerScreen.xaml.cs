@@ -37,7 +37,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new TripSetupScreen(connectionString));
         }
 
         /// <summary>
@@ -54,25 +54,18 @@ namespace UserInterface
                 int age = int.Parse(uxAge.Text);
                 string sex = (bool)uxMale.IsChecked ? "Male" : "Female";
 
-                string address = uxAddress.Text + "\n" + Check.FormatName(uxCity.Text) + ", " + uxZipcode.Text;
-                string phone = uxAreaCode.Text + uxFirst3PhoneDigits.Text + uxLast4PhoneDigits.Text;
+                string address = uxAddress.Text;
+                string phone = $"({uxAreaCode.Text})-{uxFirst3PhoneDigits.Text}-{uxLast4PhoneDigits.Text}";
                 string email = uxEmail.Text;
 
                 string city = Check.FormatName(uxCity.Text);
                 string region = Check.FormatName(uxRegion.Text);
                 string country = Check.FormatName(uxCountry.Text);
-
-                // CONNNECT
+                
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
                 LocationGetCityDelegate getCity = new LocationGetCityDelegate(city, country, region);
                 int cityID = 0;
-
-                // Lookup city using city, region, country
-                // if city == null
-                //      create city
-                //      cityID = newly created city
-                // else
-                //      cityID = found city
+                
                 City c = executor.ExecuteReader(getCity);
                 if (c == null)
                 {
@@ -83,19 +76,15 @@ namespace UserInterface
                 else
                 {
                     cityID = c.CityID;
-                }
-                // CONNECT
+                }               
                 int contactID = 0;
                 int customerID = 0;
-                // Create new contact info using address, phone, email, cityID
-                AgencyCreateContactInfoDelegate saveInfo = new AgencyCreateContactInfoDelegate(address, phone, email, cityID);
-                // contactID = newly created contact
+                
+                AgencyCreateContactInfoDelegate saveInfo = new AgencyCreateContactInfoDelegate(address, phone, email, cityID);                
                 ContactInfo contactId = (ContactInfo)executor.ExecuteNonQuery(saveInfo);
-                // CONNECT
+                
                 contactID = contactId.ContactID;
                 AgencyCreateCustomerDelegate cd = new AgencyCreateCustomerDelegate(name, budget, age, sex, contactID);
-                // Create new customer using budget, name, age, sex, contactID
-                // customerID = newly created customer
                 Customer customer = executor.ExecuteNonQuery(cd);
                 customerID = customer.CustomerID;
                 MessageBox.Show("Customer " + name + " has been successfully added. CustomerID = " + customerID);

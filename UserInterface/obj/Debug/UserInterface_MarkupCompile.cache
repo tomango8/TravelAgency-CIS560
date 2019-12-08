@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Toman\Desktop\TravelAgency-CIS560\UserInterface\obj\Debug\
+C:\Users\user\source\repos\TravelAgency-CIS560\UserInterface\obj\Debug\
 UserInterface
 none
 false
 DEBUG;TRACE
-C:\Users\Toman\Desktop\TravelAgency-CIS560\UserInterface\App.xaml
+C:\Users\user\source\repos\TravelAgency-CIS560\UserInterface\App.xaml
 13-1754180498
 
-191912327856
-15-1771731556
+18-1987353053
+15423568139
 BoardingPassScreen.xaml;HotelReservationScreen.xaml;MainMenu.xaml;MainWindow.xaml;NewAgentScreen.xaml;NewAttractionTicketScreen.xaml;NewCarRentalReservationScreen.xaml;NewCustomerScreen.xaml;NewRestaurantReservationScreen.xaml;PlanTripScreen.xaml;SearchTripsScreen.xaml;TripSetupScreen.xaml;TripStatisticsScreen.xaml;
 
-True
+False
 

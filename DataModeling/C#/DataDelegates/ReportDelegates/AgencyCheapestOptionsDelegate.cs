@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using DataModeling.Model;
+using System.Globalization;
 
 namespace DataModeling
 {
@@ -21,16 +22,11 @@ namespace DataModeling
             List<string> rows = new List<string>();
 
             while(reader.Read())
-            {
-                //CityID, CityName, Region, Country, CheapestHotel, 
-                //CheapestHotelPrice, CheapestAttraction, CheapestAttractionPrice,
-                //CheapestCarModelAgency, CheapestModel, CheapestModelPrice 
-                rows.Add($"{reader.GetInt32("CityID")}, {reader.GetString("CityName")}, " +
-                    $"{reader.GetString("Region")}, {reader.GetString("Country")}, " +
-                    $"{reader.GetString("CheapestHotel")}, {reader.GetDouble("CheapestHotelPrice")}, " +
-                    $"{reader.GetString("CheapestAttraction")}, {reader.GetDouble("CheapestAttractionPrice")}, " +
-                    $"{reader.GetString("CheapestCarModelAgency")}, {reader.GetString("CheapestModel")}, " +
-                    $"{reader.GetDouble("CheapestModelPrice")}");
+            {                
+                rows.Add($"{reader.GetString("CityName")}, " + 
+                    $"{reader.GetString("Country")} - {reader.GetString("Hotel")} " +
+                    $"{reader.GetDouble("CheapestHotelPrices").ToString("C", CultureInfo.CurrentCulture)} - {reader.GetString("Attraction")} " +
+                    $"{reader.GetDouble("CheapestAttractionPrices").ToString("C", CultureInfo.CurrentCulture)}");
             }
             return rows;
         }

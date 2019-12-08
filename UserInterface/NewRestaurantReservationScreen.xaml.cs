@@ -47,7 +47,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new PlanTripScreen(connectionString, tripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
         }
 
         /// <summary>
@@ -66,23 +66,19 @@ namespace UserInterface
 
                 Restaurant restaurant = executor.ExecuteReader(new RestaurantsGetRestaurantDelegate(restaurantID));
 
+                if (restaurant == null)
+                {
+                      MessageBox.Show("Restaurant does not already exist");
 
-
-                // CONNECT
-                // Lookup restaurant using restaurantID
-                // if null
-                //      MessageBox.Show("Restaurant does not already exist");
-                // else
-                // {
-                //      Restaurant restaurant = get Restaurant(restaurantID);
-                //      City city = get City (restaurant.CityID);
-
-                // CONNECT
-                uxRestaurantName.Text = ""; // = restaurant.Name;
-                        uxCity.Text = ""; // = city.City;
-                        uxRegion.Text = ""; // = city.Region;
-                        uxCountry.Text = ""; // = city.Country;
-                // } end else
+                }
+                else
+                {
+                    City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(restaurant.CityID));
+                    uxRestaurantName.Text = restaurant.Name;
+                    uxCity.Text = city.CityName;
+                    uxRegion.Text = city.Region;
+                    uxCountry.Text = city.Country;
+                }
             }
             else
             {
@@ -104,38 +100,31 @@ namespace UserInterface
                     ((DateTime)uxReservationDate.SelectedDate).Month, ((DateTime)uxReservationDate.SelectedDate).Day,
                     int.Parse(uxReservationTime.Text.Split(':')[0]), int.Parse(uxReservationTime.Text.Split(':')[1]), 0);
 
-                string city = Check.FormatName(uxCity.Text);
+                string cityName = Check.FormatName(uxCity.Text);
                 string country = Check.FormatName(uxCountry.Text);
                 string region = Check.FormatName(uxRegion.Text);
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                // CONNECT
                 int cityID = 0;
+                City city = executor.ExecuteReader(new LocationGetCityDelegate(cityName, country, region));
+                if(city == null)
+                {
+                    city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityName, region, country));
+                }
+                cityID = city.CityID;
 
-                // Lookup city, using city, country, region
-                // if null
-                //      create new city
-                //      cityID = newly created city
-                // else
-                //      cityID = found city
-
-                // CONNECT
                 int restaurantID = 0;
 
-                // Lookup restaurant, using restaurantName, cityID
-                // if null
-                //      create new restaurant
-                //      restaurantID = newly created restaurant
-                // else
-                //      restaurantID = found restaurant
+                Restaurant restaurant = executor.ExecuteReader(new RestaurantGetResturantByNameDelegate(restaurantName, cityID));
 
-                // CONNECT
-                int reservationID = 0;
+                if(restaurant == null)
+                {
+                    restaurant = executor.ExecuteNonQuery(new RestaurantCreateRestaurantDelegate(cityID, cityName));
+                }
+                restaurantID = restaurant.RestaurantID;
 
-                // Create new reservation using tripID (field), and set RestaurantReservation bit to 1 and the rest to 0
-                // reservationID = newly created reservation
-
-                // CONNECT
-                // create new RestaurantReservation using reservationID, reservationTime, restaurantID
+                RestaurantReservation restaurantReservation = 
+                    executor.ExecuteNonQuery(new RestaurantsCreateRestaurantReservationDelegate(tripID, restaurantID, reservationTime));
 
                 MessageBox.Show("Reservation successfully added for " + restaurantName);
             }

@@ -48,7 +48,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new PlanTripScreen(connectionString, tripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
         }
 
         /// <summary>
@@ -63,32 +63,23 @@ namespace UserInterface
             {
                 int attractionID = int.Parse(uxAttractionID.Text);
 
-
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                if (attractionID == null) { MessageBox.Show("Fill in an attraction ID please "); }
+                if (executor.ExecuteReader(new GetAttractionDataDelegate(attractionID)) == null) 
+                {
+                    MessageBox.Show("Attraction does not yet exist");
+
+                }
                 else
                 {
 
                     Attraction attraction = executor.ExecuteReader(new GetAttractionDataDelegate(attractionID));
+                    City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(attraction.CityID));
 
-
-                    City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(cityID: attraction.CityID));
-                    // CONNECT
-                    // Lookup attraction using attractionID
-                    // if null
-                    //      MessageBox.Show("Attraction does not already exist");
-                    // else
-                    // {
-                    //      Attraction attraction = get Attraction (attractionID);
-                    //      City city = get City (attraction.CityID);
-
-                    // CONNECT
-                    uxAttractionName.Text = attraction.Name; // = attraction.Name;
-                    uxCity.Text = city.CityName; // = city.City;
-                    uxCountry.Text = city.Country; // = city.Country;
-                    uxRegion.Text = city.Region; // = city.Region
-                                                 // } end else
+                    uxAttractionName.Text = attraction.Name; 
+                    uxCity.Text = city.CityName; 
+                    uxCountry.Text = city.Country;
+                    uxRegion.Text = city.Region; 
                 }
             }
             else
@@ -109,77 +100,39 @@ namespace UserInterface
                 string attractionName = Check.FormatName(uxAttractionName.Text);
                 float ticketPrice = float.Parse(uxTicketPrice.Text);
                 DateTime ticketDate = (DateTime)uxDate.SelectedDate;
-
+                
                 string country = Check.FormatName(uxCountry.Text);
                 string region = Check.FormatName(uxRegion.Text);
                 string cityName = Check.FormatName(uxCity.Text);
 
-                // CONNECT
                 int cityID = 0;
 
                 SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
-
-                if (country == null || region == null || cityName == null)
+                City city = executor.ExecuteReader(new LocationGetCityDelegate(country, region, cityName));
+                if (city == null)
                 {
-                    MessageBox.Show("one of the city fields are empty");
+                    city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityName, region: region, country));
+                    cityID = city.CityID;
                 }
                 else
                 {
-
-                    City city = executor.ExecuteReader(new LocationGetCityDelegate(country, region, cityName));
-                    if (city == null)
-                    {
-                        city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityName, region: region, country));
-                        cityID = city.CityID;
-                    }
-                    else
-                    {
-                        cityID = city.CityID;
-                    }
-
-                    int attractionID = 0;
-                    Attraction attraction = executor.ExecuteReader(new GetAttractionDataDelegate(attractionID));
-
-                    if (attraction == null)
-                    {
-                        attraction = executor.ExecuteNonQuery(new CreateAttractionDelegate(attractionName, cityID));
-                        attractionID = attraction.AttractionID;
-
-                    }
-                    else
-                    {
-                        attractionID = attraction.AttractionID;
-                    }
-
-                  //  Reservation reservation = executor.ExecuteReader(new )
-
-
+                    cityID = city.CityID;
                 }
-                // Lookup city, using country, region, city
-                // if null
-                //      create new city
-                //      cityID = newly created city
-                // else
-                //      cityID = found city
 
-                // CONNECT
+                int attractionID = 0;
+                Attraction attraction = executor.ExecuteReader(new GetAttractionDataDelegate(attractionID));
 
+                if (attraction == null)
+                {
+                    attraction = executor.ExecuteNonQuery(new CreateAttractionDelegate(attractionName, cityID));
+                    attractionID = attraction.AttractionID;
+                }
+                else
+                {
+                    attractionID = attraction.AttractionID;
+                }           
 
-                // Lookup attraction, using attractionName, cityID
-                // if null
-                //      create new attraction
-                //      attractionID = newly created attraction
-                // else
-                //      attractionID = found attraction
-
-                // CONNECT
-                int reservationID = 0;
-
-                // create new reservation using tripID and set AttractionTicket bit to 1 and the rest to 0
-                // reservationID = newly created reservation
-
-                // CONNECT
-                // create new AttractionTicket using reservationID, attractionID, ticketPrice, ticketDate
+                AttractionTicket at = executor.ExecuteNonQuery(new CreateAttractionTicketDelegate(tripID, attractionID, ticketDate, ticketPrice));
 
                 MessageBox.Show("Attraction ticket successfully added for attraction " + attractionName);
             }

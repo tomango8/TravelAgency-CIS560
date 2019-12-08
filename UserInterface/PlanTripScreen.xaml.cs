@@ -126,7 +126,7 @@ namespace UserInterface
             {
                 if(uxReservations.SelectedItem is TextBlock t)
                 {
-                    int reservationID = int.Parse(t.Text.Split(',')[0].Trim());
+                    int reservationID = int.Parse(t.Text.Split('\t')[1].Split(',')[0].Trim());
 
                     SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
                     executor.ExecuteNonQuery(new AgencyDeleteReservationDelegate(reservationID));

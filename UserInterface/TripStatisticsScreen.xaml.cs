@@ -63,10 +63,21 @@ namespace UserInterface
 
         public void Report3_Click(object sender, RoutedEventArgs args)
         {
-            // CONNECT
-            // query report 3
-            // load report 3 into uxReportList
-            // set uxReportListLabel of what each column represents
+            uxReportList.Items.Clear();
+            SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+            List<string> ageGroups = (List<string>)executor.ExecuteReader(new AgencyAgeReportDelegate());
+
+            uxReportListLabel.Content = "AgeGroup - Count, Average Budget, Lowest Budget - Highest Budget, Average Age, Trip Count";
+            if(ageGroups.Count > 0)
+            {
+                foreach(string row in ageGroups)
+                {
+                    TextBlock t = new TextBlock();
+                    t.Text = row;
+                    uxReportList.Items.Add(t);
+                }
+            }
         }
 
         /// <summary>
@@ -76,19 +87,18 @@ namespace UserInterface
         /// <param name="args"></param>
         public void CheaperOptions_Click(object sender, RoutedEventArgs args)
         {
+            uxReportList.Items.Clear();
             SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
             List<string> cheaperOptions = (List<string>)executor.ExecuteReader(new AgencyCheapestOptionsDelegate());
 
-            uxReportListLabel.Content = "CityID, CityName, Region, Country, CheapestHotel, " +
-            "CheapestHotelPrice, CheapestAttraction, CheapestAttractionPrice, " +
-            "CheapestCarModelAgency, CheapestModel, CheapestModelPrice"; 
+            uxReportListLabel.Content = "City, Country - Cheapest Hotel - Cheapest Attraction";
 
             if (cheaperOptions.Count > 0)
             {
                 foreach(string row in cheaperOptions)
                 {
-                    TextBox t = new TextBox();
+                    TextBlock t = new TextBlock();
                     t.Text = row;
                     uxReportList.Items.Add(t);
                 }

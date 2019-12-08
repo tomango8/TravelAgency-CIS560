@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccess;
+using DataModeling;
+using DataModeling.Model;
 
 namespace UserInterface
 {
@@ -45,7 +48,7 @@ namespace UserInterface
         /// <param name="args"></param>
         public void Done_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new PlanTripScreen(connectionString, tripID, uxCountry.Text, uxRegion.Text, uxCity.Text));
         }
 
         /// <summary>
@@ -59,22 +62,14 @@ namespace UserInterface
             if(Check.ValidPositiveInt("Car Rental ID", uxCarRentalID.Text, out message))
             {
                 int carRentalID = int.Parse(uxCarRentalID.Text);
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-                // CONNECT
-                // Lookup CarRentalAgency using carRentalID
-                // if null
-                //      MessageBox.Show("Car Rental Agency does not yet exist");
-                // else
-                // {
-                //      CarRentalAgency agency = get CarRentalAgency(carRentalID)
-                //      City city = get city (agency.CityID)
-
-                // CONNECT
-                        uxCarRentalAgencyName.Text = ""; // = agency.Name;
-                        uxCity.Text = ""; // = city.Name;
-                        uxCountry.Text = ""; // = city.Country;
-                        uxRegion.Text = ""; // = city.Region;
-                // } end else
+                CarRental agency = executor.ExecuteReader(new CarsGetAgencyByIDDelegate(carRentalID));
+                City city = executor.ExecuteReader(new LocationGetCityByCityIdDelegate(agency.CityID));
+                uxCarRentalAgencyName.Text = agency.AgencyName;
+                uxCity.Text = city.CityName;
+                uxCountry.Text = city.Country;
+                uxRegion.Text = city.Region;
             }
             else
             {
@@ -96,38 +91,38 @@ namespace UserInterface
                 float rentalPrice = float.Parse(uxRentalPrice.Text);
                 DateTime rentalDate = (DateTime)uxRentalDate.SelectedDate;
 
-                string city = Check.FormatName(uxCity.Text);
+                string cityName = Check.FormatName(uxCity.Text);
                 string country = Check.FormatName(uxCountry.Text);
                 string region = Check.FormatName(uxRegion.Text);
 
-                // CONNECT
                 int cityID = 0;
+                SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+                City city = executor.ExecuteReader(new LocationGetCityDelegate(cityName, country, region));
 
-                // Lookup city, using city, country, and region
-                // if null
-                //      create new city
-                //      cityID = newly created city
-                // else
-                //      cityID = foundCity
-
-                // CONNECT
+                if (city == null)
+                {
+                     city = executor.ExecuteNonQuery(new LocationCreateCityDelegate(cityName, region, country));
+                    cityID = city.CityID;
+                }
+                else
+                {
+                    cityID = city.CityID;
+                }
                 int carRentalID = 0;
 
-                // Lookup CarRentalAgency using carAgencyName, cityID
-                // if null
-                //      create new agency
-                //      carRentalID = newly created agency
-                // else
-                //      carRentalID = found agency
+                CarRental agency = executor.ExecuteReader(new CarsGetAgencyByNameDelegate(carAgencyName, cityID));
+                if(agency == null)
+                {
+                    agency = executor.ExecuteNonQuery(new CarsCreateCarRentalDelegate(carAgencyName, cityID));
+                    carRentalID = agency.CarRentalID;
+                }
+                else
+                {
+                    carRentalID = agency.CarRentalID;
+                }
 
-                // CONNECT
-                int reservationID = 0;
-
-                // Create new reservation using tripID (field) and set CarReservation bit to 1 and the rest to 0
-                // reservationID = newly created reservation
-
-                // CONNECT
-                // Create new CarRentalReservation using reservationID, carRentalID, rentalDate, carModel, rentalPrice
+                CarRentalReservation carRentalReservation = executor.ExecuteNonQuery(new CarsCreateCarRentalReservationDelegate
+                                                                    (tripID, carRentalID, rentalDate, carModel, rentalPrice));
 
                 MessageBox.Show("Car successfully reserved with agency " + carAgencyName);
             }

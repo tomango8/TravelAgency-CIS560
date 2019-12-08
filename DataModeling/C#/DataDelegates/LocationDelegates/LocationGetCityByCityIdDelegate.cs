@@ -5,7 +5,7 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class LocationGetCityByCityIdDelegate: DataReaderDelegate<Cities>
+    public class LocationGetCityByCityIdDelegate: DataReaderDelegate<City>
     {
 
     private readonly int cityID;
@@ -23,20 +23,20 @@ namespace DataModeling
             base.PrepareCommand(command);
             command.Parameters.AddWithValue("CityID", cityID);
 
-        }
+    }
 
-        public override Cities Translate(SqlCommand command, IDataRowReader reader)
-    {
+        public override City Translate(SqlCommand command, IDataRowReader reader)
+        {
         if (!reader.Read())
             return null;
 
 
-         return new Cities(cityID,
-                  reader.GetString("Country"),
+         return new City(cityID,
+                  reader.GetString("CityName"),
                   reader.GetString("Region"),
-                  reader.GetString("CityName"));
+                  reader.GetString("Country"));
 
         }
 
-       }
+    }
 }

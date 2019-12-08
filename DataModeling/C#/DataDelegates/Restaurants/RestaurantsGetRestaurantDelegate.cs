@@ -5,31 +5,31 @@ using DataModeling.Model;
 
 namespace DataModeling
 {
-    public class RestaurantsGetRestaurantDelegate : DataReaderDelegate<RestaurantReservation>
+    public class RestaurantsGetRestaurantDelegate : DataReaderDelegate<Restaurant>
     {
-        private readonly int reservationID;
+        private readonly int restaurantID;
 
-        public RestaurantsGetRestaurantDelegate(int reservationID)
+        public RestaurantsGetRestaurantDelegate(int restaurantID)
            : base("Restaurants.GetRestaurant")
         {
-            this.reservationID = reservationID;
+            this.restaurantID = restaurantID;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("ReservationID", reservationID);
+            command.Parameters.AddWithValue("RestaurantID", restaurantID);
         }
 
-        public override RestaurantReservation Translate(SqlCommand command, IDataRowReader reader)
+        public override Restaurant Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
                 return null;
 
-            return new RestaurantReservation(reservationID,
-               reader.GetDateTime("ReservationDate"),
-               reader.GetInt32("RestaurantID")               
+            return new Restaurant(restaurantID,
+               reader.GetString("Name"),
+               reader.GetInt32("CityID")               
                );
         }
     }
