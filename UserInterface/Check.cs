@@ -453,5 +453,44 @@ namespace UserInterface
             }
             return formatName;
         }
+
+        /// <summary>
+        /// Formats an objects toString into a particular length; if the string is too large, it just returns the string
+        /// </summary>
+        /// <param name="formatObject">The object to format</param>
+        /// <param name="length">The length of characters to occupy</param>
+        /// <param name="leftAlign">Whether the string is leftaligned or not</param>
+        /// <returns>The formated string</returns>
+        public static string Format(object formatObject, int length, bool leftAlign)
+        {
+            if(formatObject == null)
+            {
+                return null;
+            }
+            string s = formatObject.ToString();
+
+            int numSpaces = length - s.Length;
+            if(numSpaces <= 0)
+            {
+                return s;
+            }
+
+            if (leftAlign)
+            {
+                for (int i = 0; i < numSpaces; i++)
+                {
+                    s += " ";
+                }
+                return s;
+            }
+            else
+            {
+                for(int i = 0; i < numSpaces; i++)
+                {
+                    s = " " + s;
+                }
+                return s;
+            }
+        }
     }
 }
