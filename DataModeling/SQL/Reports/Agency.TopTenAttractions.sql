@@ -13,7 +13,7 @@ FROM [Location].Cities C
 
 GROUP BY A.AttractionID, C.CityName, C.Country, [AT].Price
 )
-SELECT TOP 10 A.CityName, A.Country, A.Price
+SELECT TOP 10 A.AttractionID, A.CityName, A.Country, A.Price
 FROM attraction A
 ORDER BY A.Customers DESC;
 
